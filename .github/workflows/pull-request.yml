@@ -1,0 +1,60 @@
+name: pull-request
+
+on:
+  pull_request:
+    branches: [ master ]
+
+permissions:
+  pull-requests: write
+  contents: write
+    
+jobs:
+  reuse-test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Reuse specification test
+        run: make reuse-test
+  examples-test:
+    environment: eu-west-2
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Stable Rust with rustfmt
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          components: rustfmt
+      - name: Run examples
+        env:
+          OSC_ACCESS_KEY: ${{ secrets.OSC_ACCESS_KEY }}
+          OSC_SECRET_KEY: ${{ secrets.OSC_SECRET_KEY }}
+        run: make examples-test
+  regeneration-test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Stable Rust with rustfmt
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          components: rustfmt
+      - name: SDK re-generation test
+        run: make regen-test
+  dependabot-auto-merge:
+    needs: [reuse-test, examples-test, regeneration-test]
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    steps:
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1.1.1
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Auto-merge
+        run: gh pr merge --auto --rebase "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

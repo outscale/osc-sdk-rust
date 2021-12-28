@@ -1,0 +1,4 @@
+# OpenAPI Generator configuration file
+packageName: outscale_api
+supportAsync: false
+withAWSV4Signature: true
