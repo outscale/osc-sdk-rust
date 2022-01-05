@@ -1,5 +1,7 @@
 # Outscale SDK for Rust
 
+this is a test PR
+
 Welcome to Outscale SDK for [Rust](https://www.rust-lang.org/).
 
 It is based on rust [2021 edition](https://doc.rust-lang.org/edition-guide/rust-2021/index.html) (stable).
