@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **user_data** | Option<**String**> | The Base64-encoded MIME user data, limited to 500 kibibytes (KiB). | [optional]
 **vm_id** | **String** | The ID of the VM. | 
 **vm_initiated_shutdown_behavior** | Option<**String**> | The VM behavior when you stop it. By default or if set to `stop`, the VM stops. If set to `restart`, the VM stops then automatically restarts. If set to `terminate`, the VM stops and is terminated. | [optional]
-**vm_type** | Option<**String**> | The type of VM. For more information, see [Instance Types](https://wiki.outscale.net/display/EN/Instance+Types). | [optional]
+**vm_type** | Option<**String**> | The type of VM. For more information, see [Instance Types](https://docs.outscale.com/en/userguide/Instance-Types.html). | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

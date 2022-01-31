@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**available_ips_count** | Option<**i32**> | The number of available IP addresses in the Subnets. | [optional]
+**available_ips_count** | Option<**i32**> | The number of available IPs in the Subnets. | [optional]
 **ip_range** | Option<**String**> | The IP range in the Subnet, in CIDR notation (for example, 10.0.0.0/16). | [optional]
 **map_public_ip_on_launch** | Option<**bool**> | If true, a public IP is assigned to the network interface cards (NICs) created in the specified Subnet. | [optional]
 **net_id** | Option<**String**> | The ID of the Net in which the Subnet is. | [optional]

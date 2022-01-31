@@ -17,13 +17,13 @@ Name | Type | Description | Notes
 **nics** | Option<[**Vec<crate::models::NicForVmCreation>**](NicForVmCreation.md)> | One or more NICs. If you specify this parameter, you must define one NIC as the primary network interface of the VM with `0` as its device number. | [optional]
 **performance** | Option<**String**> | The performance of the VM (`medium` \\| `high` \\|  `highest`). | [optional][default to Performance_High]
 **placement** | Option<[**crate::models::Placement**](Placement.md)> |  | [optional]
-**private_ips** | Option<**Vec<String>**> | One or more private IP addresses of the VM. | [optional]
+**private_ips** | Option<**Vec<String>**> | One or more private IPs of the VM. | [optional]
 **security_group_ids** | Option<**Vec<String>**> | One or more IDs of security group for the VMs. | [optional]
 **security_groups** | Option<**Vec<String>**> | One or more names of security groups for the VMs. | [optional]
 **subnet_id** | Option<**String**> | The ID of the Subnet in which you want to create the VM. | [optional]
 **user_data** | Option<**String**> | Data or script used to add a specific configuration to the VM. It must be Base64-encoded and is limited to 500 kibibytes (KiB). | [optional]
 **vm_initiated_shutdown_behavior** | Option<**String**> | The VM behavior when you stop it. By default or if set to `stop`, the VM stops. If set to `restart`, the VM stops then automatically restarts. If set to `terminate`, the VM stops and is terminated. | [optional]
-**vm_type** | Option<**String**> | The type of VM (`t2.small` by default).<br /> For more information, see [Instance Types](https://wiki.outscale.net/display/EN/Instance+Types). | [optional]
+**vm_type** | Option<**String**> | The type of VM (`t2.small` by default).<br /> For more information, see [Instance Types](https://docs.outscale.com/en/userguide/Instance-Types.html). | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
