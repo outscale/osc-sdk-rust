@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **net_id** | Option<**String**> | The ID of the Net for the NIC. | [optional]
 **nic_id** | Option<**String**> | The ID of the NIC. | [optional]
 **private_dns_name** | Option<**String**> | The name of the private DNS. | [optional]
-**private_ips** | Option<[**Vec<crate::models::PrivateIpLightForVm>**](PrivateIpLightForVm.md)> | The private IP address or addresses of the NIC. | [optional]
+**private_ips** | Option<[**Vec<crate::models::PrivateIpLightForVm>**](PrivateIpLightForVm.md)> | The private IP or IPs of the NIC. | [optional]
 **security_groups** | Option<[**Vec<crate::models::SecurityGroupLight>**](SecurityGroupLight.md)> | One or more IDs of security groups for the NIC. | [optional]
 **state** | Option<**String**> | The state of the NIC (`available` \\| `attaching` \\| `in-use` \\| `detaching`). | [optional]
 **subnet_id** | Option<**String**> | The ID of the Subnet for the NIC. | [optional]

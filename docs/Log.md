@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **query_date** | Option<[**String**](string.md)> | The date of the logged call, in ISO 8601 format. | [optional]
 **query_header_raw** | Option<**String**> | The raw header of the HTTP request of the logged call. | [optional]
 **query_header_size** | Option<**i32**> | The size of the raw header of the HTTP request of the logged call, in bytes. | [optional]
-**query_ip_address** | Option<**String**> | The IP address used for the logged call. | [optional]
+**query_ip_address** | Option<**String**> | The IP used for the logged call. | [optional]
 **query_payload_raw** | Option<**String**> | The raw payload of the HTTP request of the logged call. | [optional]
 **query_payload_size** | Option<**i32**> | The size of the raw payload of the HTTP request of the logged call, in bytes. | [optional]
 **query_user_agent** | Option<**String**> | The user agent of the HTTP request of the logged call. | [optional]

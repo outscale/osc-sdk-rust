@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **nic_account_ids** | Option<**Vec<String>**> | The account IDs of the owners of the NICs. | [optional]
 **nic_ids** | Option<**Vec<String>**> | The IDs of the NICs. | [optional]
 **placements** | Option<**Vec<String>**> | Whether the public IPs are for use in the public Cloud or in a Net. | [optional]
-**private_ips** | Option<**Vec<String>**> | The private IP addresses associated with the public IPs. | [optional]
+**private_ips** | Option<**Vec<String>**> | The private IPs associated with the public IPs. | [optional]
 **public_ip_ids** | Option<**Vec<String>**> | The IDs of the public IPs. | [optional]
 **public_ips** | Option<**Vec<String>**> | The public IPs. | [optional]
 **tag_keys** | Option<**Vec<String>**> | The keys of the tags associated with the public IPs. | [optional]
