@@ -27,6 +27,8 @@ gen: clean osc-api/outscale.yaml
 	docker run -v $(PWD):/sdk --rm $(OPENAPI_IMAGE) sed -i "s/OpenAPI Generator team and contributors/Outscale SAS <opensource@outscale.com>/g" /sdk/.sdk/Cargo.toml
 	# Set rust version, licensing, homepage, description, ...
 	docker run -v $(PWD):/sdk --rm $(OPENAPI_IMAGE) sed -i "s/edition = \"2018\"/edition = \"2021\"\nlicense = \"BSD-3-Clause\"\ndescription = \"Outscale API SDK\"\nhomepage = \"https:\/\/github.com\/outscale\/osc-sdk-rust\/\"/" /sdk/.sdk/Cargo.toml
+	# Add dev-dependencies (used by examples)
+	docker run -v $(PWD):/sdk --rm $(OPENAPI_IMAGE) sed -i "s/\[dev-dependencies\]/\[dev-dependencies\]\nrand = \"0.8.5\"/" /sdk/.sdk/Cargo.toml
 	docker run -v $(PWD):/sdk --rm $(OPENAPI_IMAGE) chown -R $(USER_ID).$(GROUP_ID) /sdk/.sdk
 	rm -rf .sdk/git_push.sh
 	mv .sdk/README.md .sdk/docs/README.md

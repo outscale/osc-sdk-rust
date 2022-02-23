@@ -17,3 +17,4 @@ aws-sigv4 = "0.3.0"
 http = "0.2.5"
 
 [dev-dependencies]
+rand = "0.8.5"
