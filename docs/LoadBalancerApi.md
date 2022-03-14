@@ -9,10 +9,12 @@ Method | HTTP request | Description
 [**delete_load_balancer**](LoadBalancerApi.md#delete_load_balancer) | **POST** /DeleteLoadBalancer | 
 [**delete_load_balancer_tags**](LoadBalancerApi.md#delete_load_balancer_tags) | **POST** /DeleteLoadBalancerTags | 
 [**deregister_vms_in_load_balancer**](LoadBalancerApi.md#deregister_vms_in_load_balancer) | **POST** /DeregisterVmsInLoadBalancer | 
+[**link_load_balancer_backend_machines**](LoadBalancerApi.md#link_load_balancer_backend_machines) | **POST** /LinkLoadBalancerBackendMachines | 
 [**read_load_balancer_tags**](LoadBalancerApi.md#read_load_balancer_tags) | **POST** /ReadLoadBalancerTags | 
 [**read_load_balancers**](LoadBalancerApi.md#read_load_balancers) | **POST** /ReadLoadBalancers | 
 [**read_vms_health**](LoadBalancerApi.md#read_vms_health) | **POST** /ReadVmsHealth | 
 [**register_vms_in_load_balancer**](LoadBalancerApi.md#register_vms_in_load_balancer) | **POST** /RegisterVmsInLoadBalancer | 
+[**unlink_load_balancer_backend_machines**](LoadBalancerApi.md#unlink_load_balancer_backend_machines) | **POST** /UnlinkLoadBalancerBackendMachines | 
 [**update_load_balancer**](LoadBalancerApi.md#update_load_balancer) | **POST** /UpdateLoadBalancer | 
 
 
@@ -157,6 +159,34 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## link_load_balancer_backend_machines
+
+> crate::models::LinkLoadBalancerBackendMachinesResponse link_load_balancer_backend_machines(link_load_balancer_backend_machines_request)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**link_load_balancer_backend_machines_request** | Option<[**LinkLoadBalancerBackendMachinesRequest**](LinkLoadBalancerBackendMachinesRequest.md)> |  |  |
+
+### Return type
+
+[**crate::models::LinkLoadBalancerBackendMachinesResponse**](LinkLoadBalancerBackendMachinesResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## read_load_balancer_tags
 
 > crate::models::ReadLoadBalancerTagsResponse read_load_balancer_tags(read_load_balancer_tags_request)
@@ -256,6 +286,34 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::RegisterVmsInLoadBalancerResponse**](RegisterVmsInLoadBalancerResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## unlink_load_balancer_backend_machines
+
+> crate::models::UnlinkLoadBalancerBackendMachinesResponse unlink_load_balancer_backend_machines(unlink_load_balancer_backend_machines_request)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**unlink_load_balancer_backend_machines_request** | Option<[**UnlinkLoadBalancerBackendMachinesRequest**](UnlinkLoadBalancerBackendMachinesRequest.md)> |  |  |
+
+### Return type
+
+[**crate::models::UnlinkLoadBalancerBackendMachinesResponse**](UnlinkLoadBalancerBackendMachinesResponse.md)
 
 ### Authorization
 
