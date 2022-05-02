@@ -5,11 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_id** | Option<**String**> | The ID of the account. | [optional]
+**additional_emails** | Option<**Vec<String>**> | One or more additional email addresses for the account. These addresses are used for notifications only. | [optional]
 **city** | Option<**String**> | The city of the account owner. | [optional]
 **company_name** | Option<**String**> | The name of the company for the account. | [optional]
 **country** | Option<**String**> | The country of the account owner. | [optional]
 **customer_id** | Option<**String**> | The ID of the customer. | [optional]
-**email** | Option<**String**> | The email address for the account. | [optional]
+**email** | Option<**String**> | The main email address for the account. This address is used for your credentials and for notifications. | [optional]
 **first_name** | Option<**String**> | The first name of the account owner. | [optional]
 **job_title** | Option<**String**> | The job title of the account owner. | [optional]
 **last_name** | Option<**String**> | The last name of the account owner. | [optional]

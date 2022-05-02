@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **query_payload_raw** | Option<**bool**> | If set to true, the raw payload of the HTTP request is displayed. | [optional]
 **query_payload_size** | Option<**bool**> | If set to true, the size of the raw payload of the HTTP request is displayed. | [optional]
 **query_user_agent** | Option<**bool**> | If set to true, the user agent of the HTTP request is displayed. | [optional]
-**request_id** | Option<**bool**> | By default ot if set to true, the request ID is displayed. | [optional]
+**request_id** | Option<**bool**> | By default or if set to true, the request ID is displayed. | [optional]
 **response_size** | Option<**bool**> | If set to true, the size of the response is displayed. | [optional]
 **response_status_code** | Option<**bool**> | If set to true, the HTTP status code of the response is displayed. | [optional]
 

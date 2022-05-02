@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**bsu_optimized** | Option<**bool**> | Indicates whether the VM is optimized for BSU I/O. | [optional]
+**bsu_optimized** | Option<**bool**> | This parameter is not available. It is present in our API for the sake of historical compatibility with AWS. | [optional]
 **max_private_ips** | Option<**i32**> | The maximum number of private IPs per network interface card (NIC). | [optional]
 **memory_size** | Option<**f32**> | The amount of memory, in gibibytes. | [optional]
 **vcore_count** | Option<**i32**> | The number of vCores. | [optional]

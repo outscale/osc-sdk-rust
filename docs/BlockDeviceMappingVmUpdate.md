@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bsu** | Option<[**crate::models::BsuToUpdateVm**](BsuToUpdateVm.md)> |  | [optional]
-**device_name** | Option<**String**> | The name of the device. | [optional]
+**device_name** | Option<**String**> | The device name for the volume. For a root device, you must use `/dev/sda1`. For other volumes, you must use `/dev/sdX` or `/dev/xvdX` (where `X` is a letter between `b` and `z`). | [optional]
 **no_device** | Option<**String**> | Removes the device which is included in the block device mapping of the OMI. | [optional]
 **virtual_device_name** | Option<**String**> | The name of the virtual device (ephemeralN). | [optional]
 
