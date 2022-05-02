@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **state** | Option<**String**> | The state of the VPN connection (`pending` \\| `available` \\| `deleting` \\| `deleted`). | [optional]
 **static_routes_only** | Option<**bool**> | If false, the VPN connection uses dynamic routing with Border Gateway Protocol (BGP). If true, routing is controlled using static routes. For more information about how to create and delete static routes, see [CreateVpnConnectionRoute](#createvpnconnectionroute) and [DeleteVpnConnectionRoute](#deletevpnconnectionroute). | [optional]
 **tags** | Option<[**Vec<crate::models::ResourceTag>**](ResourceTag.md)> | One or more tags associated with the VPN connection. | [optional]
+**vgw_telemetries** | Option<[**Vec<crate::models::VgwTelemetry>**](VgwTelemetry.md)> | Information about the current state of one or more of the VPN tunnels. | [optional]
 **virtual_gateway_id** | Option<**String**> | The ID of the virtual gateway used on the OUTSCALE end of the connection. | [optional]
 **vpn_connection_id** | Option<**String**> | The ID of the VPN connection. | [optional]
 **vpn_options** | Option<[**crate::models::VpnOptions**](VpnOptions.md)> |  | [optional]

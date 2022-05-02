@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **architecture** | Option<**String**> | The architecture of the VM (`i386` \\| `x86_64`). | [optional]
 **block_device_mappings** | Option<[**Vec<crate::models::BlockDeviceMappingCreated>**](BlockDeviceMappingCreated.md)> | The block device mapping of the VM. | [optional]
-**bsu_optimized** | Option<**bool**> | If true, the VM is optimized for BSU I/O. | [optional]
+**bsu_optimized** | Option<**bool**> | This parameter is not available. It is present in our API for the sake of historical compatibility with AWS. | [optional]
 **client_token** | Option<**String**> | The idempotency token provided when launching the VM. | [optional]
 **creation_date** | Option<**String**> | The date and time at which the VM was created. | [optional]
 **deletion_protection** | Option<**bool**> | If true, you cannot terminate the VM using Cockpit, the CLI or the API. If false, you can. | [optional]
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **public_dns_name** | Option<**String**> | The name of the public DNS. | [optional]
 **public_ip** | Option<**String**> | The public IP of the VM. | [optional]
 **reservation_id** | Option<**String**> | The reservation ID of the VM. | [optional]
-**root_device_name** | Option<**String**> | The name of the root device for the VM (for example, /dev/vda1). | [optional]
+**root_device_name** | Option<**String**> | The name of the root device for the VM (for example, `/dev/vda1`). | [optional]
 **root_device_type** | Option<**String**> | The type of root device used by the VM (always `bsu`). | [optional]
 **security_groups** | Option<[**Vec<crate::models::SecurityGroupLight>**](SecurityGroupLight.md)> | One or more security groups associated with the VM. | [optional]
 **state** | Option<**String**> | The state of the VM (`pending` \\| `running` \\| `stopping` \\| `stopped` \\| `shutting-down` \\| `terminated` \\| `quarantine`). | [optional]
@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 **tags** | Option<[**Vec<crate::models::ResourceTag>**](ResourceTag.md)> | One or more tags associated with the VM. | [optional]
 **user_data** | Option<**String**> | The Base64-encoded MIME user data. | [optional]
 **vm_id** | Option<**String**> | The ID of the VM. | [optional]
-**vm_initiated_shutdown_behavior** | Option<**String**> | The VM behavior when you stop it. By default or if set to `stop`, the VM stops. If set to `restart`, the VM stops then automatically restarts. If set to `terminate`, the VM stops and is deleted. | [optional]
+**vm_initiated_shutdown_behavior** | Option<**String**> | The VM behavior when you stop it. If set to `stop`, the VM stops. If set to `restart`, the VM stops then automatically restarts. If set to `terminate`, the VM stops and is deleted. | [optional]
 **vm_type** | Option<**String**> | The type of VM. For more information, see [Instance Types](https://docs.outscale.com/en/userguide/Instance-Types.html). | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

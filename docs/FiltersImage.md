@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **permissions_to_launch_account_ids** | Option<**Vec<String>**> | The account IDs of the users who have launch permissions for the OMIs. | [optional]
 **permissions_to_launch_global_permission** | Option<**bool**> | If true, lists all public OMIs. If false, lists all private OMIs. | [optional]
 **product_codes** | Option<**Vec<String>**> | The product code associated with the OMI (`0001` Linux/Unix \\| `0002` Windows \\| `0004` Linux/Oracle \\| `0005` Windows 10). | [optional]
-**root_device_names** | Option<**Vec<String>**> | The device names of the root devices (for example, `/dev/sda1`). | [optional]
+**root_device_names** | Option<**Vec<String>**> | The name of the root device. This value must be /dev/sda1. | [optional]
 **root_device_types** | Option<**Vec<String>**> | The types of root device used by the OMIs (always `bsu`). | [optional]
 **states** | Option<**Vec<String>**> | The states of the OMIs (`pending` \\| `available` \\| `failed`). | [optional]
 **tag_keys** | Option<**Vec<String>**> | The keys of the tags associated with the OMIs. | [optional]
