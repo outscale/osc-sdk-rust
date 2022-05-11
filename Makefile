@@ -58,6 +58,8 @@ reuse-test:
 .PHONY: examples-test
 examples-test:
 	cargo run --example volume
+	cargo run --example region
+	cargo run --example keypair
 
 # try to regen, should not have any difference
 .PHONY: regen-test
