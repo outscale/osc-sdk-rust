@@ -71,11 +71,15 @@ pub fn create_vpn_connection(
         local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_aws_v4_key) = local_var_configuration.aws_v4_key {
-        let local_var_new_headers = local_var_aws_v4_key.sign(
+        let local_var_new_headers = match local_var_aws_v4_key.sign(
             &local_var_uri_str,
             "POST",
-            &serde_json::to_string(&create_vpn_connection_request).unwrap(),
-        );
+            &serde_json::to_string(&create_vpn_connection_request)
+                .expect("param should serialize to string"),
+        ) {
+            Ok(new_headers) => new_headers,
+            Err(err) => return Err(Error::AWSV4SignatureError(err)),
+        };
         for (local_var_name, local_var_value) in local_var_new_headers.iter() {
             local_var_req_builder =
                 local_var_req_builder.header(local_var_name.as_str(), local_var_value.as_str());
@@ -131,11 +135,15 @@ pub fn create_vpn_connection_route(
         local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_aws_v4_key) = local_var_configuration.aws_v4_key {
-        let local_var_new_headers = local_var_aws_v4_key.sign(
+        let local_var_new_headers = match local_var_aws_v4_key.sign(
             &local_var_uri_str,
             "POST",
-            &serde_json::to_string(&create_vpn_connection_route_request).unwrap(),
-        );
+            &serde_json::to_string(&create_vpn_connection_route_request)
+                .expect("param should serialize to string"),
+        ) {
+            Ok(new_headers) => new_headers,
+            Err(err) => return Err(Error::AWSV4SignatureError(err)),
+        };
         for (local_var_name, local_var_value) in local_var_new_headers.iter() {
             local_var_req_builder =
                 local_var_req_builder.header(local_var_name.as_str(), local_var_value.as_str());
@@ -188,11 +196,15 @@ pub fn delete_vpn_connection(
         local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_aws_v4_key) = local_var_configuration.aws_v4_key {
-        let local_var_new_headers = local_var_aws_v4_key.sign(
+        let local_var_new_headers = match local_var_aws_v4_key.sign(
             &local_var_uri_str,
             "POST",
-            &serde_json::to_string(&delete_vpn_connection_request).unwrap(),
-        );
+            &serde_json::to_string(&delete_vpn_connection_request)
+                .expect("param should serialize to string"),
+        ) {
+            Ok(new_headers) => new_headers,
+            Err(err) => return Err(Error::AWSV4SignatureError(err)),
+        };
         for (local_var_name, local_var_value) in local_var_new_headers.iter() {
             local_var_req_builder =
                 local_var_req_builder.header(local_var_name.as_str(), local_var_value.as_str());
@@ -248,11 +260,15 @@ pub fn delete_vpn_connection_route(
         local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_aws_v4_key) = local_var_configuration.aws_v4_key {
-        let local_var_new_headers = local_var_aws_v4_key.sign(
+        let local_var_new_headers = match local_var_aws_v4_key.sign(
             &local_var_uri_str,
             "POST",
-            &serde_json::to_string(&delete_vpn_connection_route_request).unwrap(),
-        );
+            &serde_json::to_string(&delete_vpn_connection_route_request)
+                .expect("param should serialize to string"),
+        ) {
+            Ok(new_headers) => new_headers,
+            Err(err) => return Err(Error::AWSV4SignatureError(err)),
+        };
         for (local_var_name, local_var_value) in local_var_new_headers.iter() {
             local_var_req_builder =
                 local_var_req_builder.header(local_var_name.as_str(), local_var_value.as_str());
@@ -305,11 +321,15 @@ pub fn read_vpn_connections(
         local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_aws_v4_key) = local_var_configuration.aws_v4_key {
-        let local_var_new_headers = local_var_aws_v4_key.sign(
+        let local_var_new_headers = match local_var_aws_v4_key.sign(
             &local_var_uri_str,
             "POST",
-            &serde_json::to_string(&read_vpn_connections_request).unwrap(),
-        );
+            &serde_json::to_string(&read_vpn_connections_request)
+                .expect("param should serialize to string"),
+        ) {
+            Ok(new_headers) => new_headers,
+            Err(err) => return Err(Error::AWSV4SignatureError(err)),
+        };
         for (local_var_name, local_var_value) in local_var_new_headers.iter() {
             local_var_req_builder =
                 local_var_req_builder.header(local_var_name.as_str(), local_var_value.as_str());
@@ -362,11 +382,15 @@ pub fn update_vpn_connection(
         local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_aws_v4_key) = local_var_configuration.aws_v4_key {
-        let local_var_new_headers = local_var_aws_v4_key.sign(
+        let local_var_new_headers = match local_var_aws_v4_key.sign(
             &local_var_uri_str,
             "POST",
-            &serde_json::to_string(&update_vpn_connection_request).unwrap(),
-        );
+            &serde_json::to_string(&update_vpn_connection_request)
+                .expect("param should serialize to string"),
+        ) {
+            Ok(new_headers) => new_headers,
+            Err(err) => return Err(Error::AWSV4SignatureError(err)),
+        };
         for (local_var_name, local_var_value) in local_var_new_headers.iter() {
             local_var_req_builder =
                 local_var_req_builder.header(local_var_name.as_str(), local_var_value.as_str());
