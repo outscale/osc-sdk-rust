@@ -1,3 +1,5 @@
 osc-api
 target
 Cargo.lock
+.sdk
+.vscode
