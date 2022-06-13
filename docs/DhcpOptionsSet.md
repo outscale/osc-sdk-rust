@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **dhcp_options_set_id** | Option<**String**> | The ID of the DHCP options set. | [optional]
 **domain_name** | Option<**String**> | The domain name. | [optional]
 **domain_name_servers** | Option<**Vec<String>**> | One or more IPs for the domain name servers. | [optional]
+**log_servers** | Option<**Vec<String>**> | One or more IPs for the log servers. | [optional]
 **ntp_servers** | Option<**Vec<String>**> | One or more IPs for the NTP servers. | [optional]
 **tags** | Option<[**Vec<crate::models::ResourceTag>**](ResourceTag.md)> | One or more tags associated with the DHCP options set. | [optional]
 

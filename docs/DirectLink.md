@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_id** | Option<**String**> | The account ID of the owner of the DirectLink. | [optional]
 **bandwidth** | Option<**String**> | The physical link bandwidth (either 1 Gbps or 10 Gbps). | [optional]
-**direct_link_id** | Option<**String**> | The ID of the DirectLink (for example, dxcon-xxxxxxxx). | [optional]
+**direct_link_id** | Option<**String**> | The ID of the DirectLink (for example, `dxcon-xxxxxxxx`). | [optional]
 **direct_link_name** | Option<**String**> | The name of the DirectLink. | [optional]
 **location** | Option<**String**> | The datacenter where the DirectLink is located. | [optional]
 **region_name** | Option<**String**> | The Region in which the DirectLink has been created. | [optional]

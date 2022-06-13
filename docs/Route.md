@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **creation_method** | Option<**String**> | The method used to create the route. | [optional]
-**destination_ip_range** | Option<**String**> | The IP range used for the destination match, in CIDR notation (for example, 10.0.0.0/24). | [optional]
+**destination_ip_range** | Option<**String**> | The IP range used for the destination match, in CIDR notation (for example, `10.0.0.0/24`). | [optional]
 **destination_service_id** | Option<**String**> | The ID of the OUTSCALE service. | [optional]
 **gateway_id** | Option<**String**> | The ID of the Internet service or virtual gateway attached to the Net. | [optional]
 **nat_service_id** | Option<**String**> | The ID of a NAT service attached to the Net. | [optional]

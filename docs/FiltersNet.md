@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **dhcp_options_set_ids** | Option<**Vec<String>**> | The IDs of the DHCP options sets. | [optional]
-**ip_ranges** | Option<**Vec<String>**> | The IP ranges for the Nets, in CIDR notation (for example, 10.0.0.0/16). | [optional]
+**ip_ranges** | Option<**Vec<String>**> | The IP ranges for the Nets, in CIDR notation (for example, `10.0.0.0/16`). | [optional]
 **is_default** | Option<**bool**> | If true, the Net used is the default one. | [optional]
 **net_ids** | Option<**Vec<String>**> | The IDs of the Nets. | [optional]
 **states** | Option<**Vec<String>**> | The states of the Nets (`pending` \\| `available`). | [optional]

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accepter_net_account_ids** | Option<**Vec<String>**> | The account IDs of the owners of the peer Nets. | [optional]
-**accepter_net_ip_ranges** | Option<**Vec<String>**> | The IP ranges of the peer Nets, in CIDR notation (for example, 10.0.0.0/24). | [optional]
+**accepter_net_ip_ranges** | Option<**Vec<String>**> | The IP ranges of the peer Nets, in CIDR notation (for example, `10.0.0.0/24`). | [optional]
 **accepter_net_net_ids** | Option<**Vec<String>**> | The IDs of the peer Nets. | [optional]
 **net_peering_ids** | Option<**Vec<String>**> | The IDs of the Net peering connections. | [optional]
 **source_net_account_ids** | Option<**Vec<String>**> | The account IDs of the owners of the peer Nets. | [optional]

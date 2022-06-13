@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**destination_ip_range** | Option<**String**> | The IP range used for the destination match, in CIDR notation (for example, 10.0.0.0/24). | [optional]
+**destination_ip_range** | Option<**String**> | The IP range used for the destination match, in CIDR notation (for example, `10.0.0.0/24`). | [optional]
 **route_type** | Option<**String**> | The type of route (always `static`). | [optional]
 **state** | Option<**String**> | The current state of the static route (`pending` \\| `available` \\| `deleting` \\| `deleted`). | [optional]
 

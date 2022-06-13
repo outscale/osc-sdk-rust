@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **available_ips_counts** | Option<**Vec<i32>**> | The number of available IPs. | [optional]
-**ip_ranges** | Option<**Vec<String>**> | The IP ranges in the Subnets, in CIDR notation (for example, 10.0.0.0/16). | [optional]
+**ip_ranges** | Option<**Vec<String>**> | The IP ranges in the Subnets, in CIDR notation (for example, `10.0.0.0/16`). | [optional]
 **net_ids** | Option<**Vec<String>**> | The IDs of the Nets in which the Subnets are. | [optional]
 **states** | Option<**Vec<String>**> | The states of the Subnets (`pending` \\| `available`). | [optional]
 **subnet_ids** | Option<**Vec<String>**> | The IDs of the Subnets. | [optional]

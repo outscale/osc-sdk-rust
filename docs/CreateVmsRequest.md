@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **block_device_mappings** | Option<[**Vec<crate::models::BlockDeviceMappingVmCreation>**](BlockDeviceMappingVmCreation.md)> | One or more block device mappings. | [optional]
-**boot_on_creation** | Option<**bool**> | By default or if true, the VM is started on creation. If false, the VM is stopped on creation. | [optional]
+**boot_on_creation** | Option<**bool**> | By default or if true, the VM is started on creation. If false, the VM is stopped on creation. | [optional][default to true]
 **bsu_optimized** | Option<**bool**> | This parameter is not available. It is present in our API for the sake of historical compatibility with AWS. | [optional]
 **client_token** | Option<**String**> | A unique identifier which enables you to manage the idempotency. | [optional]
-**deletion_protection** | Option<**bool**> | If true, you cannot terminate the VM using Cockpit, the CLI or the API. If false, you can. | [optional]
+**deletion_protection** | Option<**bool**> | If true, you cannot delete the VM unless you change this parameter back to false. | [optional]
 **dry_run** | Option<**bool**> | If true, checks whether you have the required permissions to perform the action. | [optional]
 **image_id** | **String** | The ID of the OMI used to create the VM. You can find the list of OMIs by calling the [ReadImages](#readimages) method. | 
 **keypair_name** | Option<**String**> | The name of the keypair. | [optional]
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **security_groups** | Option<**Vec<String>**> | One or more names of security groups for the VMs. | [optional]
 **subnet_id** | Option<**String**> | The ID of the Subnet in which you want to create the VM. If you specify this parameter, you must not specify the `Nics` parameter. | [optional]
 **user_data** | Option<**String**> | Data or script used to add a specific configuration to the VM. It must be Base64-encoded and is limited to 500 kibibytes (KiB). | [optional]
-**vm_initiated_shutdown_behavior** | Option<**String**> | The VM behavior when you stop it. By default or if set to `stop`, the VM stops. If set to `restart`, the VM stops then automatically restarts. If set to `terminate`, the VM stops and is terminated. | [optional]
+**vm_initiated_shutdown_behavior** | Option<**String**> | The VM behavior when you stop it. By default or if set to `stop`, the VM stops. If set to `restart`, the VM stops then automatically restarts. If set to `terminate`, the VM stops and is terminated. | [optional][default to stop]
 **vm_type** | Option<**String**> | The type of VM (`t2.small` by default).<br /> For more information, see [Instance Types](https://docs.outscale.com/en/userguide/Instance-Types.html). | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
