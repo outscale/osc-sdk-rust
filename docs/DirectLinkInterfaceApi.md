@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**create_direct_link_interface**](DirectLinkInterfaceApi.md#create_direct_link_interface) | **POST** /CreateDirectLinkInterface | 
 [**delete_direct_link_interface**](DirectLinkInterfaceApi.md#delete_direct_link_interface) | **POST** /DeleteDirectLinkInterface | 
 [**read_direct_link_interfaces**](DirectLinkInterfaceApi.md#read_direct_link_interfaces) | **POST** /ReadDirectLinkInterfaces | 
+[**update_direct_link_interface**](DirectLinkInterfaceApi.md#update_direct_link_interface) | **POST** /UpdateDirectLinkInterface | 
 
 
 
@@ -81,6 +82,34 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::ReadDirectLinkInterfacesResponse**](ReadDirectLinkInterfacesResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_direct_link_interface
+
+> crate::models::UpdateDirectLinkInterfaceResponse update_direct_link_interface(update_direct_link_interface_request)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**update_direct_link_interface_request** | Option<[**UpdateDirectLinkInterfaceRequest**](UpdateDirectLinkInterfaceRequest.md)> |  |  |
+
+### Return type
+
+[**crate::models::UpdateDirectLinkInterfaceResponse**](UpdateDirectLinkInterfaceResponse.md)
 
 ### Authorization
 

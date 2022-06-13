@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **security_group_account_id_to_link** | Option<**String**> | The account ID of the owner of the security group for which you want to create a rule. | [optional]
 **security_group_id** | **String** | The ID of the security group for which you want to create a rule. | 
 **security_group_name_to_link** | Option<**String**> | The ID of the source security group. If you are in the Public Cloud, you can also specify the name of the source security group. | [optional]
-**to_port_range** | Option<**i32**> | The end of the port range for the TCP and UDP protocols, or an ICMP type number. If you specify this parameter, you cannot specify the `Rules` parameter and its subparameters. | [optional]
+**to_port_range** | Option<**i32**> | The end of the port range for the TCP and UDP protocols, or an ICMP code number. If you specify this parameter, you cannot specify the `Rules` parameter and its subparameters. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

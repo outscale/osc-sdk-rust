@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**destination_ip_range** | **String** | The IP range used for the destination match, in CIDR notation (for example, 10.0.0.0/24). | 
+**destination_ip_range** | **String** | The IP range used for the destination match, in CIDR notation (for example, `10.0.0.0/24`). | 
 **dry_run** | Option<**bool**> | If true, checks whether you have the required permissions to perform the action. | [optional]
 **gateway_id** | Option<**String**> | The ID of an Internet service or virtual gateway attached to your Net. | [optional]
 **nat_service_id** | Option<**String**> | The ID of a NAT service. | [optional]

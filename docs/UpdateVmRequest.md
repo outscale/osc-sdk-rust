@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **block_device_mappings** | Option<[**Vec<crate::models::BlockDeviceMappingVmUpdate>**](BlockDeviceMappingVmUpdate.md)> | One or more block device mappings of the VM. | [optional]
 **bsu_optimized** | Option<**bool**> | This parameter is not available. It is present in our API for the sake of historical compatibility with AWS. | [optional]
-**deletion_protection** | Option<**bool**> | If true, you cannot terminate the VM using Cockpit, the CLI or the API. If false, you can. | [optional]
+**deletion_protection** | Option<**bool**> | If true, you cannot delete the VM unless you change this parameter back to false. | [optional]
 **dry_run** | Option<**bool**> | If true, checks whether you have the required permissions to perform the action. | [optional]
 **is_source_dest_checked** | Option<**bool**> | (Net only) If true, the source/destination check is enabled. If false, it is disabled. This value must be false for a NAT VM to perform network address translation (NAT) in a Net. | [optional]
 **keypair_name** | Option<**String**> | The name of the keypair.<br /> To complete the replacement, manually replace the old public key with the new public key in the ~/.ssh/authorized_keys file located in the VM. Restart the VM to apply the change. | [optional]
