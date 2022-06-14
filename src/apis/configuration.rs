@@ -87,7 +87,7 @@ impl Default for Configuration {
     fn default() -> Self {
         Configuration {
             base_path: "https://api.eu-west-2.outscale.com/api/v1".to_owned(),
-            user_agent: Some("osc-sdk-rust/0.5.0".to_owned()),
+            user_agent: Some("osc-sdk-rust/0.6.0".to_owned()),
             client: reqwest::Client::new(),
             basic_auth: None,
             oauth_access_token: None,
