@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **load_balancer_type** | Option<**String**> | The type of load balancer. Valid only for load balancers in a Net.<br /> If `LoadBalancerType` is `internet-facing`, the load balancer has a public DNS name that resolves to a public IP.<br /> If `LoadBalancerType` is `internal`, the load balancer has a public DNS name that resolves to a private IP. | [optional]
 **net_id** | Option<**String**> | The ID of the Net for the load balancer. | [optional]
 **public_ip** | Option<**String**> | (internet-facing only) The public IP associated with the load balancer. | [optional]
+**secured_cookies** | Option<**bool**> | Whether secure cookies are enabled for the load balancer. | [optional]
 **security_groups** | Option<**Vec<String>**> | One or more IDs of security groups for the load balancers. Valid only for load balancers in a Net. | [optional]
 **source_security_group** | Option<[**crate::models::SourceSecurityGroup**](SourceSecurityGroup.md)> |  | [optional]
 **subnets** | Option<**Vec<String>**> | The ID of the Subnet in which the load balancer was created. | [optional]

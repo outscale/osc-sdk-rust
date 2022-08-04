@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **dry_run** | Option<**bool**> | If true, checks whether you have the required permissions to perform the action. | [optional]
 **is_source_dest_checked** | Option<**bool**> | (Net only) If true, the source/destination check is enabled. If false, it is disabled. This value must be false for a NAT VM to perform network address translation (NAT) in a Net. | [optional]
 **keypair_name** | Option<**String**> | The name of the keypair.<br /> To complete the replacement, manually replace the old public key with the new public key in the ~/.ssh/authorized_keys file located in the VM. Restart the VM to apply the change. | [optional]
+**nested_virtualization** | Option<**bool**> | (dedicated tenancy only) If true, nested virtualization is enabled. If false, it is disabled. | [optional]
 **performance** | Option<**String**> | The performance of the VM (`medium` \\| `high` \\|  `highest`). | [optional]
 **security_group_ids** | Option<**Vec<String>**> | One or more IDs of security groups for the VM. | [optional]
 **user_data** | Option<**String**> | The Base64-encoded MIME user data, limited to 500 kibibytes (KiB). | [optional]
