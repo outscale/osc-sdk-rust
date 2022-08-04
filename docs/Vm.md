@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **is_source_dest_checked** | Option<**bool**> | (Net only) If true, the source/destination check is enabled. If false, it is disabled. This value must be false for a NAT VM to perform network address translation (NAT) in a Net. | [optional]
 **keypair_name** | Option<**String**> | The name of the keypair used when launching the VM. | [optional]
 **launch_number** | Option<**i32**> | The number for the VM when launching a group of several VMs (for example, `0`, `1`, `2`, and so on). | [optional]
+**nested_virtualization** | Option<**bool**> | If true, nested virtualization is enabled. If false, it is disabled. | [optional]
 **net_id** | Option<**String**> | The ID of the Net in which the VM is running. | [optional]
 **nics** | Option<[**Vec<crate::models::NicLight>**](NicLight.md)> | (Net only) The network interface cards (NICs) the VMs are attached to. | [optional]
 **os_family** | Option<**String**> | Indicates the operating system (OS) of the VM. | [optional]

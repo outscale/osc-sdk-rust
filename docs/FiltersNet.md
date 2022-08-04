@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **ip_ranges** | Option<**Vec<String>**> | The IP ranges for the Nets, in CIDR notation (for example, `10.0.0.0/16`). | [optional]
 **is_default** | Option<**bool**> | If true, the Net used is the default one. | [optional]
 **net_ids** | Option<**Vec<String>**> | The IDs of the Nets. | [optional]
-**states** | Option<**Vec<String>**> | The states of the Nets (`pending` \\| `available`). | [optional]
+**states** | Option<**Vec<String>**> | The states of the Nets (`pending` \\| `available` \\| `deleted`). | [optional]
 **tag_keys** | Option<**Vec<String>**> | The keys of the tags associated with the Nets. | [optional]
 **tag_values** | Option<**Vec<String>**> | The values of the tags associated with the Nets. | [optional]
 **tags** | Option<**Vec<String>**> | The key/value combination of the tags associated with the Nets, in the following format: &quot;Filters&quot;:{&quot;Tags&quot;:[&quot;TAGKEY=TAGVALUE&quot;]}. | [optional]
