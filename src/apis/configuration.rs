@@ -12,6 +12,7 @@ use reqwest;
 
 use aws_sigv4::http_request::{sign, SignableRequest, SigningParams, SigningSettings};
 use http;
+use secrecy::{ExposeSecret, SecretString};
 use std::time::SystemTime;
 
 #[derive(Debug, Clone)]
@@ -38,13 +39,18 @@ pub struct ApiKey {
 #[derive(Debug, Clone)]
 pub struct AWSv4Key {
     pub access_key: String,
-    pub secret_key: String,
+    pub secret_key: SecretString,
     pub region: String,
     pub service: String,
 }
 
 impl AWSv4Key {
-    pub fn sign(&self, uri: &str, method: &str, body: &str) -> Vec<(String, String)> {
+    pub fn sign(
+        &self,
+        uri: &str,
+        method: &str,
+        body: &str,
+    ) -> Result<Vec<(String, String)>, aws_sigv4::http_request::Error> {
         let request = http::Request::builder()
             .uri(uri)
             .method(method)
@@ -53,7 +59,7 @@ impl AWSv4Key {
         let signing_settings = SigningSettings::default();
         let signing_params = SigningParams::builder()
             .access_key(self.access_key.as_str())
-            .secret_key(self.secret_key.as_str())
+            .secret_key(self.secret_key.expose_secret().as_str())
             .region(self.region.as_str())
             .service_name(self.service.as_str())
             .time(SystemTime::now())
@@ -61,19 +67,21 @@ impl AWSv4Key {
             .build()
             .unwrap();
         let signable_request = SignableRequest::from(&request);
-        let (mut signing_instructions, _signature) = sign(signable_request, &signing_params)
-            .unwrap()
-            .into_parts();
+        let (mut signing_instructions, _signature) =
+            sign(signable_request, &signing_params)?.into_parts();
         let mut additional_headers = Vec::<(String, String)>::new();
         if let Some(new_headers) = signing_instructions.take_headers() {
             for (name, value) in new_headers.into_iter() {
                 additional_headers.push((
-                    name.unwrap().to_string(),
-                    value.to_str().unwrap().to_string(),
+                    name.expect("header should have name").to_string(),
+                    value
+                        .to_str()
+                        .expect("header value should be a string")
+                        .to_string(),
                 ));
             }
         }
-        return additional_headers;
+        return Ok(additional_headers);
     }
 }
 

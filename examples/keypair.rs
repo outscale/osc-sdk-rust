@@ -4,13 +4,14 @@ use outscale_api::models::{
     CreateKeypairRequest, DeleteKeypairRequest, FiltersKeypair, ReadKeypairsRequest,
 };
 use rand::Rng;
+use secrecy::SecretString;
 use std::env;
 
 fn main() {
     let mut config = Configuration::new();
     config.aws_v4_key = Some(AWSv4Key {
         access_key: env::var("OSC_ACCESS_KEY").unwrap(),
-        secret_key: env::var("OSC_SECRET_KEY").unwrap(),
+        secret_key: SecretString::new(env::var("OSC_SECRET_KEY").unwrap()),
         region: "eu-west-2".to_string(),
         service: "oapi".to_string(),
     });

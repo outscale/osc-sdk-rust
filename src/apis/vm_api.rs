@@ -133,11 +133,14 @@ pub fn create_vms(
         local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_aws_v4_key) = local_var_configuration.aws_v4_key {
-        let local_var_new_headers = local_var_aws_v4_key.sign(
+        let local_var_new_headers = match local_var_aws_v4_key.sign(
             &local_var_uri_str,
             "POST",
-            &serde_json::to_string(&create_vms_request).unwrap(),
-        );
+            &serde_json::to_string(&create_vms_request).expect("param should serialize to string"),
+        ) {
+            Ok(new_headers) => new_headers,
+            Err(err) => return Err(Error::AWSV4SignatureError(err)),
+        };
         for (local_var_name, local_var_value) in local_var_new_headers.iter() {
             local_var_req_builder =
                 local_var_req_builder.header(local_var_name.as_str(), local_var_value.as_str());
@@ -190,11 +193,14 @@ pub fn delete_vms(
         local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_aws_v4_key) = local_var_configuration.aws_v4_key {
-        let local_var_new_headers = local_var_aws_v4_key.sign(
+        let local_var_new_headers = match local_var_aws_v4_key.sign(
             &local_var_uri_str,
             "POST",
-            &serde_json::to_string(&delete_vms_request).unwrap(),
-        );
+            &serde_json::to_string(&delete_vms_request).expect("param should serialize to string"),
+        ) {
+            Ok(new_headers) => new_headers,
+            Err(err) => return Err(Error::AWSV4SignatureError(err)),
+        };
         for (local_var_name, local_var_value) in local_var_new_headers.iter() {
             local_var_req_builder =
                 local_var_req_builder.header(local_var_name.as_str(), local_var_value.as_str());
@@ -247,11 +253,15 @@ pub fn read_admin_password(
         local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_aws_v4_key) = local_var_configuration.aws_v4_key {
-        let local_var_new_headers = local_var_aws_v4_key.sign(
+        let local_var_new_headers = match local_var_aws_v4_key.sign(
             &local_var_uri_str,
             "POST",
-            &serde_json::to_string(&read_admin_password_request).unwrap(),
-        );
+            &serde_json::to_string(&read_admin_password_request)
+                .expect("param should serialize to string"),
+        ) {
+            Ok(new_headers) => new_headers,
+            Err(err) => return Err(Error::AWSV4SignatureError(err)),
+        };
         for (local_var_name, local_var_value) in local_var_new_headers.iter() {
             local_var_req_builder =
                 local_var_req_builder.header(local_var_name.as_str(), local_var_value.as_str());
@@ -304,11 +314,15 @@ pub fn read_console_output(
         local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_aws_v4_key) = local_var_configuration.aws_v4_key {
-        let local_var_new_headers = local_var_aws_v4_key.sign(
+        let local_var_new_headers = match local_var_aws_v4_key.sign(
             &local_var_uri_str,
             "POST",
-            &serde_json::to_string(&read_console_output_request).unwrap(),
-        );
+            &serde_json::to_string(&read_console_output_request)
+                .expect("param should serialize to string"),
+        ) {
+            Ok(new_headers) => new_headers,
+            Err(err) => return Err(Error::AWSV4SignatureError(err)),
+        };
         for (local_var_name, local_var_value) in local_var_new_headers.iter() {
             local_var_req_builder =
                 local_var_req_builder.header(local_var_name.as_str(), local_var_value.as_str());
@@ -399,11 +413,14 @@ pub fn read_vms(
         local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_aws_v4_key) = local_var_configuration.aws_v4_key {
-        let local_var_new_headers = local_var_aws_v4_key.sign(
+        let local_var_new_headers = match local_var_aws_v4_key.sign(
             &local_var_uri_str,
             "POST",
-            &serde_json::to_string(&read_vms_request).unwrap(),
-        );
+            &serde_json::to_string(&read_vms_request).expect("param should serialize to string"),
+        ) {
+            Ok(new_headers) => new_headers,
+            Err(err) => return Err(Error::AWSV4SignatureError(err)),
+        };
         for (local_var_name, local_var_value) in local_var_new_headers.iter() {
             local_var_req_builder =
                 local_var_req_builder.header(local_var_name.as_str(), local_var_value.as_str());
@@ -455,11 +472,15 @@ pub fn read_vms_state(
         local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_aws_v4_key) = local_var_configuration.aws_v4_key {
-        let local_var_new_headers = local_var_aws_v4_key.sign(
+        let local_var_new_headers = match local_var_aws_v4_key.sign(
             &local_var_uri_str,
             "POST",
-            &serde_json::to_string(&read_vms_state_request).unwrap(),
-        );
+            &serde_json::to_string(&read_vms_state_request)
+                .expect("param should serialize to string"),
+        ) {
+            Ok(new_headers) => new_headers,
+            Err(err) => return Err(Error::AWSV4SignatureError(err)),
+        };
         for (local_var_name, local_var_value) in local_var_new_headers.iter() {
             local_var_req_builder =
                 local_var_req_builder.header(local_var_name.as_str(), local_var_value.as_str());
@@ -512,11 +533,14 @@ pub fn reboot_vms(
         local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_aws_v4_key) = local_var_configuration.aws_v4_key {
-        let local_var_new_headers = local_var_aws_v4_key.sign(
+        let local_var_new_headers = match local_var_aws_v4_key.sign(
             &local_var_uri_str,
             "POST",
-            &serde_json::to_string(&reboot_vms_request).unwrap(),
-        );
+            &serde_json::to_string(&reboot_vms_request).expect("param should serialize to string"),
+        ) {
+            Ok(new_headers) => new_headers,
+            Err(err) => return Err(Error::AWSV4SignatureError(err)),
+        };
         for (local_var_name, local_var_value) in local_var_new_headers.iter() {
             local_var_req_builder =
                 local_var_req_builder.header(local_var_name.as_str(), local_var_value.as_str());
@@ -569,11 +593,14 @@ pub fn start_vms(
         local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_aws_v4_key) = local_var_configuration.aws_v4_key {
-        let local_var_new_headers = local_var_aws_v4_key.sign(
+        let local_var_new_headers = match local_var_aws_v4_key.sign(
             &local_var_uri_str,
             "POST",
-            &serde_json::to_string(&start_vms_request).unwrap(),
-        );
+            &serde_json::to_string(&start_vms_request).expect("param should serialize to string"),
+        ) {
+            Ok(new_headers) => new_headers,
+            Err(err) => return Err(Error::AWSV4SignatureError(err)),
+        };
         for (local_var_name, local_var_value) in local_var_new_headers.iter() {
             local_var_req_builder =
                 local_var_req_builder.header(local_var_name.as_str(), local_var_value.as_str());
@@ -625,11 +652,14 @@ pub fn stop_vms(
         local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_aws_v4_key) = local_var_configuration.aws_v4_key {
-        let local_var_new_headers = local_var_aws_v4_key.sign(
+        let local_var_new_headers = match local_var_aws_v4_key.sign(
             &local_var_uri_str,
             "POST",
-            &serde_json::to_string(&stop_vms_request).unwrap(),
-        );
+            &serde_json::to_string(&stop_vms_request).expect("param should serialize to string"),
+        ) {
+            Ok(new_headers) => new_headers,
+            Err(err) => return Err(Error::AWSV4SignatureError(err)),
+        };
         for (local_var_name, local_var_value) in local_var_new_headers.iter() {
             local_var_req_builder =
                 local_var_req_builder.header(local_var_name.as_str(), local_var_value.as_str());
@@ -681,11 +711,14 @@ pub fn update_vm(
         local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_aws_v4_key) = local_var_configuration.aws_v4_key {
-        let local_var_new_headers = local_var_aws_v4_key.sign(
+        let local_var_new_headers = match local_var_aws_v4_key.sign(
             &local_var_uri_str,
             "POST",
-            &serde_json::to_string(&update_vm_request).unwrap(),
-        );
+            &serde_json::to_string(&update_vm_request).expect("param should serialize to string"),
+        ) {
+            Ok(new_headers) => new_headers,
+            Err(err) => return Err(Error::AWSV4SignatureError(err)),
+        };
         for (local_var_name, local_var_value) in local_var_new_headers.iter() {
             local_var_req_builder =
                 local_var_req_builder.header(local_var_name.as_str(), local_var_value.as_str());
