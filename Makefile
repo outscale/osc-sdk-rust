@@ -2,7 +2,7 @@ API_VERSION=$(shell cat api_version)
 SDK_VERSION=$(shell cat sdk_version)
 USER_ID=$(shell id -u)
 GROUP_ID=$(shell id -g)
-OPENAPI_IMAGE=outscale/openapi-generator:v5.3.1-rust-awsv4
+OPENAPI_IMAGE=openapitools/openapi-generator-cli:v6.0.1
 
 all: help
 
