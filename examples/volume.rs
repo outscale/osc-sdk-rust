@@ -3,13 +3,14 @@ use outscale_api::apis::volume_api::{create_volume, delete_volume, read_volumes}
 use outscale_api::models::{
     CreateVolumeRequest, DeleteVolumeRequest, FiltersVolume, ReadVolumesRequest,
 };
+use secrecy::SecretString;
 use std::env;
 
 fn main() {
     let mut config = Configuration::new();
     config.aws_v4_key = Some(AWSv4Key {
         access_key: env::var("OSC_ACCESS_KEY").unwrap(),
-        secret_key: env::var("OSC_SECRET_KEY").unwrap(),
+        secret_key: SecretString::new(env::var("OSC_SECRET_KEY").unwrap()),
         region: "eu-west-2".to_string(),
         service: "oapi".to_string(),
     });
