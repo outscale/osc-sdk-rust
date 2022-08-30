@@ -73,6 +73,8 @@ pub mod api_log_api;
 pub mod ca_api;
 pub mod catalog_api;
 pub mod client_gateway_api;
+pub mod configuration;
+pub mod configuration_file;
 pub mod dhcp_option_api;
 pub mod direct_link_api;
 pub mod direct_link_interface_api;
@@ -108,5 +110,3 @@ pub mod virtual_gateway_api;
 pub mod vm_api;
 pub mod volume_api;
 pub mod vpn_connection_api;
-
-pub mod configuration;
