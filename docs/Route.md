@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **net_access_point_id** | Option<**String**> | The ID of the Net access point. | [optional]
 **net_peering_id** | Option<**String**> | The ID of the Net peering connection. | [optional]
 **nic_id** | Option<**String**> | The ID of the NIC. | [optional]
-**state** | Option<**String**> | The state of a route in the route table (`active` \\| `blackhole`). The `blackhole` state indicates that the target of the route is not available. | [optional]
+**state** | Option<**String**> | The state of a route in the route table (always `active`).  | [optional]
 **vm_account_id** | Option<**String**> | The account ID of the owner of the VM. | [optional]
 **vm_id** | Option<**String**> | The ID of a VM specified in a route in the table. | [optional]
 
