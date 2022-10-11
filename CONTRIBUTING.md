@@ -33,6 +33,9 @@ Otherwise:
 
 # How to release
 
+Gitub bot should have produced a new version and creating the new release tag should push release to crate.io.
+
+If this is not the case:
 1. Be sure have the latest version from repository.
 2. Update `api_version` to the last Outscale API version.
 3. Update `sdk_version` following [semantic versioning](https://semver.org/) logic.
