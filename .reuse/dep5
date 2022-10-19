@@ -1,12 +1,12 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: osc-sdk-go
+Upstream-Name: osc-sdk-rust
 Upstream-Contact: Outscale support <support@outscale.com>
-Source: https://gitlab.com/outscale/osc-sdk-go/
+Source: https://gitlab.com/outscale/osc-sdk-rust/
 
 Files: *.md
-Copyright: 2019 Outscale SAS <support@outscale.com>
+Copyright: 2022 Outscale SAS <support@outscale.com>
 License: CC-BY-4.0
 
 Files: Makefile sdk_version api_version *.rs .git* src/* *.yml *.yaml .patch/*.patch *.patch Cargo.toml Cargo.lock examples/config_example.json
-Copyright: 2019 Outscale SAS <support@outscale.com>
+Copyright: 2022 Outscale SAS <support@outscale.com>
 License: BSD-3-Clause
