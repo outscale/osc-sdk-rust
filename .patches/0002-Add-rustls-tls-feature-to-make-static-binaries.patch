@@ -1,0 +1,37 @@
+From 5257c7614a87a3e91aca6b84435827ec6dc4f495 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?J=C3=A9r=C3=B4me=20Jutteau?= <jerome.jutteau@outscale.com>
+Date: Thu, 27 Oct 2022 14:45:40 +0200
+Subject: [PATCH] Add rustls-tls feature to make static binaries
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Jérôme Jutteau <jerome.jutteau@outscale.com>
+---
+ Cargo.toml | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index bdddb64..256de2f 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -12,7 +12,7 @@ serde = "^1.0"
+ serde_derive = "^1.0"
+ serde_json = "^1.0"
+ url = "^2.2"
+-reqwest = "~0.9"
++reqwest = {version = "~0.9", default-features = false}
+ aws-sigv4 = "0.3.0"
+ http = "0.2.5"
+ home = "0.5.3"
+@@ -20,3 +20,7 @@ secrecy = "0.8.0"
+ 
+ [dev-dependencies]
+ rand = "0.8.5"
++
++[features]
++default = ["reqwest/default-tls"]
++rustls-tls = ["reqwest/rustls-tls"]
+-- 
+2.37.2
+
