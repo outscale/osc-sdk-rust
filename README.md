@@ -14,6 +14,11 @@ See [examples](examples/) folder to jump straight into the code!
 
 Check [contributing documentation](CONTRIBUTING.md).
 
+# Features
+
+Some optional features can be enabled in osc-sdk-rust:
+- `rustls-tls`: will use rustls instead of default openssl in reqwest sub-dependency
+
 # License
 
 > Copyright Outscale SAS
