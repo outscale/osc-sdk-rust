@@ -10,6 +10,12 @@ Add `outscale_api` Package to you Cargo.toml using `cargo add outscale_api` or m
 
 See [examples](examples/) folder to jump straight into the code!
 
+## Features
+
+The following features can be enabled through `Cargo.toml`:
+- `default`: enable `default-tls` feature in reqwest library.
+- `rustls-tls`: will use rustls instead of default openssl in reqwest library. You will also need to also set [`default-features = false`] to avoid using `default-tls` feature.
+
 # Contributing
 
 Check [contributing documentation](CONTRIBUTING.md).
