@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **gateway_id** | Option<**String**> | The ID of the Internet service or virtual gateway attached to the Net. | [optional]
 **nat_service_id** | Option<**String**> | The ID of a NAT service attached to the Net. | [optional]
 **net_access_point_id** | Option<**String**> | The ID of the Net access point. | [optional]
-**net_peering_id** | Option<**String**> | The ID of the Net peering connection. | [optional]
+**net_peering_id** | Option<**String**> | The ID of the Net peering. | [optional]
 **nic_id** | Option<**String**> | The ID of the NIC. | [optional]
 **state** | Option<**String**> | The state of a route in the route table (always `active`).  | [optional]
 **vm_account_id** | Option<**String**> | The account ID of the owner of the VM. | [optional]
