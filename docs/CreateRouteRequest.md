@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **dry_run** | Option<**bool**> | If true, checks whether you have the required permissions to perform the action. | [optional]
 **gateway_id** | Option<**String**> | The ID of an Internet service or virtual gateway attached to your Net. | [optional]
 **nat_service_id** | Option<**String**> | The ID of a NAT service. | [optional]
-**net_peering_id** | Option<**String**> | The ID of a Net peering connection. | [optional]
+**net_peering_id** | Option<**String**> | The ID of a Net peering. | [optional]
 **nic_id** | Option<**String**> | The ID of a NIC. | [optional]
 **route_table_id** | **String** | The ID of the route table for which you want to create a route. | 
 **vm_id** | Option<**String**> | The ID of a NAT VM in your Net (attached to exactly one NIC). | [optional]

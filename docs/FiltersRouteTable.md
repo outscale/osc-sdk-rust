@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **route_destination_service_ids** | Option<**Vec<String>**> | The service IDs specified in routes in the tables. | [optional]
 **route_gateway_ids** | Option<**Vec<String>**> | The IDs of the gateways specified in routes in the tables. | [optional]
 **route_nat_service_ids** | Option<**Vec<String>**> | The IDs of the NAT services specified in routes in the tables. | [optional]
-**route_net_peering_ids** | Option<**Vec<String>**> | The IDs of the Net peering connections specified in routes in the tables. | [optional]
+**route_net_peering_ids** | Option<**Vec<String>**> | The IDs of the Net peerings specified in routes in the tables. | [optional]
 **route_states** | Option<**Vec<String>**> | The states of routes in the route tables (always `active`). | [optional]
 **route_table_ids** | Option<**Vec<String>**> | The IDs of the route tables. | [optional]
 **route_vm_ids** | Option<**Vec<String>**> | The IDs of the VMs specified in routes in the tables. | [optional]
