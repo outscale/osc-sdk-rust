@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **block_device_mappings** | Option<[**Vec<crate::models::BlockDeviceMappingCreated>**](BlockDeviceMappingCreated.md)> | The block device mapping of the VM. | [optional]
 **bsu_optimized** | Option<**bool**> | This parameter is not available. It is present in our API for the sake of historical compatibility with AWS. | [optional]
 **client_token** | Option<**String**> | The idempotency token provided when launching the VM. | [optional]
-**creation_date** | Option<**String**> | The date and time at which the VM was created. | [optional]
+**creation_date** | Option<**String**> | The date and time of creation of the VM. | [optional]
 **deletion_protection** | Option<**bool**> | If true, you cannot delete the VM unless you change this parameter back to false. | [optional]
 **hypervisor** | Option<**String**> | The hypervisor type of the VMs (`ovm` \\| `xen`). | [optional]
 **image_id** | Option<**String**> | The ID of the OMI used to create the VM. | [optional]

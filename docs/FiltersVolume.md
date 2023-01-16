@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**creation_dates** | Option<[**Vec<String>**](string.md)> | The dates and times at which the volumes were created. | [optional]
+**creation_dates** | Option<[**Vec<String>**](string.md)> | The dates and times of creation of the volumes. | [optional]
 **link_volume_delete_on_vm_deletion** | Option<**bool**> | Whether the volumes are deleted or not when terminating the VMs. | [optional]
 **link_volume_device_names** | Option<**Vec<String>**> | The VM device names. | [optional]
-**link_volume_link_dates** | Option<[**Vec<String>**](string.md)> | The dates and times at which the volumes were created. | [optional]
+**link_volume_link_dates** | Option<[**Vec<String>**](string.md)> | The dates and times of creation of the volumes. | [optional]
 **link_volume_link_states** | Option<**Vec<String>**> | The attachment states of the volumes (`attaching` \\| `detaching` \\| `attached` \\| `detached`). | [optional]
 **link_volume_vm_ids** | Option<**Vec<String>**> | One or more IDs of VMs. | [optional]
 **snapshot_ids** | Option<**Vec<String>**> | The snapshots from which the volumes were created. | [optional]
