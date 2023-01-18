@@ -1,3 +1,5 @@
+[![Project Incubating](https://docs.outscale.com/fr/userguide/_images/Project-Incubating-blue.svg)](https://docs.outscale.com/fr/userguide/Projets-open-source.html)
+
 # Outscale SDK for Rust
 
 Welcome to Outscale SDK for [Rust](https://www.rust-lang.org/).
