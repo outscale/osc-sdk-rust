@@ -36,7 +36,7 @@ gen: clean osc-api/outscale.yaml
 	rm -rf .sdk
 	cargo fmt
 	# Apply additional Outscale features or fixes which are not included in generation
-	git apply .patches/*
+	#git apply .patches/*
 	cargo fmt
 
 osc-api/outscale.yaml:
