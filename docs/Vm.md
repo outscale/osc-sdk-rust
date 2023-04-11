@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **placement** | Option<[**crate::models::Placement**](Placement.md)> |  | [optional]
 **private_dns_name** | Option<**String**> | The name of the private DNS. | [optional]
 **private_ip** | Option<**String**> | The primary private IP of the VM. | [optional]
-**product_codes** | Option<**Vec<String>**> | The product code associated with the OMI used to create the VM (`0001` Linux/Unix \\| `0002` Windows \\| `0004` Linux/Oracle \\| `0005` Windows 10). | [optional]
+**product_codes** | Option<**Vec<String>**> | The product codes associated with the OMI used to create the VM. | [optional]
 **public_dns_name** | Option<**String**> | The name of the public DNS. | [optional]
 **public_ip** | Option<**String**> | The public IP of the VM. | [optional]
 **reservation_id** | Option<**String**> | The reservation ID of the VM. | [optional]

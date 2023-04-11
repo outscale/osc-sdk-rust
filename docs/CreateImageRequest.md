@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **file_location** | Option<**String**> | The pre-signed URL of the OMI manifest file, or the full path to the OMI stored in a bucket. If you specify this parameter, a copy of the OMI is created in your account. You must specify only one of the following parameters: `FileLocation`, `RootDeviceName`, `SourceImageId` or `VmId`. | [optional]
 **image_name** | Option<**String**> | A unique name for the new OMI.<br /> Constraints: 3-128 alphanumeric characters, underscores (_), spaces ( ), parentheses (()), slashes (/), periods (.), or dashes (-). | [optional]
 **no_reboot** | Option<**bool**> | If false, the VM shuts down before creating the OMI and then reboots. If true, the VM does not. | [optional]
+**product_codes** | Option<**Vec<String>**> | The product codes associated with the OMI. | [optional]
 **root_device_name** | Option<**String**> | The name of the root device. You must specify only one of the following parameters: `FileLocation`, `RootDeviceName`, `SourceImageId` or `VmId`. | [optional]
 **source_image_id** | Option<**String**> | The ID of the OMI you want to copy. You must specify only one of the following parameters: `FileLocation`, `RootDeviceName`, `SourceImageId` or `VmId`. | [optional]
 **source_region_name** | Option<**String**> | The name of the source Region, which must be the same as the Region of your account. | [optional]
