@@ -1,32 +1,28 @@
-From c07bd6eb442a475dc20c552a11419a4e4524fc11 Mon Sep 17 00:00:00 2001
-From: =?UTF-8?q?J=C3=A9r=C3=B4me=20Jutteau?= <jerome.jutteau@outscale.com>
-Date: Tue, 30 Aug 2022 11:50:46 +0200
-Subject: [PATCH] [PATCH] Add ConfigurationFile to parse .osc/config.json after
- 6.x upgrade
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From cafdc909053818fdb7264698e996ba61bb896dbc Mon Sep 17 00:00:00 2001
+From: Jerome Jutteau <jerome.jutteau@outscale.fr>
+Date: Tue, 11 Apr 2023 16:44:04 +0200
+Subject: [PATCH] Add ConfigurationFile to parse .osc/config.json
 
-Signed-off-by: Jérôme Jutteau <jerome.jutteau@outscale.com>
+Signed-off-by: Jerome Jutteau <jerome.jutteau@outscale.fr>
 ---
  Cargo.toml                     |   1 +
  src/apis/configuration_file.rs | 155 +++++++++++++++++++++++++++++++++
- src/apis/mod.rs                |   4 +-
- 3 files changed, 158 insertions(+), 2 deletions(-)
+ src/apis/mod.rs                |   2 +
+ 3 files changed, 158 insertions(+)
  create mode 100644 src/apis/configuration_file.rs
 
 diff --git a/Cargo.toml b/Cargo.toml
-index f890101..af2c066 100644
+index bd24ec0..548c0c1 100644
 --- a/Cargo.toml
 +++ b/Cargo.toml
-@@ -15,6 +15,7 @@ url = "^2.2"
- reqwest = "~0.9"
- aws-sigv4 = "0.3.0"
- http = "0.2.5"
-+home = "0.5.3"
- secrecy = "0.8.0"
+@@ -8,6 +8,7 @@ description = "Outscale API SDK"
+ homepage = "https://github.com/outscale/osc-sdk-rust/"
  
- [dev-dependencies]
+ [dependencies]
++home = "0.5.3"
+ serde = "^1.0"
+ serde_derive = "^1.0"
+ serde_json = "^1.0"
 diff --git a/src/apis/configuration_file.rs b/src/apis/configuration_file.rs
 new file mode 100644
 index 0000000..cf84f12
@@ -189,24 +185,15 @@ index 0000000..cf84f12
 +    }
 +}
 diff --git a/src/apis/mod.rs b/src/apis/mod.rs
-index 3b74c41..a549c88 100644
+index 91bb800..93a4035 100644
 --- a/src/apis/mod.rs
 +++ b/src/apis/mod.rs
-@@ -73,6 +73,8 @@ pub mod api_log_api;
- pub mod ca_api;
- pub mod catalog_api;
- pub mod client_gateway_api;
-+pub mod configuration;
-+pub mod configuration_file;
- pub mod dhcp_option_api;
- pub mod direct_link_api;
- pub mod direct_link_interface_api;
-@@ -108,5 +110,3 @@ pub mod virtual_gateway_api;
- pub mod vm_api;
- pub mod volume_api;
+@@ -112,3 +112,5 @@ pub mod volume_api;
  pub mod vpn_connection_api;
--
--pub mod configuration;
+ 
+ pub mod configuration;
++
++pub mod configuration_file;
 -- 
-2.37.2
+2.38.1
 
