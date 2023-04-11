@@ -21,10 +21,12 @@ pub struct FiltersApiLog {
     /// The names of the logged calls.
     #[serde(rename = "QueryCallNames", skip_serializing_if = "Option::is_none")]
     pub query_call_names: Option<Vec<String>>,
+    /// The date and time, or the date, after which you want to retrieve logged calls, in ISO 8601 format (for example, `2020-06-14T00:00:00.000Z` or `2020-06-14`). By default, this date is set to 48 hours before the `QueryDateBefore` parameter value.
     #[serde(rename = "QueryDateAfter", skip_serializing_if = "Option::is_none")]
-    pub query_date_after: Option<Box<crate::models::FiltersApiLogQueryDateAfter>>,
+    pub query_date_after: Option<String>,
+    /// The date and time, or the date, before which you want to retrieve logged calls, in ISO 8601 format (for example, `2020-06-30T00:00:00.000Z` or `2020-06-14`). By default, this date is set to now, or 48 hours after the `QueryDateAfter` parameter value.
     #[serde(rename = "QueryDateBefore", skip_serializing_if = "Option::is_none")]
-    pub query_date_before: Option<Box<crate::models::FiltersApiLogQueryDateBefore>>,
+    pub query_date_before: Option<String>,
     /// The IPs used for the logged calls.
     #[serde(rename = "QueryIpAddresses", skip_serializing_if = "Option::is_none")]
     pub query_ip_addresses: Option<Vec<String>>,

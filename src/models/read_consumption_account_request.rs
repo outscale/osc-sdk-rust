@@ -13,25 +13,24 @@ pub struct ReadConsumptionAccountRequest {
     /// If true, checks whether you have the required permissions to perform the action.
     #[serde(rename = "DryRun", skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
+    /// The beginning of the time period, in ISO 8601 date format (for example, `2020-06-14`). The date-time format is also accepted, but only with a time set to midnight (for example, `2020-06-14T00:00:00.000Z`).
     #[serde(rename = "FromDate")]
-    pub from_date: Box<crate::models::ReadConsumptionAccountRequestFromDate>,
+    pub from_date: String,
     /// By default or if false, returns only the consumption of the specific account that sends this request. If true, returns either the overall consumption of your paying account and all linked accounts (if the account that sends this request is a paying account) or returns nothing (if the account that sends this request is a linked account).
     #[serde(rename = "Overall", skip_serializing_if = "Option::is_none")]
     pub overall: Option<bool>,
+    /// The end of the time period, in ISO 8601 date format (for example, `2020-06-30`). The date-time format is also accepted, but only with a time set to midnight (for example, `2020-06-30T00:00:00.000Z`).
     #[serde(rename = "ToDate")]
-    pub to_date: Box<crate::models::ReadConsumptionAccountRequestToDate>,
+    pub to_date: String,
 }
 
 impl ReadConsumptionAccountRequest {
-    pub fn new(
-        from_date: crate::models::ReadConsumptionAccountRequestFromDate,
-        to_date: crate::models::ReadConsumptionAccountRequestToDate,
-    ) -> ReadConsumptionAccountRequest {
+    pub fn new(from_date: String, to_date: String) -> ReadConsumptionAccountRequest {
         ReadConsumptionAccountRequest {
             dry_run: None,
-            from_date: Box::new(from_date),
+            from_date,
             overall: None,
-            to_date: Box::new(to_date),
+            to_date,
         }
     }
 }

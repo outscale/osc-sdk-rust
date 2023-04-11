@@ -16,8 +16,9 @@ pub struct UpdateAccessKeyRequest {
     /// If true, checks whether you have the required permissions to perform the action.
     #[serde(rename = "DryRun", skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
+    /// The date and time, or the date, at which you want the access key to expire, in ISO 8601 format (for example, `2020-06-14T00:00:00.000Z` or `2020-06-14`). If not specified, the access key is set to not expire.
     #[serde(rename = "ExpirationDate", skip_serializing_if = "Option::is_none")]
-    pub expiration_date: Option<Box<crate::models::UpdateAccessKeyRequestExpirationDate>>,
+    pub expiration_date: Option<String>,
     /// The new state for the access key (`ACTIVE` \\| `INACTIVE`). When set to `ACTIVE`, the access key is enabled and can be used to send requests. When set to `INACTIVE`, the access key is disabled.
     #[serde(rename = "State")]
     pub state: String,

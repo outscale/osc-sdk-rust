@@ -13,8 +13,9 @@ pub struct CreateAccessKeyRequest {
     /// If true, checks whether you have the required permissions to perform the action.
     #[serde(rename = "DryRun", skip_serializing_if = "Option::is_none")]
     pub dry_run: Option<bool>,
+    /// The date and time, or the date, at which you want the access key to expire, in ISO 8601 format (for example, `2020-06-14T00:00:00.000Z`, or `2020-06-14`). To remove an existing expiration date, use the method without specifying this parameter.
     #[serde(rename = "ExpirationDate", skip_serializing_if = "Option::is_none")]
-    pub expiration_date: Option<Box<crate::models::CreateAccessKeyRequestExpirationDate>>,
+    pub expiration_date: Option<String>,
 }
 
 impl CreateAccessKeyRequest {
