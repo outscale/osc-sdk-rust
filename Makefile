@@ -40,7 +40,7 @@ gen: clean osc-api/outscale.yaml
 	cargo fmt
 
 osc-api/outscale.yaml:
-	git clone https://github.com/outscale/osc-api-deploy.git && cd osc-api && git checkout -b $(API_VERSION) $(API_VERSION)
+	git clone https://github.com/outscale/osc-api-deploy.git osc-api && cd osc-api && git checkout -b $(API_VERSION) $(API_VERSION)
 	cd osc-api && git apply ../.outscale-yaml.patch
 
 .PHONY: clean
