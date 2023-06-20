@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **query_api_name** | Option<**String**> | The name of the API used by the logged call (always `oapi` for the OUTSCALE API). | [optional]
 **query_api_version** | Option<**String**> | The version of the API used by the logged call. | [optional]
 **query_call_name** | Option<**String**> | The name of the logged call. | [optional]
-**query_date** | Option<[**String**](string.md)> | The date and time of the logged call, in ISO 8601 date-time format. | [optional]
+**query_date** | Option<**String**> | The date and time of the logged call, in ISO 8601 date-time format. | [optional]
 **query_header_raw** | Option<**String**> | The raw header of the HTTP request of the logged call. | [optional]
 **query_header_size** | Option<**i32**> | The size of the raw header of the HTTP request of the logged call, in bytes. | [optional]
 **query_ip_address** | Option<**String**> | The IP used for the logged call. | [optional]
