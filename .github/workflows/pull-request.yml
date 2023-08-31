@@ -26,6 +26,8 @@ jobs:
           profile: minimal
           toolchain: stable
           components: rustfmt
+      - name: local tests
+        run: ./local_tests.sh
       - name: Run examples
         env:
           OSC_ACCESS_KEY: ${{ secrets.OSC_ACCESS_KEY }}
