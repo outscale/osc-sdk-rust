@@ -15,6 +15,10 @@ fn main() {
         service: "oapi".to_string(),
     });
 
+    match env::var("OSC_ENDPOINT_API") {
+        Ok(enpoint) => config.base_path = enpoint,
+        _ => (),
+    };
     // Example reading all volumes
     print!("Reading all volumes... ");
     let request = ReadVolumesRequest::new();

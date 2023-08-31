@@ -16,6 +16,10 @@ fn main() {
         service: "oapi".to_string(),
     });
 
+    match env::var("OSC_ENDPOINT_API") {
+        Ok(enpoint) => config.base_path = enpoint,
+        _ => (),
+    };
     // Example reading all keypairs
     print!("Reading all keypairs... ");
     let request = ReadKeypairsRequest::new();
