@@ -17,6 +17,11 @@ fn main() {
         service: "oapi".to_string(),
     });
 
+    match env::var("OSC_ENDPOINT_API") {
+        Ok(enpoint) => config.base_path = enpoint,
+        _ => (),
+    };
+
     print!("Action on specific region ({})... ", region);
     let request = ReadVolumesRequest::new();
     if let Err(error) = read_volumes(&config, Some(request)) {
