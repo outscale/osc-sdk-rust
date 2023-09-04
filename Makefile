@@ -3,6 +3,7 @@ SDK_VERSION=$(shell cat sdk_version)
 USER_ID=$(shell id -u)
 GROUP_ID=$(shell id -g)
 OPENAPI_IMAGE=openapitools/openapi-generator-cli:v6.0.1
+PWD=$(shell pwd)
 
 all: help
 
