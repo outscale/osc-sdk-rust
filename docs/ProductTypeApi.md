@@ -4,8 +4,37 @@ All URIs are relative to *https://api.eu-west-2.outscale.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**create_product_type**](ProductTypeApi.md#create_product_type) | **POST** /CreateProductType | 
 [**read_product_types**](ProductTypeApi.md#read_product_types) | **POST** /ReadProductTypes | 
 
+
+
+## create_product_type
+
+> crate::models::CreateProductTypeResponse create_product_type(create_product_type_request)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**create_product_type_request** | Option<[**CreateProductTypeRequest**](CreateProductTypeRequest.md)> |  |  |
+
+### Return type
+
+[**crate::models::CreateProductTypeResponse**](CreateProductTypeResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## read_product_types

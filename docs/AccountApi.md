@@ -8,8 +8,6 @@ Method | HTTP request | Description
 [**create_account**](AccountApi.md#create_account) | **POST** /CreateAccount | 
 [**read_accounts**](AccountApi.md#read_accounts) | **POST** /ReadAccounts | 
 [**read_consumption_account**](AccountApi.md#read_consumption_account) | **POST** /ReadConsumptionAccount | 
-[**reset_account_password**](AccountApi.md#reset_account_password) | **POST** /ResetAccountPassword | 
-[**send_reset_password_email**](AccountApi.md#send_reset_password_email) | **POST** /SendResetPasswordEmail | 
 [**update_account**](AccountApi.md#update_account) | **POST** /UpdateAccount | 
 
 
@@ -117,62 +115,6 @@ Name | Type | Description  | Required | Notes
 ### Authorization
 
 [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## reset_account_password
-
-> crate::models::ResetAccountPasswordResponse reset_account_password(reset_account_password_request)
-
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**reset_account_password_request** | Option<[**ResetAccountPasswordRequest**](ResetAccountPasswordRequest.md)> |  |  |
-
-### Return type
-
-[**crate::models::ResetAccountPasswordResponse**](ResetAccountPasswordResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## send_reset_password_email
-
-> crate::models::SendResetPasswordEmailResponse send_reset_password_email(send_reset_password_email_request)
-
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**send_reset_password_email_request** | Option<[**SendResetPasswordEmailRequest**](SendResetPasswordEmailRequest.md)> |  |  |
-
-### Return type
-
-[**crate::models::SendResetPasswordEmailResponse**](SendResetPasswordEmailResponse.md)
-
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 

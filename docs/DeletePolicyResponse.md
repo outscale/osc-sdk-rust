@@ -1,4 +1,4 @@
-# ResetAccountPasswordResponse
+# DeletePolicyResponse
 
 ## Properties
 

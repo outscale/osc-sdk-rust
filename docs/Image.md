@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_alias** | Option<**String**> | The account alias of the owner of the OMI. | [optional]
 **account_id** | Option<**String**> | The account ID of the owner of the OMI. | [optional]
-**architecture** | Option<**String**> | The architecture of the OMI (by default, `i386`). | [optional]
+**architecture** | Option<**String**> | The architecture of the OMI. | [optional]
 **block_device_mappings** | Option<[**Vec<crate::models::BlockDeviceMappingImage>**](BlockDeviceMappingImage.md)> | One or more block device mappings. | [optional]
 **creation_date** | Option<[**String**](string.md)> | The date and time of creation of the OMI, in ISO 8601 date-time format. | [optional]
 **description** | Option<**String**> | The description of the OMI. | [optional]
-**file_location** | Option<**String**> | The location of the bucket where the OMI files are stored. | [optional]
+**file_location** | Option<**String**> | The location from which the OMI files were created. | [optional]
 **image_id** | Option<**String**> | The ID of the OMI. | [optional]
 **image_name** | Option<**String**> | The name of the OMI. | [optional]
 **image_type** | Option<**String**> | The type of the OMI. | [optional]

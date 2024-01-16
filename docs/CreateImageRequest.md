@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**architecture** | Option<**String**> | The architecture of the OMI (by default, `i386` if you specified the `FileLocation` or `RootDeviceName` parameter). | [optional]
-**block_device_mappings** | Option<[**Vec<crate::models::BlockDeviceMappingImage>**](BlockDeviceMappingImage.md)> | One or more block device mappings. | [optional]
+**architecture** | Option<**String**> | **(when registering from a snapshot, or from a bucket without using a manifest file)** The architecture of the OMI (`i386` or `x84_64`). | [optional]
+**block_device_mappings** | Option<[**Vec<crate::models::BlockDeviceMappingImage>**](BlockDeviceMappingImage.md)> | **(when registering from a snapshot, or from a bucket without using a manifest file)** One or more block device mappings. | [optional]
 **description** | Option<**String**> | A description for the new OMI. | [optional]
 **dry_run** | Option<**bool**> | If true, checks whether you have the required permissions to perform the action. | [optional]
-**file_location** | Option<**String**> | The pre-signed URL of the OMI manifest file, or the full path to the OMI stored in a bucket. If you specify this parameter, a copy of the OMI is created in your account. You must specify only one of the following parameters: `FileLocation`, `RootDeviceName`, `SourceImageId` or `VmId`. | [optional]
-**image_name** | Option<**String**> | A unique name for the new OMI.<br /> Constraints: 3-128 alphanumeric characters, underscores (_), spaces ( ), parentheses (()), slashes (/), periods (.), or dashes (-). | [optional]
-**no_reboot** | Option<**bool**> | If false, the VM shuts down before creating the OMI and then reboots. If true, the VM does not. | [optional]
+**file_location** | Option<**String**> | **(when registering from a bucket by using a manifest file)** The pre-signed URL of the manifest file for the OMI you want to register. For more information, see [Configuring a Pre-signed URL](https://docs.outscale.com/en/userguide/Configuring-a-Pre-signed-URL.html) or [Managing Access to Your Buckets and Objects](https://docs.outscale.com/en/userguide/Managing-Access-to-Your-Buckets-and-Objects.html).<br /> You can also specify the normal URL of the OMI if you have permission on the OOS bucket, without using the manifest file, but in that case, you need to manually specify through the other parameters all the information that would otherwise be read from the manifest file. | [optional]
+**image_name** | Option<**String**> | A unique name for the new OMI.<br /> Constraints: 3-128 alphanumeric characters, underscores (`_`), spaces (` `), parentheses (`()`), slashes (`/`), periods (`.`), or dashes (`-`). | [optional]
+**no_reboot** | Option<**bool**> | **(when creating from a VM)** If false, the VM shuts down before creating the OMI and then reboots. If true, the VM does not. | [optional]
 **product_codes** | Option<**Vec<String>**> | The product codes associated with the OMI. | [optional]
-**root_device_name** | Option<**String**> | The name of the root device. You must specify only one of the following parameters: `FileLocation`, `RootDeviceName`, `SourceImageId` or `VmId`. | [optional]
-**source_image_id** | Option<**String**> | The ID of the OMI you want to copy. You must specify only one of the following parameters: `FileLocation`, `RootDeviceName`, `SourceImageId` or `VmId`. | [optional]
-**source_region_name** | Option<**String**> | The name of the source Region, which must be the same as the Region of your account. | [optional]
-**vm_id** | Option<**String**> | The ID of the VM from which you want to create the OMI. You must specify only one of the following parameters: `FileLocation`, `RootDeviceName`, `SourceImageId` or `VmId`. | [optional]
+**root_device_name** | Option<**String**> | **(when registering from a snapshot, or from a bucket without using a manifest file)** The name of the root device for the new OMI. | [optional]
+**source_image_id** | Option<**String**> | **(when copying an OMI)** The ID of the OMI you want to copy. | [optional]
+**source_region_name** | Option<**String**> | **(when copying an OMI)** The name of the source Region (always the same as the Region of your account). | [optional]
+**vm_id** | Option<**String**> | **(when creating from a VM)** The ID of the VM from which you want to create the OMI. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
