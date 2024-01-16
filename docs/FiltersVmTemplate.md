@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **rams** | Option<**Vec<i32>**> | The amount of RAM. | [optional]
 **tag_keys** | Option<**Vec<String>**> | The keys of the tags associated with the VM templates. | [optional]
 **tag_values** | Option<**Vec<String>**> | The values of the tags associated with the VM templates. | [optional]
-**tags** | Option<**Vec<String>**> | The key/value combination of the tags associated with the VM templates, in the following format: \"Filters\":{\"Tags\":[\"TAGKEY=TAGVALUE\"]}. | [optional]
+**tags** | Option<**Vec<String>**> | The key/value combination of the tags associated with the VM templates, in the following format: &quot;Filters&quot;:{&quot;Tags&quot;:[&quot;TAGKEY=TAGVALUE&quot;]}. | [optional]
 **vm_template_ids** | Option<**Vec<String>**> | The IDs of the VM templates. | [optional]
 **vm_template_names** | Option<**Vec<String>**> | The names of the VM templates. | [optional]
 

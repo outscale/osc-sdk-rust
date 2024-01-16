@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account_ids** | Option<**Vec<String>**> | The account IDs of the owners of the security groups. | [optional]
 **descriptions** | Option<**Vec<String>**> | The descriptions of the security groups. | [optional]
 **inbound_rule_account_ids** | Option<**Vec<String>**> | The account IDs that have been granted permissions. | [optional]
 **inbound_rule_from_port_ranges** | Option<**Vec<i32>**> | The beginnings of the port ranges for the TCP and UDP protocols, or the ICMP type numbers. | [optional]

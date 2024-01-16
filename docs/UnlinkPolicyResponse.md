@@ -1,4 +1,4 @@
-# SendResetPasswordEmailResponse
+# UnlinkPolicyResponse
 
 ## Properties
 

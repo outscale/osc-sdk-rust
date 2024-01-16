@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **public_dns_name** | Option<**String**> | The name of the public DNS. | [optional]
 **public_ip** | Option<**String**> | The public IP of the VM. | [optional]
 **reservation_id** | Option<**String**> | The reservation ID of the VM. | [optional]
-**root_device_name** | Option<**String**> | The name of the root device for the VM (for example, `/dev/vda1`). | [optional]
+**root_device_name** | Option<**String**> | The name of the root device for the VM (for example, `/dev/sda1`). | [optional]
 **root_device_type** | Option<**String**> | The type of root device used by the VM (always `bsu`). | [optional]
 **security_groups** | Option<[**Vec<crate::models::SecurityGroupLight>**](SecurityGroupLight.md)> | One or more security groups associated with the VM. | [optional]
 **state** | Option<**String**> | The state of the VM (`pending` \\| `running` \\| `stopping` \\| `stopped` \\| `shutting-down` \\| `terminated` \\| `quarantine`). | [optional]
@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 **user_data** | Option<**String**> | The Base64-encoded MIME user data. | [optional]
 **vm_id** | Option<**String**> | The ID of the VM. | [optional]
 **vm_initiated_shutdown_behavior** | Option<**String**> | The VM behavior when you stop it. If set to `stop`, the VM stops. If set to `restart`, the VM stops then automatically restarts. If set to `terminate`, the VM stops and is deleted. | [optional]
-**vm_type** | Option<**String**> | The type of VM. For more information, see [Instance Types](https://docs.outscale.com/en/userguide/Instance-Types.html). | [optional]
+**vm_type** | Option<**String**> | The type of VM. For more information, see [VM Types](https://docs.outscale.com/en/userguide/VM-Types.html). | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

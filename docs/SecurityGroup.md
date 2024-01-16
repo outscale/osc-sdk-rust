@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account_id** | Option<**String**> | The account ID of a user that has been granted permission. | [optional]
+**account_id** | Option<**String**> | The account ID that has been granted permission. | [optional]
 **description** | Option<**String**> | The description of the security group. | [optional]
 **inbound_rules** | Option<[**Vec<crate::models::SecurityGroupRule>**](SecurityGroupRule.md)> | The inbound rules associated with the security group. | [optional]
 **net_id** | Option<**String**> | The ID of the Net for the security group. | [optional]

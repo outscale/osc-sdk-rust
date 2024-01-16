@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**link_route_table**](RouteTableApi.md#link_route_table) | **POST** /LinkRouteTable | 
 [**read_route_tables**](RouteTableApi.md#read_route_tables) | **POST** /ReadRouteTables | 
 [**unlink_route_table**](RouteTableApi.md#unlink_route_table) | **POST** /UnlinkRouteTable | 
+[**update_route_table_link**](RouteTableApi.md#update_route_table_link) | **POST** /UpdateRouteTableLink | 
 
 
 
@@ -139,6 +140,34 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::UnlinkRouteTableResponse**](UnlinkRouteTableResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_route_table_link
+
+> crate::models::UpdateRouteTableLinkResponse update_route_table_link(update_route_table_link_request)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**update_route_table_link_request** | Option<[**UpdateRouteTableLinkRequest**](UpdateRouteTableLinkRequest.md)> |  |  |
+
+### Return type
+
+[**crate::models::UpdateRouteTableLinkResponse**](UpdateRouteTableLinkResponse.md)
 
 ### Authorization
 
