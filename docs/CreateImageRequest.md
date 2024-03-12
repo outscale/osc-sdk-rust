@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**architecture** | Option<**String**> | **(when registering from a snapshot, or from a bucket without using a manifest file)** The architecture of the OMI (`i386` or `x84_64`). | [optional]
+**architecture** | Option<**String**> | **(when registering from a snapshot, or from a bucket without using a manifest file)** The architecture of the OMI (`i386` or `x86_64`). | [optional]
 **block_device_mappings** | Option<[**Vec<crate::models::BlockDeviceMappingImage>**](BlockDeviceMappingImage.md)> | **(when registering from a snapshot, or from a bucket without using a manifest file)** One or more block device mappings. | [optional]
 **description** | Option<**String**> | A description for the new OMI. | [optional]
 **dry_run** | Option<**bool**> | If true, checks whether you have the required permissions to perform the action. | [optional]
