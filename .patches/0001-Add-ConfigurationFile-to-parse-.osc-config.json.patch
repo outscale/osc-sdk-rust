@@ -16,7 +16,7 @@ index bd24ec0..548c0c1 100644
 --- a/Cargo.toml
 +++ b/Cargo.toml
 @@ -8,6 +8,7 @@ description = "Outscale API SDK"
- homepage = "https://github.com/outscale/osc-sdk-rust/"
+ repository = "https://github.com/outscale/osc-sdk-rust/"
  
  [dependencies]
 +home = "0.5.3"

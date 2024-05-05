@@ -5,7 +5,7 @@ authors = ["Outscale SAS <opensource@outscale.com>"]
 edition = "2021"
 license = "BSD-3-Clause"
 description = "Outscale API SDK"
-homepage = "https://github.com/outscale/osc-sdk-rust/"
+repository = "https://github.com/outscale/osc-sdk-rust/"
 
 [dependencies]
 home = "0.5.3"
