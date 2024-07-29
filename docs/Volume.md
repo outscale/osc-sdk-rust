@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**creation_date** | Option<**String**> | The date and time of creation of the volume. | [optional]
+**creation_date** | Option<**String**> | The date and time (UTC) at which the volume was created. | [optional]
 **iops** | Option<**i32**> | The number of I/O operations per second (IOPS):<br /> - For `io1` volumes, the number of provisioned IOPS<br /> - For `gp2` volumes, the baseline performance of the volume | [optional]
 **linked_volumes** | Option<[**Vec<crate::models::LinkedVolume>**](LinkedVolume.md)> | Information about your volume attachment. | [optional]
 **size** | Option<**i32**> | The size of the volume, in gibibytes (GiB). | [optional]

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **link_nic_vm_ids** | Option<**Vec<String>**> | The IDs of the VMs the NICs are attached to. | [optional]
 **link_public_ip_account_ids** | Option<**Vec<String>**> | The account IDs of the owners of the public IPs associated with the NICs. | [optional]
 **link_public_ip_link_public_ip_ids** | Option<**Vec<String>**> | The association IDs returned when the public IPs were associated with the NICs. | [optional]
+**link_public_ip_public_dns_names** | Option<**Vec<String>**> | The public DNS names associated with the public IPs. | [optional]
 **link_public_ip_public_ip_ids** | Option<**Vec<String>**> | The allocation IDs returned when the public IPs were allocated to their accounts. | [optional]
 **link_public_ip_public_ips** | Option<**Vec<String>**> | The public IPs associated with the NICs. | [optional]
 **mac_addresses** | Option<**Vec<String>**> | The Media Access Control (MAC) addresses of the NICs. | [optional]

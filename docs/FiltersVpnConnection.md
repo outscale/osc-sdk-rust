@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bgp_asns** | Option<**Vec<i32>**> | The Border Gateway Protocol (BGP) Autonomous System Numbers (ASNs) of the connections. | [optional]
 **client_gateway_ids** | Option<**Vec<String>**> | The IDs of the client gateways. | [optional]
-**connection_types** | Option<**Vec<String>**> | The types of the VPN connections (only `ipsec.1` is supported). | [optional]
+**connection_types** | Option<**Vec<String>**> | The types of the VPN connections (always `ipsec.1`). | [optional]
 **route_destination_ip_ranges** | Option<**Vec<String>**> | The destination IP ranges. | [optional]
 **states** | Option<**Vec<String>**> | The states of the VPN connections (`pending` \\| `available` \\| `deleting` \\| `deleted`). | [optional]
 **static_routes_only** | Option<**bool**> | If false, the VPN connection uses dynamic routing with Border Gateway Protocol (BGP). If true, routing is controlled using static routes. For more information about how to create and delete static routes, see [CreateVpnConnectionRoute](#createvpnconnectionroute) and [DeleteVpnConnectionRoute](#deletevpnconnectionroute). | [optional]

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **nic_is_source_dest_checked** | Option<**bool**> | Whether the source/destination checking is enabled (true) or disabled (false). | [optional]
 **nic_link_nic_delete_on_vm_deletion** | Option<**bool**> | Whether the NICs are deleted when the VMs they are attached to are deleted. | [optional]
 **nic_link_nic_device_numbers** | Option<**Vec<i32>**> | The device numbers the NICs are attached to. | [optional]
-**nic_link_nic_link_nic_dates** | Option<[**Vec<String>**](string.md)> | The dates and time when the NICs were attached to the VMs. | [optional]
+**nic_link_nic_link_nic_dates** | Option<[**Vec<String>**](string.md)> | The dates and times (UTC) when the NICs were attached to the VMs. | [optional]
 **nic_link_nic_link_nic_ids** | Option<**Vec<String>**> | The IDs of the NIC attachments. | [optional]
 **nic_link_nic_states** | Option<**Vec<String>**> | The states of the attachments. | [optional]
 **nic_link_nic_vm_account_ids** | Option<**Vec<String>**> | The account IDs of the owners of the VMs the NICs are attached to. | [optional]

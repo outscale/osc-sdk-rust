@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**client_tokens** | Option<**Vec<String>**> | The idempotency tokens provided when creating the NAT services. | [optional]
 **nat_service_ids** | Option<**Vec<String>**> | The IDs of the NAT services. | [optional]
 **net_ids** | Option<**Vec<String>**> | The IDs of the Nets in which the NAT services are. | [optional]
 **states** | Option<**Vec<String>**> | The states of the NAT services (`pending` \\| `available` \\| `deleting` \\| `deleted`). | [optional]

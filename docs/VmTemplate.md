@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **cpu_cores** | **i32** | The number of vCores. | 
 **cpu_generation** | **String** | The processor generation. | 
 **cpu_performance** | Option<**String**> | The performance of the VMs. | [optional]
-**creation_date** | Option<**String**> | The date and time of creation of the VM template. | [optional]
+**creation_date** | Option<**String**> | The date and time (UTC) at which the VM was created. | [optional]
 **description** | Option<**String**> | The description of the VM template. | [optional]
 **image_id** | **String** | The ID of the OMI. | 
 **keypair_name** | Option<**String**> | The name of the keypair. | [optional]

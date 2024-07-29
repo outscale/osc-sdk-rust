@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accepter_net** | Option<[**crate::models::AccepterNet**](AccepterNet.md)> |  | [optional]
-**expiration_date** | Option<**String**> | The date and time at which the Net peerings expire. | [optional]
+**expiration_date** | Option<**String**> | The date and time (UTC) at which the Net peerings expire. | [optional]
 **net_peering_id** | Option<**String**> | The ID of the Net peering. | [optional]
 **source_net** | Option<[**crate::models::SourceNet**](SourceNet.md)> |  | [optional]
 **state** | Option<[**crate::models::NetPeeringState**](NetPeeringState.md)> |  | [optional]

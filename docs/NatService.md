@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**client_token** | Option<**String**> | The idempotency token provided when creating the NAT service. | [optional]
 **nat_service_id** | Option<**String**> | The ID of the NAT service. | [optional]
 **net_id** | Option<**String**> | The ID of the Net in which the NAT service is. | [optional]
 **public_ips** | Option<[**Vec<crate::models::PublicIpLight>**](PublicIpLight.md)> | Information about the public IP or IPs associated with the NAT service. | [optional]
