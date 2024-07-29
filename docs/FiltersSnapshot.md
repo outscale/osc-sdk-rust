@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **permissions_to_create_volume_global_permission** | Option<**bool**> | If true, lists all public volumes. If false, lists all private volumes. | [optional]
 **progresses** | Option<**Vec<i32>**> | The progresses of the snapshots, as a percentage. | [optional]
 **snapshot_ids** | Option<**Vec<String>**> | The IDs of the snapshots. | [optional]
-**states** | Option<**Vec<String>**> | The states of the snapshots (`in-queue` \\| `completed` \\| `error`). | [optional]
+**states** | Option<**Vec<String>**> | The states of the snapshots (`in-queue` \\| `pending` \\| `completed` \\| `error` \\| `deleting`). | [optional]
 **tag_keys** | Option<**Vec<String>**> | The keys of the tags associated with the snapshots. | [optional]
 **tag_values** | Option<**Vec<String>**> | The values of the tags associated with the snapshots. | [optional]
 **tags** | Option<**Vec<String>**> | The key/value combination of the tags associated with the snapshots, in the following format: &quot;Filters&quot;:{&quot;Tags&quot;:[&quot;TAGKEY=TAGVALUE&quot;]}. | [optional]

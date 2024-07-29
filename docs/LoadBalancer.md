@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **access_log** | Option<[**crate::models::AccessLog**](AccessLog.md)> |  | [optional]
 **application_sticky_cookie_policies** | Option<[**Vec<crate::models::ApplicationStickyCookiePolicy>**](ApplicationStickyCookiePolicy.md)> | The stickiness policies defined for the load balancer. | [optional]
-**backend_ips** | Option<**Vec<String>**> | One or more public IPs of back-end VMs. | [optional]
-**backend_vm_ids** | Option<**Vec<String>**> | One or more IDs of back-end VMs for the load balancer. | [optional]
+**backend_ips** | Option<**Vec<String>**> | One or more public IPs of backend VMs. | [optional]
+**backend_vm_ids** | Option<**Vec<String>**> | One or more IDs of backend VMs for the load balancer. | [optional]
 **dns_name** | Option<**String**> | The DNS name of the load balancer. | [optional]
 **health_check** | Option<[**crate::models::HealthCheck**](HealthCheck.md)> |  | [optional]
 **listeners** | Option<[**Vec<crate::models::Listener>**](Listener.md)> | The listeners for the load balancer. | [optional]

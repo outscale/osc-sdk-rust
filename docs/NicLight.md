@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_id** | Option<**String**> | The account ID of the owner of the NIC. | [optional]
 **description** | Option<**String**> | The description of the NIC. | [optional]
-**is_source_dest_checked** | Option<**bool**> | (Net only) If true, the source/destination check is enabled. If false, it is disabled. This value must be false for a NAT VM to perform network address translation (NAT) in a Net. | [optional]
+**is_source_dest_checked** | Option<**bool**> | (Net only) If true, the source/destination check is enabled. If false, it is disabled. | [optional]
 **link_nic** | Option<[**crate::models::LinkNicLight**](LinkNicLight.md)> |  | [optional]
 **link_public_ip** | Option<[**crate::models::LinkPublicIpLightForVm**](LinkPublicIpLightForVm.md)> |  | [optional]
 **mac_address** | Option<**String**> | The Media Access Control (MAC) address of the NIC. | [optional]

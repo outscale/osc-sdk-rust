@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**api_access_rule_id** | Option<**String**> |  The ID of the API access rule. | [optional]
+**api_access_rule_id** | Option<**String**> | The ID of the API access rule. | [optional]
 **ca_ids** | Option<**Vec<String>**> | One or more IDs of Client Certificate Authorities (CAs) used for the API access rule. | [optional]
 **cns** | Option<**Vec<String>**> | One or more Client Certificate Common Names (CNs). | [optional]
 **description** | Option<**String**> | The description of the API access rule. | [optional]

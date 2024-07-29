@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bgp_asns** | Option<**Vec<i32>**> | The Border Gateway Protocol (BGP) Autonomous System Numbers (ASNs) of the connections. | [optional]
 **client_gateway_ids** | Option<**Vec<String>**> | The IDs of the client gateways. | [optional]
-**connection_types** | Option<**Vec<String>**> | The types of communication tunnels used by the client gateways (only `ipsec.1` is supported). | [optional]
+**connection_types** | Option<**Vec<String>**> | The types of communication tunnels used by the client gateways (always `ipsec.1`). | [optional]
 **public_ips** | Option<**Vec<String>**> | The public IPv4 addresses of the client gateways. | [optional]
 **states** | Option<**Vec<String>**> | The states of the client gateways (`pending` \\| `available` \\| `deleting` \\| `deleted`). | [optional]
 **tag_keys** | Option<**Vec<String>**> | The keys of the tags associated with the client gateways. | [optional]

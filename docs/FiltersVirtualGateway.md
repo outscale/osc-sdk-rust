@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**connection_types** | Option<**Vec<String>**> | The types of the virtual gateways (only `ipsec.1` is supported). | [optional]
+**connection_types** | Option<**Vec<String>**> | The types of the virtual gateways (always `ipsec.1`). | [optional]
 **link_net_ids** | Option<**Vec<String>**> | The IDs of the Nets the virtual gateways are attached to. | [optional]
 **link_states** | Option<**Vec<String>**> | The current states of the attachments between the virtual gateways and the Nets (`attaching` \\| `attached` \\| `detaching` \\| `detached`). | [optional]
 **states** | Option<**Vec<String>**> | The states of the virtual gateways (`pending` \\| `available` \\| `deleting` \\| `deleted`). | [optional]

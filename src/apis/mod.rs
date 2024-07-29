@@ -107,6 +107,7 @@ pub mod subregion_api;
 pub mod tag_api;
 pub mod task_api;
 pub mod user_api;
+pub mod user_group_api;
 pub mod virtual_gateway_api;
 pub mod vm_api;
 pub mod vm_group_api;

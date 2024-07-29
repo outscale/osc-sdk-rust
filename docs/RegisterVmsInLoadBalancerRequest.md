@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**backend_vm_ids** | **Vec<String>** | One or more IDs of back-end VMs.<br /> Specifying the same ID several times has no effect as each back-end VM has equal weight. | 
+**backend_vm_ids** | **Vec<String>** | One or more IDs of backend VMs.<br /> Specifying the same ID several times has no effect as each backend VM has equal weight. | 
 **dry_run** | Option<**bool**> | If true, checks whether you have the required permissions to perform the action. | [optional]
 **load_balancer_name** | **String** | The name of the load balancer. | 
 

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**client_token** | Option<**String**> | A unique identifier which enables you to manage the idempotency. | [optional]
 **dry_run** | Option<**bool**> | If true, checks whether you have the required permissions to perform the action. | [optional]
 **public_ip_id** | **String** | The allocation ID of the public IP to associate with the NAT service.<br /> If the public IP is already associated with another resource, you must first disassociate it. | 
 **subnet_id** | **String** | The ID of the Subnet in which you want to create the NAT service. | 
