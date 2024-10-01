@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **subregion_name** | Option<**String**> | The Subregion associated with the catalog entry. | [optional]
 **title** | Option<**String**> | The description of the catalog entry. | [optional]
 **_type** | Option<**String**> | The type of resource associated with the catalog entry. | [optional]
-**unit_price** | Option<**f32**> | The unit price of the catalog entry, in the currency of the Region's catalog. | [optional]
+**unit_price** | Option<**f32**> | The unit price of the catalog entry in the currency of your account, in the ISO-4217 format (for example, `EUR`). | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

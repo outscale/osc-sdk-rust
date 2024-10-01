@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**link_managed_policy_to_user_group**](PolicyApi.md#link_managed_policy_to_user_group) | **POST** /LinkManagedPolicyToUserGroup | 
 [**link_policy**](PolicyApi.md#link_policy) | **POST** /LinkPolicy | 
 [**put_user_group_policy**](PolicyApi.md#put_user_group_policy) | **POST** /PutUserGroupPolicy | 
+[**read_entities_linked_to_policy**](PolicyApi.md#read_entities_linked_to_policy) | **POST** /ReadEntitiesLinkedToPolicy | 
 [**read_linked_policies**](PolicyApi.md#read_linked_policies) | **POST** /ReadLinkedPolicies | 
 [**read_managed_policies_linked_to_user_group**](PolicyApi.md#read_managed_policies_linked_to_user_group) | **POST** /ReadManagedPoliciesLinkedToUserGroup | 
 [**read_policies**](PolicyApi.md#read_policies) | **POST** /ReadPolicies | 
@@ -237,6 +238,34 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::PutUserGroupPolicyResponse**](PutUserGroupPolicyResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## read_entities_linked_to_policy
+
+> crate::models::ReadEntitiesLinkedToPolicyResponse read_entities_linked_to_policy(read_entities_linked_to_policy_request)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**read_entities_linked_to_policy_request** | Option<[**ReadEntitiesLinkedToPolicyRequest**](ReadEntitiesLinkedToPolicyRequest.md)> |  |  |
+
+### Return type
+
+[**crate::models::ReadEntitiesLinkedToPolicyResponse**](ReadEntitiesLinkedToPolicyResponse.md)
 
 ### Authorization
 

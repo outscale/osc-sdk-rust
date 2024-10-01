@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **title** | Option<**String**> | A description of the consumed resource. | [optional]
 **to_date** | Option<**String**> | The end of the time period (UTC). | [optional]
 **_type** | Option<**String**> | The type of resource, depending on the API call. | [optional]
-**unit_price** | Option<**f64**> | The unit price of the consumed resource, in the currency of the Region's catalog. | [optional]
+**unit_price** | Option<**f64**> | The unit price of the consumed resource in the currency of your account, in the ISO-4217 format (for example, `EUR`). | [optional]
 **value** | Option<**f64**> | The consumed amount for the resource. The unit depends on the resource type. For more information, see the `Title` element. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
