@@ -5,6 +5,7 @@ All URIs are relative to *https://api.eu-west-2.outscale.com/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_product_type**](ProductTypeApi.md#create_product_type) | **POST** /CreateProductType | 
+[**delete_product_type**](ProductTypeApi.md#delete_product_type) | **POST** /DeleteProductType | 
 [**read_product_types**](ProductTypeApi.md#read_product_types) | **POST** /ReadProductTypes | 
 
 
@@ -24,6 +25,34 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::CreateProductTypeResponse**](CreateProductTypeResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_product_type
+
+> crate::models::DeleteProductTypeResponse delete_product_type(delete_product_type_request)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**delete_product_type_request** | Option<[**DeleteProductTypeRequest**](DeleteProductTypeRequest.md)> |  |  |
+
+### Return type
+
+[**crate::models::DeleteProductTypeResponse**](DeleteProductTypeResponse.md)
 
 ### Authorization
 

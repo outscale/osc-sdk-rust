@@ -62,7 +62,8 @@ fn main() {
 
     // Deleting a keypair
     print!("Deleting keypair {}... ", keypair_name);
-    let request = DeleteKeypairRequest::new(keypair_name.clone());
+    let mut request = DeleteKeypairRequest::new();
+    request.keypair_name = Some(keypair_name.clone());
     if let Err(error) = delete_keypair(&config, Some(request)) {
         println!("Error: {:?}", error);
         return;
