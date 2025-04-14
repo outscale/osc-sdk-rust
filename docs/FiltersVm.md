@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **block_device_mapping_states** | Option<**Vec<String>**> | The states for the BSU volumes (`attaching` \\| `attached` \\| `detaching` \\| `detached`). | [optional]
 **block_device_mapping_volume_ids** | Option<**Vec<String>**> | The volume IDs of the BSU volumes. | [optional]
 **client_tokens** | Option<**Vec<String>**> | The idempotency tokens provided when launching the VMs. | [optional]
-**creation_dates** | Option<[**Vec<String>**](string.md)> | The dates when the VMs were launched. | [optional]
+**creation_dates** | Option<**Vec<String>**> | The dates when the VMs were launched. | [optional]
 **image_ids** | Option<**Vec<String>**> | The IDs of the OMIs used to launch the VMs. | [optional]
 **is_source_dest_checked** | Option<**bool**> | Whether the source/destination checking is enabled (true) or disabled (false). | [optional]
 **keypair_names** | Option<**Vec<String>**> | The names of the keypairs used when launching the VMs. | [optional]

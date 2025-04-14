@@ -9,9 +9,11 @@ Method | HTTP request | Description
 [**delete_policy**](PolicyApi.md#delete_policy) | **POST** /DeletePolicy | 
 [**delete_policy_version**](PolicyApi.md#delete_policy_version) | **POST** /DeletePolicyVersion | 
 [**delete_user_group_policy**](PolicyApi.md#delete_user_group_policy) | **POST** /DeleteUserGroupPolicy | 
+[**delete_user_policy**](PolicyApi.md#delete_user_policy) | **POST** /DeleteUserPolicy | 
 [**link_managed_policy_to_user_group**](PolicyApi.md#link_managed_policy_to_user_group) | **POST** /LinkManagedPolicyToUserGroup | 
 [**link_policy**](PolicyApi.md#link_policy) | **POST** /LinkPolicy | 
 [**put_user_group_policy**](PolicyApi.md#put_user_group_policy) | **POST** /PutUserGroupPolicy | 
+[**put_user_policy**](PolicyApi.md#put_user_policy) | **POST** /PutUserPolicy | 
 [**read_entities_linked_to_policy**](PolicyApi.md#read_entities_linked_to_policy) | **POST** /ReadEntitiesLinkedToPolicy | 
 [**read_linked_policies**](PolicyApi.md#read_linked_policies) | **POST** /ReadLinkedPolicies | 
 [**read_managed_policies_linked_to_user_group**](PolicyApi.md#read_managed_policies_linked_to_user_group) | **POST** /ReadManagedPoliciesLinkedToUserGroup | 
@@ -21,6 +23,8 @@ Method | HTTP request | Description
 [**read_policy_versions**](PolicyApi.md#read_policy_versions) | **POST** /ReadPolicyVersions | 
 [**read_user_group_policies**](PolicyApi.md#read_user_group_policies) | **POST** /ReadUserGroupPolicies | 
 [**read_user_group_policy**](PolicyApi.md#read_user_group_policy) | **POST** /ReadUserGroupPolicy | 
+[**read_user_policies**](PolicyApi.md#read_user_policies) | **POST** /ReadUserPolicies | 
+[**read_user_policy**](PolicyApi.md#read_user_policy) | **POST** /ReadUserPolicy | 
 [**set_default_policy_version**](PolicyApi.md#set_default_policy_version) | **POST** /SetDefaultPolicyVersion | 
 [**unlink_managed_policy_from_user_group**](PolicyApi.md#unlink_managed_policy_from_user_group) | **POST** /UnlinkManagedPolicyFromUserGroup | 
 [**unlink_policy**](PolicyApi.md#unlink_policy) | **POST** /UnlinkPolicy | 
@@ -167,6 +171,34 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## delete_user_policy
+
+> crate::models::DeleteUserPolicyResponse delete_user_policy(delete_user_policy_request)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**delete_user_policy_request** | Option<[**DeleteUserPolicyRequest**](DeleteUserPolicyRequest.md)> |  |  |
+
+### Return type
+
+[**crate::models::DeleteUserPolicyResponse**](DeleteUserPolicyResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## link_managed_policy_to_user_group
 
 > crate::models::LinkManagedPolicyToUserGroupResponse link_managed_policy_to_user_group(link_managed_policy_to_user_group_request)
@@ -238,6 +270,34 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::PutUserGroupPolicyResponse**](PutUserGroupPolicyResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## put_user_policy
+
+> crate::models::PutUserPolicyResponse put_user_policy(put_user_policy_request)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**put_user_policy_request** | Option<[**PutUserPolicyRequest**](PutUserPolicyRequest.md)> |  |  |
+
+### Return type
+
+[**crate::models::PutUserPolicyResponse**](PutUserPolicyResponse.md)
 
 ### Authorization
 
@@ -490,6 +550,62 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::ReadUserGroupPolicyResponse**](ReadUserGroupPolicyResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## read_user_policies
+
+> crate::models::ReadUserPoliciesResponse read_user_policies(read_user_policies_request)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**read_user_policies_request** | Option<[**ReadUserPoliciesRequest**](ReadUserPoliciesRequest.md)> |  |  |
+
+### Return type
+
+[**crate::models::ReadUserPoliciesResponse**](ReadUserPoliciesResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## read_user_policy
+
+> crate::models::ReadUserPolicyResponse read_user_policy(read_user_policy_request)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**read_user_policy_request** | Option<[**ReadUserPolicyRequest**](ReadUserPolicyRequest.md)> |  |  |
+
+### Return type
+
+[**crate::models::ReadUserPolicyResponse**](ReadUserPolicyResponse.md)
 
 ### Authorization
 
