@@ -10,16 +10,16 @@ permissions:
     
 jobs:
   reuse-test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Reuse specification test
         run: make reuse-test
   examples-test:
     environment: eu-west-2
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Stable Rust with rustfmt
         uses: actions-rs/toolchain@v1
         with:
@@ -35,9 +35,9 @@ jobs:
           OSC_REGION: ${{ secrets.OSC_REGION }}
         run: make examples-test
   regeneration-test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Stable Rust with rustfmt
         uses: actions-rs/toolchain@v1
         with:
