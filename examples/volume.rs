@@ -24,8 +24,8 @@ fn main() {
     let request = ReadVolumesRequest::new();
     let response = match read_volumes(&config, Some(request)) {
         Err(error) => {
-            println!("Error: {:?}", error);
-            return;
+            eprintln!("Error: {:?}", error);
+            std::process::exit(1);
         }
         Ok(resp) => resp,
     };
@@ -40,8 +40,8 @@ fn main() {
     request.size = Some(10);
     let response = match create_volume(&config, Some(request)) {
         Err(error) => {
-            println!("Error: {:?}", error);
-            return;
+            eprintln!("Error: {:?}", error);
+            std::process::exit(1);
         }
         Ok(resp) => resp,
     };
@@ -55,8 +55,8 @@ fn main() {
     let mut request = ReadVolumesRequest::new();
     request.filters = Some(Box::new(filters));
     if let Err(error) = read_volumes(&config, Some(request)) {
-        println!("Error: {:?}", error);
-        return;
+        eprintln!("Error: {:?}", error);
+        std::process::exit(1);
     }
     println!("OK");
 
@@ -64,8 +64,8 @@ fn main() {
     print!("Deleting volume {}... ", volume_id);
     let request = DeleteVolumeRequest::new(volume_id.clone());
     if let Err(error) = delete_volume(&config, Some(request)) {
-        println!("Error: {:?}", error);
-        return;
+        eprintln!("Error: {:?}", error);
+        std::process::exit(1);
     }
     println!("OK");
 }

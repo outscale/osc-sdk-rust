@@ -14,8 +14,8 @@ fn main() {
     let config = config_file.configuration("default").unwrap();
     let request = ReadVolumesRequest::new();
     if let Err(error) = read_volumes(&config, Some(request)) {
-        println!("Error: {:?}", error);
-        return;
+        eprintln!("Error: {:?}", error);
+        std::process::exit(1);
     }
     println!("OK");
 }

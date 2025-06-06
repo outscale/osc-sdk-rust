@@ -25,8 +25,8 @@ fn main() {
     print!("Action on specific region ({})... ", region);
     let request = ReadVolumesRequest::new();
     if let Err(error) = read_volumes(&config, Some(request)) {
-        println!("Error: {:?}", error);
-        return;
+        eprintln!("Error: {:?}", error);
+        std::process::exit(1);
     }
     println!("OK");
 }
