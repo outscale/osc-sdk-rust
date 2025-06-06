@@ -55,8 +55,8 @@ fn main() {
     let mut request = ReadKeypairsRequest::new();
     request.filters = Some(Box::new(filters));
     if let Err(error) = read_keypairs(&config, Some(request)) {
-        println!("Error: {:?}", error);
-        return;
+        eprintln!("Error: {:?}", error);
+        std::process::exit(1);
     }
     println!("OK");
 
@@ -65,8 +65,8 @@ fn main() {
     let mut request = DeleteKeypairRequest::new();
     request.keypair_name = Some(keypair_name.clone());
     if let Err(error) = delete_keypair(&config, Some(request)) {
-        println!("Error: {:?}", error);
-        return;
+        eprintln!("Error: {:?}", error);
+        std::process::exit(1);
     }
     println!("OK");
 }
