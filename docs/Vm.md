@@ -4,8 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**actions_on_next_boot** | Option<[**crate::models::ActionsOnNextBoot**](ActionsOnNextBoot.md)> |  | [optional]
 **architecture** | Option<**String**> | The architecture of the VM (`i386` \\| `x86_64`). | [optional]
 **block_device_mappings** | Option<[**Vec<crate::models::BlockDeviceMappingCreated>**](BlockDeviceMappingCreated.md)> | The block device mapping of the VM. | [optional]
+**boot_mode** | Option<[**crate::models::BootMode**](BootMode.md)> |  | [optional]
 **bsu_optimized** | Option<**bool**> | This parameter is not available. It is present in our API for the sake of historical compatibility with AWS. | [optional]
 **client_token** | Option<**String**> | The idempotency token provided when launching the VM. | [optional]
 **creation_date** | Option<**String**> | The date and time (UTC) at which the VM was created. | [optional]

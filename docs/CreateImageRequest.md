@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **architecture** | Option<**String**> | **When registering from a snapshot:** The architecture of the OMI (`i386` or `x86_64`). | [optional]
 **block_device_mappings** | Option<[**Vec<crate::models::BlockDeviceMappingImage>**](BlockDeviceMappingImage.md)> | **(required) When registering from a snapshot:** One or more block device mappings. | [optional]
+**boot_modes** | Option<[**Vec<crate::models::BootMode>**](BootMode.md)> | The boot modes compatible with the OMI (`legacy` and/or `uefi`). | [optional]
 **description** | Option<**String**> | A description for the new OMI. | [optional]
 **dry_run** | Option<**bool**> | If true, checks whether you have the required permissions to perform the action. | [optional]
 **file_location** | Option<**String**> | **(required) When registering from a bucket by using a manifest file:** The pre-signed URL of the manifest file for the OMI you want to register. For more information, see [Creating a Pre-signed URL](https://docs.outscale.com/en/userguide/Creating-a-Pre-Signed-URL.html). | [optional]
