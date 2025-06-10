@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**client_tokens** | Option<**Vec<String>**> | The idempotency tokens provided when creating the volumes. | [optional]
 **creation_dates** | Option<[**Vec<String>**](string.md)> | The dates and times at which the volumes were created, in ISO 8601 date-time format (for example, `2020-06-30T00:00:00.000Z`). | [optional]
 **link_volume_delete_on_vm_deletion** | Option<**bool**> | Whether the volumes are deleted or not when terminating the VMs. | [optional]
 **link_volume_device_names** | Option<**Vec<String>**> | The VM device names. | [optional]

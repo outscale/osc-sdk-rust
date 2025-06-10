@@ -4,7 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**actions_on_next_boot** | Option<[**crate::models::ActionsOnNextBoot**](ActionsOnNextBoot.md)> |  | [optional]
 **block_device_mappings** | Option<[**Vec<crate::models::BlockDeviceMappingVmCreation>**](BlockDeviceMappingVmCreation.md)> | One or more block device mappings. | [optional]
+**boot_mode** | Option<[**crate::models::BootMode**](BootMode.md)> |  | [optional]
 **boot_on_creation** | Option<**bool**> | By default or if true, the VM is started on creation. If false, the VM is stopped on creation. | [optional][default to true]
 **bsu_optimized** | Option<**bool**> | This parameter is not available. It is present in our API for the sake of historical compatibility with AWS. | [optional]
 **client_token** | Option<**String**> | A unique identifier which enables you to manage the idempotency. | [optional]

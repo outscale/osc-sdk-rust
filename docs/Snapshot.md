@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_alias** | Option<**String**> | The account alias of the owner of the snapshot. | [optional]
 **account_id** | Option<**String**> | The account ID of the owner of the snapshot. | [optional]
+**client_token** | Option<**String**> | The idempotency token provided when creating the snapshot. | [optional]
 **creation_date** | Option<**String**> | The date and time (UTC) at which the snapshot was created. | [optional]
 **description** | Option<**String**> | The description of the snapshot. | [optional]
 **permissions_to_create_volume** | Option<[**crate::models::PermissionsOnResource**](PermissionsOnResource.md)> |  | [optional]
