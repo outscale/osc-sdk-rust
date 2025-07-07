@@ -51,6 +51,18 @@ pub struct Profile {
     pub method: Option<String>,
     pub region: Option<String>,
     pub endpoints: Option<Endpoint>,
+    #[serde(default = "max_retries_default")]
+    pub max_retries: i32,
+    #[serde(default = "retry_backoff_factor_default")]
+    pub retry_backoff_factor: f32,
+}
+
+fn max_retries_default() -> i32 {
+    3
+}
+
+fn retry_backoff_factor_default() -> f32 {
+    1_f32
 }
 
 #[derive(Deserialize, Debug, Clone)]
@@ -116,6 +128,12 @@ impl ConfigurationFile {
         };
 
         let mut config = Configuration::default();
+
+        config.client = super::middleware::ClientWithMiddleware::new(
+            reqwest::Client::new(),
+            profile.max_retries,
+            profile.retry_backoff_factor,
+        );
 
         if let Some(ref region) = profile.region {
             config.base_path = format!("https://api.{}.outscale.com/api/v1", region);
