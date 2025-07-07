@@ -16,7 +16,6 @@ jobs:
       - name: Reuse specification test
         run: make reuse-test
   examples-test:
-    environment: eu-west-2
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -33,6 +32,7 @@ jobs:
           OSC_ACCESS_KEY: ${{ secrets.OSC_ACCESS_KEY }}
           OSC_SECRET_KEY: ${{ secrets.OSC_SECRET_KEY }}
           OSC_REGION: ${{ secrets.OSC_REGION }}
+          OSC_ENDPOINT_API: https://api.${{ secrets.OSC_REGION}}.outscale.com/api/v1
         run: make examples-test
   regeneration-test:
     runs-on: ubuntu-latest
