@@ -119,3 +119,4 @@ pub mod vpn_connection_api;
 pub mod configuration;
 
 pub mod configuration_file;
+pub mod middleware;
