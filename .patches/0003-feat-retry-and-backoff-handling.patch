@@ -1,0 +1,168 @@
+From ce3986e858f69c98d1a4a31c49a85aaf8625b0b0 Mon Sep 17 00:00:00 2001
+From: "Ch.-David Blot" <charles-david.blot@outscale.com>
+Date: Mon, 7 Jul 2025 09:20:14 +0000
+Subject: [PATCH] =?UTF-8?q?=E2=9C=A8=20feat:=20retry=20and=20backoff=20han?=
+ =?UTF-8?q?dling?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/apis/configuration.rs      |  4 +-
+ src/apis/configuration_file.rs | 18 ++++++++
+ src/apis/middleware.rs         | 75 ++++++++++++++++++++++++++++++++++
+ src/apis/mod.rs                |  1 +
+ 4 files changed, 96 insertions(+), 2 deletions(-)
+ create mode 100644 src/apis/middleware.rs
+
+diff --git a/src/apis/configuration.rs b/src/apis/configuration.rs
+index 7d3fede..2f48923 100644
+--- a/src/apis/configuration.rs
++++ b/src/apis/configuration.rs
+@@ -19,7 +19,7 @@ use std::time::SystemTime;
+ pub struct Configuration {
+     pub base_path: String,
+     pub user_agent: Option<String>,
+-    pub client: reqwest::Client,
++    pub client: super::middleware::ClientWithMiddleware,
+     pub basic_auth: Option<BasicAuth>,
+     pub oauth_access_token: Option<String>,
+     pub bearer_access_token: Option<String>,
+@@ -96,7 +96,7 @@ impl Default for Configuration {
+         Configuration {
+             base_path: "https://api.eu-west-2.outscale.com/api/v1".to_owned(),
+             user_agent: Some("osc-sdk-rust/1.14.0".to_owned()),
+-            client: reqwest::Client::new(),
++            client: super::middleware::ClientWithMiddleware::new(reqwest::Client::new(), 3, 1.0),
+             basic_auth: None,
+             oauth_access_token: None,
+             bearer_access_token: None,
+diff --git a/src/apis/configuration_file.rs b/src/apis/configuration_file.rs
+index cf84f12..59fe830 100644
+--- a/src/apis/configuration_file.rs
++++ b/src/apis/configuration_file.rs
+@@ -51,6 +51,18 @@ pub struct Profile {
+     pub method: Option<String>,
+     pub region: Option<String>,
+     pub endpoints: Option<Endpoint>,
++    #[serde(default = "max_retries_default")]
++    pub max_retries: i32,
++    #[serde(default = "retry_backoff_factor_default")]
++    pub retry_backoff_factor: f32,
++}
++
++fn max_retries_default() -> i32 {
++    3
++}
++
++fn retry_backoff_factor_default() -> f32 {
++    1_f32
+ }
+ 
+ #[derive(Deserialize, Debug, Clone)]
+@@ -117,6 +129,12 @@ impl ConfigurationFile {
+ 
+         let mut config = Configuration::default();
+ 
++        config.client = super::middleware::ClientWithMiddleware::new(
++            reqwest::Client::new(),
++            profile.max_retries,
++            profile.retry_backoff_factor,
++        );
++
+         if let Some(ref region) = profile.region {
+             config.base_path = format!("https://api.{}.outscale.com/api/v1", region);
+         }
+diff --git a/src/apis/middleware.rs b/src/apis/middleware.rs
+new file mode 100644
+index 0000000..f7b84ce
+--- /dev/null
++++ b/src/apis/middleware.rs
+@@ -0,0 +1,75 @@
++use reqwest::Client;
++use reqwest::{IntoUrl, Method};
++use reqwest::{Request, Response};
++
++use reqwest::RequestBuilder;
++
++#[derive(Debug, Clone)]
++pub struct ClientWithMiddleware {
++    inner: Client,
++    max_retries: i32,
++    retry_backoff_factor: f32,
++}
++
++impl ClientWithMiddleware {
++    pub fn new(inner: Client, max_retries: i32, retry_backoff_factor: f32) -> ClientWithMiddleware {
++        ClientWithMiddleware {
++            inner,
++            max_retries,
++            retry_backoff_factor,
++        }
++    }
++
++    pub fn get<U: IntoUrl>(&self, url: U) -> RequestBuilder {
++        self.request(Method::GET, url)
++    }
++
++    pub fn post<U: IntoUrl>(&self, url: U) -> RequestBuilder {
++        self.request(Method::POST, url)
++    }
++
++    pub fn put<U: IntoUrl>(&self, url: U) -> RequestBuilder {
++        self.request(Method::PUT, url)
++    }
++
++    pub fn patch<U: IntoUrl>(&self, url: U) -> RequestBuilder {
++        self.request(Method::PATCH, url)
++    }
++
++    pub fn delete<U: IntoUrl>(&self, url: U) -> RequestBuilder {
++        self.request(Method::DELETE, url)
++    }
++
++    pub fn head<U: IntoUrl>(&self, url: U) -> RequestBuilder {
++        self.request(Method::HEAD, url)
++    }
++
++    pub fn request<U: IntoUrl>(&self, method: Method, url: U) -> RequestBuilder {
++        self.inner.request(method, url)
++    }
++
++    pub fn execute(&self, request: Request) -> reqwest::Result<Response> {
++        let mut i: i32 = 0;
++
++        loop {
++            let duplicate_request = request.try_clone().unwrap();
++            let result = self.inner.execute(duplicate_request);
++
++            match &result {
++                Ok(res) => match res.status().as_u16() {
++                    429 | 409 | 500..600 => {}
++                    _ => return result,
++                },
++                Err(_) => {}
++            }
++
++            if i == self.max_retries {
++                return result;
++            }
++
++            let backoff = self.retry_backoff_factor * 2_f32.powi(i);
++            std::thread::sleep(std::time::Duration::from_secs_f32(backoff));
++            i += 1;
++        }
++    }
++}
+diff --git a/src/apis/mod.rs b/src/apis/mod.rs
+index d2683a4..b0c086d 100644
+--- a/src/apis/mod.rs
++++ b/src/apis/mod.rs
+@@ -118,3 +118,4 @@ pub mod vpn_connection_api;
+ pub mod configuration;
+ 
+ pub mod configuration_file;
++pub mod middleware;
+-- 
+2.49.0
+
