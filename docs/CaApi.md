@@ -16,6 +16,8 @@ Method | HTTP request | Description
 > crate::models::CreateCaResponse create_ca(create_ca_request)
 
 
+Creates a Client Certificate Authority (CA).<br /><br /> For more information, see [About API Access Rules](https://docs.outscale.com/en/userguide/About-API-Access-Rules.html).
+
 ### Parameters
 
 
@@ -43,6 +45,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::DeleteCaResponse delete_ca(delete_ca_request)
 
+
+Deletes a specified Client Certificate Authority (CA).
 
 ### Parameters
 
@@ -72,6 +76,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadCasResponse read_cas(read_cas_request)
 
 
+Gets information about one or more of your Client Certificate Authorities (CAs).
+
 ### Parameters
 
 
@@ -99,6 +105,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateCaResponse update_ca(update_ca_request)
 
+
+Modifies the specified attribute of a Client Certificate Authority (CA).
 
 ### Parameters
 

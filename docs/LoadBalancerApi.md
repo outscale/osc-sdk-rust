@@ -24,6 +24,8 @@ Method | HTTP request | Description
 > crate::models::CreateLoadBalancerResponse create_load_balancer(create_load_balancer_request)
 
 
+Creates a load balancer.<br /> The load balancer is created with a unique Domain Name Service (DNS) name. It receives the incoming traffic and routes it to its registered virtual machines (VMs).<br /> By default, this action creates an Internet-facing load balancer, resolving to public IPs. To create an internal load balancer in a Net, resolving to private IPs, use the `LoadBalancerType` parameter.<br /> You must specify either the `Subnets` or the `SubregionNames` parameters.<br /><br /> For more information, see [About Load Balancers](https://docs.outscale.com/en/userguide/About-Load-Balancers.html).
+
 ### Parameters
 
 
@@ -51,6 +53,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::CreateLoadBalancerTagsResponse create_load_balancer_tags(create_load_balancer_tags_request)
 
+
+Adds one or more tags to the specified load balancers.<br /> If a tag with the same key already exists for the load balancer, the tag value is replaced.<br /><br /> For more information, see [About Tags](https://docs.outscale.com/en/userguide/About-Tags.html).
 
 ### Parameters
 
@@ -80,6 +84,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeleteLoadBalancerResponse delete_load_balancer(delete_load_balancer_request)
 
 
+Deletes a specified load balancer.
+
 ### Parameters
 
 
@@ -107,6 +113,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::DeleteLoadBalancerTagsResponse delete_load_balancer_tags(delete_load_balancer_tags_request)
 
+
+Deletes one or more tags from the specified load balancers.
 
 ### Parameters
 
@@ -136,6 +144,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeregisterVmsInLoadBalancerResponse deregister_vms_in_load_balancer(deregister_vms_in_load_balancer_request)
 
 
+> [WARNING]<br /> > Deprecated: This call is deprecated and will be removed.<br />  Deregisters a specified virtual machine (VM) from a load balancer.
+
 ### Parameters
 
 
@@ -163,6 +173,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::LinkLoadBalancerBackendMachinesResponse link_load_balancer_backend_machines(link_load_balancer_backend_machines_request)
 
+
+Attaches one or more virtual machines (VMs) to a specified load balancer. You need to specify at least the `BackendIps` or the `BackendVmIds` parameter.<br /> The VMs can be in different Subnets and different Subregions than the load balancer, as long as the VMs and load balancers are all in the public Cloud or all in the same Net. It may take a little time for a VM to be registered with the load balancer. Once the VM is registered with a load balancer, it receives traffic and requests from this load balancer and is called a backend VM.
 
 ### Parameters
 
@@ -192,6 +204,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadLoadBalancerTagsResponse read_load_balancer_tags(read_load_balancer_tags_request)
 
 
+Lists the tags associated with one or more specified load balancers.
+
 ### Parameters
 
 
@@ -219,6 +233,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::ReadLoadBalancersResponse read_load_balancers(read_load_balancers_request)
 
+
+Lists one or more load balancers and their attributes.
 
 ### Parameters
 
@@ -248,6 +264,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadVmsHealthResponse read_vms_health(read_vms_health_request)
 
 
+Lists the state of one or more backend virtual machines (VMs) registered with a specified load balancer.
+
 ### Parameters
 
 
@@ -275,6 +293,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::RegisterVmsInLoadBalancerResponse register_vms_in_load_balancer(register_vms_in_load_balancer_request)
 
+
+> [WARNING]<br /> > Deprecated: This call is deprecated and will be removed.<br />  Registers one or more virtual machines (VMs) with a specified load balancer.<br /> The VMs can be in different Subnets and different Subregions than the load balancer, as long as the VMs and load balancers are all in the public Cloud or all in the same Net. It may take a little time for a VM to be registered with the load balancer. Once the VM is registered with a load balancer, it receives traffic and requests from this load balancer and is called a backend VM.
 
 ### Parameters
 
@@ -304,6 +324,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::UnlinkLoadBalancerBackendMachinesResponse unlink_load_balancer_backend_machines(unlink_load_balancer_backend_machines_request)
 
 
+Detaches one or more backend virtual machines (VMs) from a load balancer. You need to specify at least the `BackendIps` or the `BackendVmIds` parameter.
+
 ### Parameters
 
 
@@ -331,6 +353,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateLoadBalancerResponse update_load_balancer(update_load_balancer_request)
 
+
+Modifies the specified attribute of a load balancer. You can specify only one attribute at a time.<br /><br />  You can set a new SSL certificate to an SSL or HTTPS listener of a load balancer.<br /> This certificate replaces any certificate used on the same load balancer and port.<br /><br />  You can also replace the currently enabled policy for the load balancer with another one.<br /> If the `PolicyNames` parameter is empty, the currently enabled policy is disabled.
 
 ### Parameters
 

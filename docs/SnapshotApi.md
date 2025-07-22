@@ -18,6 +18,8 @@ Method | HTTP request | Description
 > crate::models::CreateSnapshotResponse create_snapshot(create_snapshot_request)
 
 
+Creates a snapshot. Snapshots are point-in-time images of a volume that you can use to back up your data or to create replicas of this volume.<br /> You can use this method in three different ways: * **Creating from a volume**: You create a snapshot from one of your volumes.<br /> * **Copying a snapshot**: You copy an existing snapshot. The source snapshot can be one of your own snapshots, or a snapshot owned by another account that has granted you permission via the [UpdateSnapshot](#updatesnapshot) method.<br /> * **Importing from a bucket**: You import a snapshot located in an OUTSCALE Object Storage (OOS) bucket. First, the owner of the source snapshot must export it to a bucket by using the [CreateSnapshotExportTask](#createsnapshotexporttask) method. Then, they must grant you permission to read the snapshot via a pre-signed URL. For more information, see [Creating a Pre-Signed URL](https://docs.outscale.com/en/userguide/Creating-a-Pre-Signed-URL.html).  **[NOTE]**<br /> In case of excessive use of the snapshot creation feature on the same volume over a short period of time, 3DS OUTSCALE reserves the right to temporarily block the feature.  For more information, see [About Snapshots](https://docs.outscale.com/en/userguide/About-Snapshots.html).
+
 ### Parameters
 
 
@@ -45,6 +47,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::CreateSnapshotExportTaskResponse create_snapshot_export_task(create_snapshot_export_task_request)
 
+
+Exports a snapshot to an OUTSCALE Object Storage (OOS) bucket that belongs to you. This action enables you to create a backup of your snapshot.<br /><br /> You can share this snapshot with others accounts by granting permission to read it via pre-signed URLs. For more information, see [Creating a Pre-Signed URL](https://docs.outscale.com/en/userguide/Creating-a-Pre-Signed-URL.html).<br /><br /> For more information, see [About Snapshots](https://docs.outscale.com/en/userguide/About-Snapshots.html).
 
 ### Parameters
 
@@ -74,6 +78,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeleteSnapshotResponse delete_snapshot(delete_snapshot_request)
 
 
+Deletes a specified snapshot.<br /> You cannot delete a snapshot that is currently used by an OUTSCALE machine image (OMI). To do so, you first need to delete the corresponding OMI. For more information, see the [DeleteImage](#deleteimage) method.
+
 ### Parameters
 
 
@@ -101,6 +107,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::ReadSnapshotExportTasksResponse read_snapshot_export_tasks(read_snapshot_export_tasks_request)
 
+
+Lists one or more snapshot export tasks.
 
 ### Parameters
 
@@ -130,6 +138,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadSnapshotsResponse read_snapshots(read_snapshots_request)
 
 
+Lists one or more snapshots that are available to you and the permissions to create volumes from them.
+
 ### Parameters
 
 
@@ -157,6 +167,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateSnapshotResponse update_snapshot(update_snapshot_request)
 
+
+Modifies the permissions for a specified snapshot.<br /> You must specify either the `Additions` or the `Removals` parameter.<br /> After sharing a snapshot with an account, the other account can create a copy of it that they own. For more information about copying snapshots, see [CreateSnapshot](#createsnapshot).
 
 ### Parameters
 

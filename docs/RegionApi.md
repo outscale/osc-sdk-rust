@@ -13,6 +13,8 @@ Method | HTTP request | Description
 > crate::models::ReadRegionsResponse read_regions(read_regions_request)
 
 
+Lists one or more Regions of the OUTSCALE Cloud.<br /><br /> For more information, see [About Regions and Subregions](https://docs.outscale.com/en/userguide/About-Regions-and-Subregions.html).
+
 ### Parameters
 
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **linked_volumes** | Option<[**Vec<crate::models::LinkedVolume>**](LinkedVolume.md)> | Information about your volume attachment. | [optional]
 **size** | Option<**i32**> | The size of the volume, in gibibytes (GiB). | [optional]
 **snapshot_id** | Option<**String**> | The snapshot from which the volume was created. | [optional]
-**state** | Option<**String**> | The state of the volume (`creating` \\| `available` \\| `in-use` \\| `updating` \\| `deleting` \\| `error`). | [optional]
+**state** | Option<**String**> | The state of the volume (`creating` \\| `available` \\| `in-use` \\| `deleting` \\| `error`). | [optional]
 **subregion_name** | Option<**String**> | The Subregion in which the volume was created. | [optional]
 **tags** | Option<[**Vec<crate::models::ResourceTag>**](ResourceTag.md)> | One or more tags associated with the volume. | [optional]
 **volume_id** | Option<**String**> | The ID of the volume. | [optional]

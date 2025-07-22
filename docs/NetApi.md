@@ -16,6 +16,8 @@ Method | HTTP request | Description
 > crate::models::CreateNetResponse create_net(create_net_request)
 
 
+Creates a Net with a specified IP range.<br /> The IP range (network range) of your Net must be between a /28 netmask (16 IPs) and a /16 netmask (65536 IPs).<br /><br /> For more information, see [About Nets](https://docs.outscale.com/en/userguide/About-Nets.html).
+
 ### Parameters
 
 
@@ -43,6 +45,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::DeleteNetResponse delete_net(delete_net_request)
 
+
+Deletes a specified Net.<br /> Before deleting the Net, you need to delete or detach all the resources associated with the Net:<br /><br />  * Virtual machines (VMs)<br /> * Net peerings<br /> * Custom route tables<br /> * Public IPs allocated to resources in the Net<br /> * Network Interface Cards (NICs) created in the Subnets<br /> * Virtual gateways, internet services and NAT services<br /> * Load balancers<br /> * Security groups<br /> * Subnets
 
 ### Parameters
 
@@ -72,6 +76,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadNetsResponse read_nets(read_nets_request)
 
 
+Lists one or more Nets.
+
 ### Parameters
 
 
@@ -99,6 +105,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateNetResponse update_net(update_net_request)
 
+
+Associates a DHCP options set with a specified Net.
 
 ### Parameters
 

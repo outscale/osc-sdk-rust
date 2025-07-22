@@ -78,6 +78,7 @@ pub mod dhcp_option_api;
 pub mod direct_link_api;
 pub mod direct_link_interface_api;
 pub mod flexible_gpu_api;
+pub mod identity_provider_api;
 pub mod image_api;
 pub mod internet_service_api;
 pub mod keypair_api;

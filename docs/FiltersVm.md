@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **block_device_mapping_link_dates** | Option<[**Vec<String>**](string.md)> | The link dates for the BSU volumes mapped to the VMs (for example, `2016-01-23T18:45:30.000Z`). | [optional]
 **block_device_mapping_states** | Option<**Vec<String>**> | The states for the BSU volumes (`attaching` \\| `attached` \\| `detaching` \\| `detached`). | [optional]
 **block_device_mapping_volume_ids** | Option<**Vec<String>**> | The volume IDs of the BSU volumes. | [optional]
-**boot_modes** | Option<[**Vec<crate::models::BootMode>**](BootMode.md)> | The boot modes of the VMs (`legacy` \\| `uefi`). | [optional]
+**boot_modes** | Option<[**Vec<crate::models::BootMode>**](BootMode.md)> | The boot modes of the VMs. | [optional]
 **client_tokens** | Option<**Vec<String>**> | The idempotency tokens provided when launching the VMs. | [optional]
 **creation_dates** | Option<[**Vec<String>**](string.md)> | The dates when the VMs were launched. | [optional]
 **image_ids** | Option<**Vec<String>**> | The IDs of the OMIs used to launch the VMs. | [optional]

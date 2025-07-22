@@ -18,6 +18,8 @@ Method | HTTP request | Description
 > crate::models::CreateVirtualGatewayResponse create_virtual_gateway(create_virtual_gateway_request)
 
 
+Creates a virtual gateway.<br /> A virtual gateway is the access point on the Net side of a VPN connection.<br /><br /> For more information, see [About Virtual Gateways](https://docs.outscale.com/en/userguide/About-Virtual-Gateways.html).
+
 ### Parameters
 
 
@@ -45,6 +47,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::DeleteVirtualGatewayResponse delete_virtual_gateway(delete_virtual_gateway_request)
 
+
+Deletes a specified virtual gateway.<br /> Before deleting a virtual gateway, we recommend to detach it from the Net and delete the VPN connection.
 
 ### Parameters
 
@@ -74,6 +78,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::LinkVirtualGatewayResponse link_virtual_gateway(link_virtual_gateway_request)
 
 
+Attaches a virtual gateway to a Net.  **[IMPORTANT]**<br /> This action can be done only if the virtual gateway is in the `available` state.
+
 ### Parameters
 
 
@@ -101,6 +107,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::ReadVirtualGatewaysResponse read_virtual_gateways(read_virtual_gateways_request)
 
+
+Lists one or more virtual gateways.
 
 ### Parameters
 
@@ -130,6 +138,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::UnlinkVirtualGatewayResponse unlink_virtual_gateway(unlink_virtual_gateway_request)
 
 
+Detaches a virtual gateway from a Net.<br /> You must wait until the virtual gateway is in the detached state before you can attach another Net to it or delete the Net it was previously attached to.
+
 ### Parameters
 
 
@@ -157,6 +167,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateRoutePropagationResponse update_route_propagation(update_route_propagation_request)
 
+
+Configures the propagation of routes to a specified route table of a Net by a virtual gateway.
 
 ### Parameters
 

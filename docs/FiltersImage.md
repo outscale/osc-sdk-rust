@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **block_device_mapping_snapshot_ids** | Option<**Vec<String>**> | The IDs of the snapshots used to create the volumes. | [optional]
 **block_device_mapping_volume_sizes** | Option<**Vec<i32>**> | The sizes of the volumes, in gibibytes (GiB). | [optional]
 **block_device_mapping_volume_types** | Option<**Vec<String>**> | The types of volumes (`standard` \\| `gp2` \\| `io1`). | [optional]
-**boot_modes** | Option<[**Vec<crate::models::BootMode>**](BootMode.md)> | The boot modes compatible with the OMIs (`legacy` and/or `uefi`). | [optional]
+**boot_modes** | Option<[**Vec<crate::models::BootMode>**](BootMode.md)> | The boot modes compatible with the OMIs. | [optional]
 **descriptions** | Option<**Vec<String>**> | The descriptions of the OMIs, provided when they were created. | [optional]
 **file_locations** | Option<**Vec<String>**> | The locations of the buckets where the OMI files are stored. | [optional]
 **hypervisors** | Option<**Vec<String>**> | The hypervisor type of the OMI (always `xen`). | [optional]

@@ -17,6 +17,8 @@ Method | HTTP request | Description
 > crate::models::AcceptNetPeeringResponse accept_net_peering(accept_net_peering_request)
 
 
+Accepts a Net peering request.<br /> To accept this request, you must be the owner of the peer Net. If you do not accept the request within 7 days, the state of the Net peering becomes `expired`.<br /><br />  **[NOTE]**<br /> A peering connection between two Nets works both ways. Therefore, when an A-to-B peering connection is accepted, any pending B-to-A peering connection is automatically rejected as redundant.
+
 ### Parameters
 
 
@@ -44,6 +46,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::CreateNetPeeringResponse create_net_peering(create_net_peering_request)
 
+
+Requests a Net peering between a Net you own and a peer Net that belongs to you or another account.<br /> This action creates a Net peering that remains in the `pending-acceptance` state until it is accepted by the owner of the peer Net. If the owner of the peer Net does not accept the request within 7 days, the state of the Net peering becomes `expired`. For more information, see [AcceptNetPeering](#acceptnetpeering).<br /><br />  **[IMPORTANT]**<br /> * Peered Nets must contain at least one virtual machine (VM) each before the creation of the Net peering.<br /> * The two Nets must not have overlapping IP ranges. Otherwise, the Net peering is in the `failed` state.<br /> * A peering connection between two Nets works both ways. If an A-to-B connection is already created and accepted, creating a B-to-A connection is not necessary and would be automatically rejected.  For more information, see [About Net Peerings](https://docs.outscale.com/en/userguide/About-Net-Peerings.html).
 
 ### Parameters
 
@@ -73,6 +77,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeleteNetPeeringResponse delete_net_peering(delete_net_peering_request)
 
 
+Deletes a Net peering.<br /> If the Net peering is in the `active` state, it can be deleted either by the owner of the requester Net or the owner of the peer Net.<br /> If it is in the `pending-acceptance` state, it can be deleted only by the owner of the requester Net.<br /> If it is in the `rejected`, `failed`, or `expired` states, it cannot be deleted.
+
 ### Parameters
 
 
@@ -101,6 +107,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadNetPeeringsResponse read_net_peerings(read_net_peerings_request)
 
 
+Lists one or more peering connections between two Nets.
+
 ### Parameters
 
 
@@ -128,6 +136,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::RejectNetPeeringResponse reject_net_peering(reject_net_peering_request)
 
+
+Rejects a Net peering request.<br /> The Net peering must be in the `pending-acceptance` state to be rejected. The rejected Net peering is then in the `rejected` state.
 
 ### Parameters
 

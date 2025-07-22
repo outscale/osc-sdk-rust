@@ -13,6 +13,8 @@ Method | HTTP request | Description
 > crate::models::ReadPublicCatalogResponse read_public_catalog(read_public_catalog_request)
 
 
+Returns the price list of OUTSCALE products and services for the Region specified in the endpoint of the request. For more information, see [About Regions and Subregions](https://docs.outscale.com/en/userguide/About-Regions-and-Subregions.html).
+
 ### Parameters
 
 

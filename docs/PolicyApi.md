@@ -36,6 +36,8 @@ Method | HTTP request | Description
 > crate::models::CreatePolicyResponse create_policy(create_policy_request)
 
 
+Creates a managed policy to apply to a user.<br /> This action creates a policy version and sets v1 as the default one.
+
 ### Parameters
 
 
@@ -63,6 +65,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::CreatePolicyVersionResponse create_policy_version(create_policy_version_request)
 
+
+Creates a version of a specified managed policy.<br /> A managed policy can have up to five versions.
 
 ### Parameters
 
@@ -92,6 +96,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeletePolicyResponse delete_policy(delete_policy_request)
 
 
+Deletes a managed policy.<br /> Before deleting a managed policy, you must unlink all users linked to it and delete all the versions of the policy, except the default one, using the `DeletePolicyVersion` method.
+
 ### Parameters
 
 
@@ -119,6 +125,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::DeletePolicyVersionResponse delete_policy_version(delete_policy_version_request)
 
+
+Deletes a specified version of a managed policy, if it is not set as the default one.
 
 ### Parameters
 
@@ -148,6 +156,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeleteUserGroupPolicyResponse delete_user_group_policy(delete_user_group_policy_request)
 
 
+Deletes a specified inline policy from a specific group.
+
 ### Parameters
 
 
@@ -175,6 +185,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::DeleteUserPolicyResponse delete_user_policy(delete_user_policy_request)
 
+
+Deletes a specified inline policy from a specific user.
 
 ### Parameters
 
@@ -204,6 +216,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::LinkManagedPolicyToUserGroupResponse link_managed_policy_to_user_group(link_managed_policy_to_user_group_request)
 
 
+Links a managed policy to a specific group. This policy applies to all the users contained in this group.
+
 ### Parameters
 
 
@@ -231,6 +245,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::LinkPolicyResponse link_policy(link_policy_request)
 
+
+Links a managed policy to a specific user.
 
 ### Parameters
 
@@ -260,6 +276,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::PutUserGroupPolicyResponse put_user_group_policy(put_user_group_policy_request)
 
 
+Creates or updates an inline policy included in a specified group.<br /> The policy is automatically applied to all the users of the group after its creation.
+
 ### Parameters
 
 
@@ -287,6 +305,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::PutUserPolicyResponse put_user_policy(put_user_policy_request)
 
+
+Creates or updates an inline policy included in a specified user.<br /> The policy is automatically applied to the user after its creation.
 
 ### Parameters
 
@@ -316,6 +336,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadEntitiesLinkedToPolicyResponse read_entities_linked_to_policy(read_entities_linked_to_policy_request)
 
 
+Lists all entities (account, users, or user groups) linked to a specific managed policy.
+
 ### Parameters
 
 
@@ -343,6 +365,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::ReadLinkedPoliciesResponse read_linked_policies(read_linked_policies_request)
 
+
+Lists the managed policies linked to a specified user.
 
 ### Parameters
 
@@ -372,6 +396,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadManagedPoliciesLinkedToUserGroupResponse read_managed_policies_linked_to_user_group(read_managed_policies_linked_to_user_group_request)
 
 
+Lists the managed policies linked to a specified group.
+
 ### Parameters
 
 
@@ -399,6 +425,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::ReadPoliciesResponse read_policies(read_policies_request)
 
+
+Lists all the managed policies available for your account.
 
 ### Parameters
 
@@ -428,6 +456,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadPolicyResponse read_policy(read_policy_request)
 
 
+Lists information about a specified managed policy.
+
 ### Parameters
 
 
@@ -455,6 +485,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::ReadPolicyVersionResponse read_policy_version(read_policy_version_request)
 
+
+Lists information about a specified version of a managed policy.
 
 ### Parameters
 
@@ -484,6 +516,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadPolicyVersionsResponse read_policy_versions(read_policy_versions_request)
 
 
+Lists information about all the policy versions of a specified managed policy.
+
 ### Parameters
 
 
@@ -511,6 +545,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::ReadUserGroupPoliciesResponse read_user_group_policies(read_user_group_policies_request)
 
+
+Lists the names of the inline policies embedded in a specific group.
 
 ### Parameters
 
@@ -540,6 +576,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadUserGroupPolicyResponse read_user_group_policy(read_user_group_policy_request)
 
 
+Returns information about an inline policy included in a specified group.
+
 ### Parameters
 
 
@@ -567,6 +605,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::ReadUserPoliciesResponse read_user_policies(read_user_policies_request)
 
+
+Lists the names of inline policies included in a specified user.
 
 ### Parameters
 
@@ -596,6 +636,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadUserPolicyResponse read_user_policy(read_user_policy_request)
 
 
+Returns information about an inline policy included in a specified user.
+
 ### Parameters
 
 
@@ -623,6 +665,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::SetDefaultPolicyVersionResponse set_default_policy_version(set_default_policy_version_request)
 
+
+Sets a specified version of a managed policy as the default (operative) one.<br /> You can modify the default version of a policy at any time.
 
 ### Parameters
 
@@ -652,6 +696,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::UnlinkManagedPolicyFromUserGroupResponse unlink_managed_policy_from_user_group(unlink_managed_policy_from_user_group_request)
 
 
+Unlinks a managed policy from a specific group.
+
 ### Parameters
 
 
@@ -679,6 +725,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UnlinkPolicyResponse unlink_policy(unlink_policy_request)
 
+
+Removes a managed policy from a specific user.
 
 ### Parameters
 

@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **net_id** | Option<**String**> | The ID of the Net in which the VM is running. | [optional]
 **nics** | Option<[**Vec<crate::models::NicLight>**](NicLight.md)> | (Net only) The network interface cards (NICs) the VMs are attached to. | [optional]
 **os_family** | Option<**String**> | Indicates the operating system (OS) of the VM. | [optional]
-**performance** | Option<**String**> | The performance of the VM (`medium` \\| `high` \\|  `highest`). | [optional]
+**performance** | Option<**String**> | The performance of the VM. | [optional]
 **placement** | Option<[**crate::models::Placement**](Placement.md)> |  | [optional]
 **private_dns_name** | Option<**String**> | The name of the private DNS. | [optional]
 **private_ip** | Option<**String**> | The primary private IP of the VM. | [optional]

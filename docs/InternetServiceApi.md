@@ -17,6 +17,8 @@ Method | HTTP request | Description
 > crate::models::CreateInternetServiceResponse create_internet_service(create_internet_service_request)
 
 
+Creates an internet service you can use with a Net.<br /> An internet service enables virtual machines (VMs) launched in a Net to connect to the Internet. It allows routing of incoming and outgoing Internet traffic and management of public IP addresses.<br /><br /> For more information, see [About Internet Services](https://docs.outscale.com/en/userguide/About-Internet-Services.html).
+
 ### Parameters
 
 
@@ -44,6 +46,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::DeleteInternetServiceResponse delete_internet_service(delete_internet_service_request)
 
+
+Deletes an internet service.<br /> Before deleting an internet service, you must detach it from any Net it is attached to.
 
 ### Parameters
 
@@ -73,6 +77,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::LinkInternetServiceResponse link_internet_service(link_internet_service_request)
 
 
+Attaches an internet service to a Net.<br /> To enable the connection between the Internet and a Net, you must attach an internet service to this Net.
+
 ### Parameters
 
 
@@ -101,6 +107,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadInternetServicesResponse read_internet_services(read_internet_services_request)
 
 
+Lists one or more of your internet services.<br /> An internet service enables virtual machines (VMs) launched in a Net to connect to the Internet. It allows routing of incoming and outgoing Internet traffic and management of public IP addresses.
+
 ### Parameters
 
 
@@ -128,6 +136,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UnlinkInternetServiceResponse unlink_internet_service(unlink_internet_service_request)
 
+
+Detaches an internet service from a Net.<br /> This action disables and detaches an internet service from a Net. The Net must not contain virtual machines (VMs) using public IPs nor internet-facing load balancers.
 
 ### Parameters
 

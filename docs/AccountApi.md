@@ -17,6 +17,8 @@ Method | HTTP request | Description
 > crate::models::CheckAuthenticationResponse check_authentication(check_authentication_request)
 
 
+Validates the authenticity of the account.
+
 ### Parameters
 
 
@@ -44,6 +46,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::CreateAccountResponse create_account(create_account_request)
 
+
+Creates an OUTSCALE account.<br /><br />  **[IMPORTANT]**<br /> * You need OUTSCALE credentials and the appropriate quotas to create an account via API. To get quotas, you can send an email to sales@outscale.com.<br /> * If you want to pass a numeral value as a string instead of an integer, you must wrap your string in additional quotes (for example, `'&quot;92000&quot;'`).  For more information, see [About Your Account](https://docs.outscale.com/en/userguide/About-Your-Account.html).
 
 ### Parameters
 
@@ -73,6 +77,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadAccountsResponse read_accounts(read_accounts_request)
 
 
+Gets information about the account that sent the request.
+
 ### Parameters
 
 
@@ -101,6 +107,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadConsumptionAccountResponse read_consumption_account(read_consumption_account_request)
 
 
+Gets information about the consumption of your account for each billable resource within the specified time period.
+
 ### Parameters
 
 
@@ -128,6 +136,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateAccountResponse update_account(update_account_request)
 
+
+Updates the account information for the account that sends the request.
 
 ### Parameters
 

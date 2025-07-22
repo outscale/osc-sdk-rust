@@ -16,6 +16,8 @@ Method | HTTP request | Description
 > crate::models::CreateDedicatedGroupResponse create_dedicated_group(create_dedicated_group_request)
 
 
+> [WARNING]<br /> > This feature is currently in beta.<br />  Creates a dedicated group for virtual machines (VMs).<br /><br /> For more information, see [About Dedicated Groups](https://docs.outscale.com/en/userguide/About-Dedicated-Groups.html).
+
 ### Parameters
 
 
@@ -43,6 +45,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::DeleteDedicatedGroupResponse delete_dedicated_group(delete_dedicated_group_request)
 
+
+> [WARNING]<br /> > This feature is currently in beta.<br />  Deletes a specified dedicated group of virtual machines (VMs).<br />  **[WARNING]**<br /> A dedicated group can be deleted only if no VM or Net is in the dedicated group. Otherwise, you need to force the deletion.<br /> If you force the deletion:<br /> - all VMs are terminated.<br /> - all Nets are deleted, and all resources associated with Nets are detached.
 
 ### Parameters
 
@@ -72,6 +76,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadDedicatedGroupsResponse read_dedicated_groups(read_dedicated_groups_request)
 
 
+> [WARNING]<br /> > This feature is currently in beta.<br />  List one or more dedicated groups of virtual machines (VMs).
+
 ### Parameters
 
 
@@ -99,6 +105,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateDedicatedGroupResponse update_dedicated_group(update_dedicated_group_request)
 
+
+> [WARNING]<br /> > This feature is currently in beta.<br />  Modifies the name of a specified dedicated group.<br />
 
 ### Parameters
 

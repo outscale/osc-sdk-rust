@@ -20,6 +20,8 @@ Method | HTTP request | Description
 > crate::models::AddUserToUserGroupResponse add_user_to_user_group(add_user_to_user_group_request)
 
 
+Adds a user to a specified group.
+
 ### Parameters
 
 
@@ -47,6 +49,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::CreateUserGroupResponse create_user_group(create_user_group_request)
 
+
+Creates a group to which you can add users.<br /> You can also add an inline policy or link a managed policy to the group, which is applied to all its users.
 
 ### Parameters
 
@@ -76,6 +80,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeleteUserGroupResponse delete_user_group(delete_user_group_request)
 
 
+Deletes a specified user group.<br />  **[WARNING]**<br /> The user group must be empty of any user and must not have any linked policy. Otherwise, you need to force the deletion.<br /> If you force the deletion, all inline policies will be deleted with the user group.<br />
+
 ### Parameters
 
 
@@ -103,6 +109,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::ReadUserGroupResponse read_user_group(read_user_group_request)
 
+
+Lists information about a specified user group, including its users.
 
 ### Parameters
 
@@ -132,6 +140,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadUserGroupsResponse read_user_groups(read_user_groups_request)
 
 
+Lists all the user groups of the account.<br /> The response can be filtered using either the PathPrefix or the UserGroupIds.
+
 ### Parameters
 
 
@@ -159,6 +169,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::ReadUserGroupsPerUserResponse read_user_groups_per_user(read_user_groups_per_user_request)
 
+
+Lists the groups a specified user belongs to.
 
 ### Parameters
 
@@ -188,6 +200,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::RemoveUserFromUserGroupResponse remove_user_from_user_group(remove_user_from_user_group_request)
 
 
+Removes a specified user from a specified group.
+
 ### Parameters
 
 
@@ -215,6 +229,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateUserGroupResponse update_user_group(update_user_group_request)
 
+
+Modifies the name and/or the path of a specified group.
 
 ### Parameters
 

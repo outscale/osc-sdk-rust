@@ -15,6 +15,8 @@ Method | HTTP request | Description
 > crate::models::ReadCatalogResponse read_catalog(read_catalog_request)
 
 
+Returns the price list of OUTSCALE services for the current Region.
+
 ### Parameters
 
 
@@ -43,6 +45,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadCatalogsResponse read_catalogs(read_catalogs_request)
 
 
+Returns the price list of OUTSCALE services for the current Region within a specific time period.
+
 ### Parameters
 
 
@@ -70,6 +74,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::ReadUnitPriceResponse read_unit_price(read_unit_price_request)
 
+
+Gets unit price information for the specified parameters.
 
 ### Parameters
 

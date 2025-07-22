@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **account_id** | Option<**String**> | The account ID of the owner of the OMI. | [optional]
 **architecture** | Option<**String**> | The architecture of the OMI. | [optional]
 **block_device_mappings** | Option<[**Vec<crate::models::BlockDeviceMappingImage>**](BlockDeviceMappingImage.md)> | One or more block device mappings. | [optional]
-**boot_modes** | Option<[**Vec<crate::models::BootMode>**](BootMode.md)> | The boot modes compatible with the OMI (`legacy` and/or `uefi`). | [optional]
+**boot_modes** | Option<[**Vec<crate::models::BootMode>**](BootMode.md)> | The boot modes compatible with the OMI. | [optional]
 **creation_date** | Option<[**String**](string.md)> | The date and time (UTC) at which the OMI was created. | [optional]
 **description** | Option<**String**> | The description of the OMI. | [optional]
 **file_location** | Option<**String**> | The location from which the OMI files were created. | [optional]

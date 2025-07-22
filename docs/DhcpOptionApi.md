@@ -15,6 +15,8 @@ Method | HTTP request | Description
 > crate::models::CreateDhcpOptionsResponse create_dhcp_options(create_dhcp_options_request)
 
 
+Creates a set of DHCP options, that you can then associate with a Net using the [UpdateNet](#updatenet) method.<br /><br /> For more information, see [About DHCP Options](https://docs.outscale.com/en/userguide/About-DHCP-Options.html).
+
 ### Parameters
 
 
@@ -43,6 +45,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeleteDhcpOptionsResponse delete_dhcp_options(delete_dhcp_options_request)
 
 
+Deletes a specified DHCP options set.<br /> Before deleting a DHCP options set, you must disassociate it from the Nets you associated it with. To do so, you need to associate with each Net a new set of DHCP options, or the `default` one if you do not want to associate any DHCP options with the Net.<br /><br />  **[IMPORTANT]**<br /> You cannot delete the `default` set.
+
 ### Parameters
 
 
@@ -70,6 +74,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::ReadDhcpOptionsResponse read_dhcp_options(read_dhcp_options_request)
 
+
+Gets information about the content of one or more DHCP options sets.
 
 ### Parameters
 

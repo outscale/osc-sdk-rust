@@ -16,6 +16,8 @@ Method | HTTP request | Description
 > crate::models::CreateAccessKeyResponse create_access_key(create_access_key_request)
 
 
+Creates an access key for either your root account or an EIM user. The new key is automatically set to `ACTIVE`.<br /><br /> For more information, see [About Access Keys](https://docs.outscale.com/en/userguide/About-Access-Keys.html).
+
 ### Parameters
 
 
@@ -43,6 +45,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::DeleteAccessKeyResponse delete_access_key(delete_access_key_request)
 
+
+Deletes the specified access key of either your root account or an EIM user.<br /><br /> The access key of an EIM user must be in the `INACTIVE` state to be deleted.
 
 ### Parameters
 
@@ -72,6 +76,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadAccessKeysResponse read_access_keys(read_access_keys_request)
 
 
+Lists the access key IDs of either your root account or an EIM user.
+
 ### Parameters
 
 
@@ -99,6 +105,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateAccessKeyResponse update_access_key(update_access_key_request)
 
+
+Modifies the attributes of the specified access key of either your root account or an EIM user.<br /><br /> The parameter `ExpirationDate` is not required when updating the state of your access key. However, if you do not specify the expiration date of an access key when updating its state, it is then set to not expire.
 
 ### Parameters
 

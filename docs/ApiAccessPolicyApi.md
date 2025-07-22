@@ -14,6 +14,8 @@ Method | HTTP request | Description
 > crate::models::ReadApiAccessPolicyResponse read_api_access_policy(read_api_access_policy_request)
 
 
+Gets information about the API access policy of your account.<br /><br /> For more information, see [About Your API Access Policy](https://docs.outscale.com/en/userguide/About-Your-API-Access-Policy.html).
+
 ### Parameters
 
 
@@ -41,6 +43,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateApiAccessPolicyResponse update_api_access_policy(update_api_access_policy_request)
 
+
+Updates the API access policy of your account.<br /><br />  **[IMPORTANT]**<br /> Only one API access policy can be associated with your account.
 
 ### Parameters
 
