@@ -17,6 +17,8 @@ Method | HTTP request | Description
 > crate::models::CreateNetAccessPointResponse create_net_access_point(create_net_access_point_request)
 
 
+Creates a Net access point to access an OUTSCALE service from this Net without using the Internet and public IPs.<br /> You specify the service using its name. For more information about the available services, see [ReadNetAccessPointServices](#readnetaccesspointservices).<br /> <br /> To control the routing of traffic between the Net and the specified service, you can specify one or more route tables. Virtual machines placed in Subnets associated with the specified route table thus use the Net access point to access the service. When you specify a route table, a route is automatically added to it with the destination set to the prefix list ID of the service, and the target set to the ID of the access point.<br /><br /> When a Net access point is created, a public IP is automatically allocated to your account and used for the Net access point. This public IP is not connected to the Internet. It is counted in your quota, but it is not billed.<br /> <br /> For more information, see [About Net Access Points](https://docs.outscale.com/en/userguide/About-Net-Access-Points.html).
+
 ### Parameters
 
 
@@ -44,6 +46,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::DeleteNetAccessPointResponse delete_net_access_point(delete_net_access_point_request)
 
+
+Deletes a specified Net access point.<br /> This action also deletes the corresponding routes added to the route tables you specified for the Net access point.
 
 ### Parameters
 
@@ -73,6 +77,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadNetAccessPointServicesResponse read_net_access_point_services(read_net_access_point_services_request)
 
 
+Lists OUTSCALE services available to create Net access points.<br /> For more information, see [CreateNetAccessPoint](#createnetaccesspoint).
+
 ### Parameters
 
 
@@ -101,6 +107,8 @@ No authorization required
 > crate::models::ReadNetAccessPointsResponse read_net_access_points(read_net_access_points_request)
 
 
+Lists one or more Net access points.
+
 ### Parameters
 
 
@@ -128,6 +136,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateNetAccessPointResponse update_net_access_point(update_net_access_point_request)
 
+
+Modifies the attributes of a Net access point.<br /> This action enables you to add or remove route tables associated with the specified Net access point.
 
 ### Parameters
 

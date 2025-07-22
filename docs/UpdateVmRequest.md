@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **is_source_dest_checked** | Option<**bool**> | (Net only) If true, the source/destination check is enabled. If false, it is disabled. | [optional]
 **keypair_name** | Option<**String**> | The name of a keypair you want to associate with the VM.<br /> When you replace the keypair of a VM with another one, the metadata of the VM is modified to reflect the new public key, but the replacement is still not effective in the operating system of the VM. To complete the replacement and effectively apply the new keypair, you need to perform other actions inside the VM. For more information, see [Modifying the Keypair of a VM](https://docs.outscale.com/en/userguide/Modifying-the-Keypair-of-a-VM.html). | [optional]
 **nested_virtualization** | Option<**bool**> | (dedicated tenancy only) If true, nested virtualization is enabled. If false, it is disabled. | [optional]
-**performance** | Option<**String**> | The performance of the VM (`medium` \\| `high` \\|  `highest`). | [optional]
+**performance** | Option<**String**> | The performance of the VM. | [optional]
 **security_group_ids** | Option<**Vec<String>**> | One or more IDs of security groups for the VM. | [optional]
 **user_data** | Option<**String**> | The Base64-encoded MIME user data, limited to 500 kibibytes (KiB). | [optional]
 **vm_id** | **String** | The ID of the VM. | 

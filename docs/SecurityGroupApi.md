@@ -15,6 +15,8 @@ Method | HTTP request | Description
 > crate::models::CreateSecurityGroupResponse create_security_group(create_security_group_request)
 
 
+Creates a security group.<br /> This action creates a security group either in the public Cloud or in a specified Net. By default, a default security group for use in the public Cloud and a default security group for use in a Net are created.<br /> When launching a virtual machine (VM), if no security group is explicitly specified, the appropriate default security group is assigned to the VM. Default security groups include a default rule granting VMs network access to each other.<br /> When creating a security group, you specify a name. Two security groups for use in the public Cloud or for use in a Net cannot have the same name.<br /> You can have up to 500 security groups in the public Cloud. You can create up to 500 security groups per Net.<br /> To add or remove rules, use the [CreateSecurityGroupRule](#createsecuritygrouprule) method.<br /><br /> For more information, see [About Security Groups](https://docs.outscale.com/en/userguide/About-Security-Groups.html).
+
 ### Parameters
 
 
@@ -43,6 +45,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeleteSecurityGroupResponse delete_security_group(delete_security_group_request)
 
 
+Deletes a specified security group.<br /> You can specify either the name of the security group or its ID.<br /> This action fails if the specified group is associated with a virtual machine (VM) or referenced by another security group.
+
 ### Parameters
 
 
@@ -70,6 +74,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::ReadSecurityGroupsResponse read_security_groups(read_security_groups_request)
 
+
+Lists one or more security groups.<br /> You can specify either the name of the security groups or their IDs.
 
 ### Parameters
 

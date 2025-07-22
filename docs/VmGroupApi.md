@@ -18,6 +18,8 @@ Method | HTTP request | Description
 > crate::models::CreateVmGroupResponse create_vm_group(create_vm_group_request)
 
 
+> [WARNING]<br /> > This feature is currently under development and may not function properly.<br />  Creates a group of virtual machines (VMs) containing the same characteristics as a specified VM template, and then launches them.<br /> You can create up to 100 VM groups in your account.
+
 ### Parameters
 
 
@@ -45,6 +47,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::DeleteVmGroupResponse delete_vm_group(delete_vm_group_request)
 
+
+> [WARNING]<br /> > This feature is currently under development and may not function properly.<br />  Deletes a specified VM group.
 
 ### Parameters
 
@@ -74,6 +78,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadVmGroupsResponse read_vm_groups(read_vm_groups_request)
 
 
+> [WARNING]<br /> > This feature is currently under development and may not function properly.<br />  Lists one or more group of virtual machines (VMs).
+
 ### Parameters
 
 
@@ -101,6 +107,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::ScaleDownVmGroupResponse scale_down_vm_group(scale_down_vm_group_request)
 
+
+> [WARNING]<br /> > This feature is currently under development and may not function properly.<br />  Deletes virtual machines (VMs) from a VM group.<br /> The oldest VMs are the first to be deleted.
 
 ### Parameters
 
@@ -130,6 +138,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ScaleUpVmGroupResponse scale_up_vm_group(scale_up_vm_group_request)
 
 
+> [WARNING]<br /> > This feature is currently under development and may not function properly.<br />  Creates additional virtual machines (VMs) in a VM group.<br /> The new VMs use the current version of the VM template.
+
 ### Parameters
 
 
@@ -157,6 +167,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateVmGroupResponse update_vm_group(update_vm_group_request)
 
+
+> [WARNING]<br /> > This feature is currently under development and may not function properly.<br />  Modifies the specified attributes of a group of virtual machines (VMs).
 
 ### Parameters
 

@@ -16,6 +16,8 @@ Method | HTTP request | Description
 > crate::models::CreateDirectLinkInterfaceResponse create_direct_link_interface(create_direct_link_interface_request)
 
 
+Creates a DirectLink interface.<br /> DirectLink interfaces enable you to reach one of your Nets through a virtual gateway.<br /><br /> For more information, see [About DirectLink](https://docs.outscale.com/en/userguide/About-DirectLink.html).
+
 ### Parameters
 
 
@@ -43,6 +45,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::DeleteDirectLinkInterfaceResponse delete_direct_link_interface(delete_direct_link_interface_request)
 
+
+Deletes a specified DirectLink interface.
 
 ### Parameters
 
@@ -72,6 +76,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadDirectLinkInterfacesResponse read_direct_link_interfaces(read_direct_link_interfaces_request)
 
 
+Lists one or more of your DirectLink interfaces.
+
 ### Parameters
 
 
@@ -99,6 +105,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateDirectLinkInterfaceResponse update_direct_link_interface(update_direct_link_interface_request)
 
+
+Modifies the maximum transmission unit (MTU) of a DirectLink interface.
 
 ### Parameters
 

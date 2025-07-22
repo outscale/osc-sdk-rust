@@ -16,6 +16,8 @@ Method | HTTP request | Description
 > crate::models::CreateUserResponse create_user(create_user_request)
 
 
+Creates an EIM user for your account.<br /><br /> For more information, see [About EIM Users](https://docs.outscale.com/en/userguide/About-EIM-Users.html).
+
 ### Parameters
 
 
@@ -43,6 +45,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::DeleteUserResponse delete_user(delete_user_request)
 
+
+Deletes a specified EIM user. The EIM user must not belong to any group, nor have any key or linked policy.
 
 ### Parameters
 
@@ -72,6 +76,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadUsersResponse read_users(read_users_request)
 
 
+Lists all EIM users in the account.<br /> The response can be filtered using the UserIds.
+
 ### Parameters
 
 
@@ -99,6 +105,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateUserResponse update_user(update_user_request)
 
+
+Modifies the name and/or the path of a specified EIM user.
 
 ### Parameters
 

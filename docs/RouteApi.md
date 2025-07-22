@@ -15,6 +15,8 @@ Method | HTTP request | Description
 > crate::models::CreateRouteResponse create_route(create_route_request)
 
 
+Creates a route in a specified route table within a specified Net.<br /> You must specify one of the following elements as the target:<br /><br />  * Net peering<br /> * NAT VM<br /> * Internet service<br /> * Virtual gateway<br /> * NAT service<br /> * Network interface card (NIC)<br /><br />  The routing algorithm is based on the most specific match.<br /><br /> For more information, see [About Route Tables](https://docs.outscale.com/en/userguide/About-Route-Tables.html).
+
 ### Parameters
 
 
@@ -43,6 +45,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeleteRouteResponse delete_route(delete_route_request)
 
 
+Deletes a route from a specified route table.
+
 ### Parameters
 
 
@@ -70,6 +74,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateRouteResponse update_route(update_route_request)
 
+
+Replaces an existing route within a route table in a Net.<br /> You must specify one of the following elements as the target:<br /><br />  * Net peering<br /> * NAT virtual machine (VM)<br /> * Internet service<br /> * Virtual gateway<br /> * NAT service<br /> * Network interface card (NIC)<br /><br />  The routing algorithm is based on the most specific match.
 
 ### Parameters
 

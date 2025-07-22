@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cpu_cores** | **i32** | The number of vCores to use for each VM. | 
 **cpu_generation** | **String** | The processor generation to use for each VM (for example, `v4`). | 
-**cpu_performance** | Option<**String**> | The performance of the VMs (`medium` \\| `high` \\|  `highest`). | [optional][default to CpuPerformance_High]
+**cpu_performance** | Option<**String**> | The performance of the VMs. | [optional][default to CpuPerformance_High]
 **description** | Option<**String**> | A description for the VM template. | [optional]
 **dry_run** | Option<**bool**> | If true, checks whether you have the required permissions to perform the action. | [optional]
 **image_id** | **String** | The ID of the OMI to use for each VM. You can find a list of OMIs by calling the [ReadImages](#readimages) method. | 

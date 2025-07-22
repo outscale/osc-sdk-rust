@@ -16,6 +16,8 @@ Method | HTTP request | Description
 > crate::models::CreateVmTemplateResponse create_vm_template(create_vm_template_request)
 
 
+> [WARNING]<br /> > This feature is currently under development and may not function properly.<br />  Creates a virtual machine (VM) template. You can then use the VM template to create VM groups.<br /> You can create up to 50 VM templates in your account.
+
 ### Parameters
 
 
@@ -43,6 +45,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::DeleteVmTemplateResponse delete_vm_template(delete_vm_template_request)
 
+
+> [WARNING]<br /> > This feature is currently under development and may not function properly.<br />  Deletes a virtual machine (VM) template.<br /> You cannot delete a template currently used by a VM group.
 
 ### Parameters
 
@@ -72,6 +76,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadVmTemplatesResponse read_vm_templates(read_vm_templates_request)
 
 
+> [WARNING]<br /> > This feature is currently under development and may not function properly.<br />  Lists one or more virtual machine (VM) templates.
+
 ### Parameters
 
 
@@ -99,6 +105,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateVmTemplateResponse update_vm_template(update_vm_template_request)
 
+
+> [WARNING]<br /> > This feature is currently under development and may not function properly.<br />  Modifies the specified attributes of a template of virtual machines (VMs).
 
 ### Parameters
 

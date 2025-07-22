@@ -18,6 +18,8 @@ Method | HTTP request | Description
 > crate::models::CreateListenerRuleResponse create_listener_rule(create_listener_rule_request)
 
 
+Creates a rule for traffic redirection for the specified listener. Each rule must have either the `HostNamePattern` or `PathPattern` parameter specified. Rules are treated in priority order, from the highest value to the lowest value.<br /> Once the rule is created, you need to register backend VMs with it. For more information, see the [RegisterVmsInLoadBalancer](#registervmsinloadbalancer) method.<br /><br /> For more information, see [About Load Balancers](https://docs.outscale.com/en/userguide/About-Load-Balancers.html).
+
 ### Parameters
 
 
@@ -45,6 +47,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::CreateLoadBalancerListenersResponse create_load_balancer_listeners(create_load_balancer_listeners_request)
 
+
+Creates one or more listeners for a specified load balancer.<br /><br /> For more information, see [About Load Balancers](https://docs.outscale.com/en/userguide/About-Load-Balancers.html).
 
 ### Parameters
 
@@ -74,6 +78,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeleteListenerRuleResponse delete_listener_rule(delete_listener_rule_request)
 
 
+Deletes a listener rule.<br /> The previously active rule is disabled after deletion.
+
 ### Parameters
 
 
@@ -101,6 +107,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::DeleteLoadBalancerListenersResponse delete_load_balancer_listeners(delete_load_balancer_listeners_request)
 
+
+Deletes listeners of a specified load balancer.
 
 ### Parameters
 
@@ -130,6 +138,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadListenerRulesResponse read_listener_rules(read_listener_rules_request)
 
 
+Lists one or more listener rules. By default, this action returns the full list of listener rules for the account.
+
 ### Parameters
 
 
@@ -157,6 +167,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateListenerRuleResponse update_listener_rule(update_listener_rule_request)
 
+
+Updates the pattern of the listener rule.<br /> This call updates the pattern matching algorithm for incoming traffic.
 
 ### Parameters
 

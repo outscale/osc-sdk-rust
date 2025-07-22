@@ -13,6 +13,8 @@ Method | HTTP request | Description
 > crate::models::ReadQuotasResponse read_quotas(read_quotas_request)
 
 
+Lists one or more of your quotas.<br /><br /> For more information, see [About Your Account](https://docs.outscale.com/en/userguide/About-Your-Account.html).
+
 ### Parameters
 
 

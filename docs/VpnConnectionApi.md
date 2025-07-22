@@ -18,6 +18,8 @@ Method | HTTP request | Description
 > crate::models::CreateVpnConnectionResponse create_vpn_connection(create_vpn_connection_request)
 
 
+Creates a VPN connection between a specified virtual gateway and a specified client gateway.<br /> You can create only one VPN connection between a virtual gateway and a client gateway.<br /><br />  **[IMPORTANT]**<br /> This action can be done only if the virtual gateway is in the `available` state.<br /><br /> For more information, see [About VPN Connections](https://docs.outscale.com/en/userguide/About-VPN-Connections.html).
+
 ### Parameters
 
 
@@ -45,6 +47,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::CreateVpnConnectionRouteResponse create_vpn_connection_route(create_vpn_connection_route_request)
 
+
+Creates a static route to a VPN connection.<br /> This enables you to select the network flows sent by the virtual gateway to the target VPN connection.<br /><br /> For more information, see [About Routing Configuration for VPN Connections](https://docs.outscale.com/en/userguide/About-Routing-Configuration-for-VPN-Connections.html).
 
 ### Parameters
 
@@ -74,6 +78,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeleteVpnConnectionResponse delete_vpn_connection(delete_vpn_connection_request)
 
 
+Deletes a specified VPN connection.<br /> If you want to delete a Net and all its dependencies, we recommend to detach the virtual gateway from the Net and delete the Net before deleting the VPN connection. This enables you to delete the Net without waiting for the VPN connection to be deleted.
+
 ### Parameters
 
 
@@ -101,6 +107,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::DeleteVpnConnectionRouteResponse delete_vpn_connection_route(delete_vpn_connection_route_request)
 
+
+Deletes a static route to a VPN connection previously created using the CreateVpnConnectionRoute method.
 
 ### Parameters
 
@@ -130,6 +138,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadVpnConnectionsResponse read_vpn_connections(read_vpn_connections_request)
 
 
+Lists one or more VPN connections.
+
 ### Parameters
 
 
@@ -157,6 +167,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateVpnConnectionResponse update_vpn_connection(update_vpn_connection_request)
 
+
+Modifies the specified attributes of a VPN connection.
 
 ### Parameters
 

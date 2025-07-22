@@ -13,6 +13,8 @@ Method | HTTP request | Description
 > crate::models::ReadSubregionsResponse read_subregions(read_subregions_request)
 
 
+Lists one or more of the enabled Subregions that you can access in the current Region.<br /><br />  For more information, see [About Regions and Subregions](https://docs.outscale.com/en/userguide/About-Regions-and-Subregions.html).
+
 ### Parameters
 
 

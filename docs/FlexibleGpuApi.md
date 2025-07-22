@@ -19,6 +19,8 @@ Method | HTTP request | Description
 > crate::models::CreateFlexibleGpuResponse create_flexible_gpu(create_flexible_gpu_request)
 
 
+Allocates a flexible GPU (fGPU) to your account.<br /> You can then attach this fGPU to a virtual machine (VM).<br /><br /> For more information, see [About Flexible GPUs](https://docs.outscale.com/en/userguide/About-Flexible-GPUs.html).
+
 ### Parameters
 
 
@@ -46,6 +48,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::DeleteFlexibleGpuResponse delete_flexible_gpu(delete_flexible_gpu_request)
 
+
+Releases a flexible GPU (fGPU) from your account.<br /> The fGPU becomes free to be used by someone else.
 
 ### Parameters
 
@@ -75,6 +79,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::LinkFlexibleGpuResponse link_flexible_gpu(link_flexible_gpu_request)
 
 
+Attaches one of your allocated flexible GPUs (fGPUs) to one of your virtual machines (VMs).<br /> To complete the linking of the fGPU, you need to do a stop/start of the VM. A simple restart is not sufficient, as the linking of the fGPU is done when the VM goes through the `stopped` state. For the difference between stop/start and restart, see [About VM Lifecycle](https://docs.outscale.com/en/userguide/About-VM-Lifecycle.html).<br /><br />  **[NOTE]**<br /> You can attach fGPUs only to VMs with the `highest` (1) performance flag. For more information see [About Flexible GPUs](https://docs.outscale.com/en/userguide/About-Flexible-GPUs.html) and [VM Types](https://docs.outscale.com/en/userguide/VM-Types.html).
+
 ### Parameters
 
 
@@ -102,6 +108,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::ReadFlexibleGpuCatalogResponse read_flexible_gpu_catalog(read_flexible_gpu_catalog_request)
 
+
+Lists all flexible GPUs available in the public catalog.
 
 ### Parameters
 
@@ -131,6 +139,8 @@ No authorization required
 > crate::models::ReadFlexibleGpusResponse read_flexible_gpus(read_flexible_gpus_request)
 
 
+Lists one or more flexible GPUs (fGPUs) allocated to your account.
+
 ### Parameters
 
 
@@ -159,6 +169,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::UnlinkFlexibleGpuResponse unlink_flexible_gpu(unlink_flexible_gpu_request)
 
 
+Detaches a flexible GPU (fGPU) from a virtual machine (VM).<br /> The fGPU is in the `detaching` state until the VM is stopped, after which it becomes `allocated`. It is then available again for attachment to a VM.
+
 ### Parameters
 
 
@@ -186,6 +198,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::UpdateFlexibleGpuResponse update_flexible_gpu(update_flexible_gpu_request)
 
+
+Modifies a flexible GPU (fGPU) behavior.
 
 ### Parameters
 

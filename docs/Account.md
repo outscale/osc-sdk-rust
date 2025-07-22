@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **job_title** | Option<**String**> | The job title of the account owner. | [optional]
 **last_name** | Option<**String**> | The last name of the account owner. | [optional]
 **mobile_number** | Option<**String**> | The mobile phone number of the account owner. | [optional]
+**outscale_login_allowed** | Option<**bool**> | Whether the account is allowed to log in to Cockpit v2 using its Outscale credentials when identity federation is activated. | [optional]
 **phone_number** | Option<**String**> | The landline phone number of the account owner. | [optional]
 **state_province** | Option<**String**> | The state/province of the account. | [optional]
 **vat_number** | Option<**String**> | The value added tax (VAT) number for the account. | [optional]

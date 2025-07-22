@@ -13,6 +13,8 @@ Method | HTTP request | Description
 > crate::models::ReadLocationsResponse read_locations(read_locations_request)
 
 
+Lists the locations, corresponding to datacenters, where you can set up a DirectLink.<br /><br /> For more information, see [About DirectLink](https://docs.outscale.com/en/userguide/About-DirectLink.html).
+
 ### Parameters
 
 

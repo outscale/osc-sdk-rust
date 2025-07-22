@@ -15,6 +15,8 @@ Method | HTTP request | Description
 > crate::models::CreateProductTypeResponse create_product_type(create_product_type_request)
 
 
+Creates a product type you can associate with an OMI for consumption monitoring and billing purposes.
+
 ### Parameters
 
 
@@ -43,6 +45,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeleteProductTypeResponse delete_product_type(delete_product_type_request)
 
 
+Deletes a specified product type that belongs to you.<br />  **[WARNING]**<br /> The product type must not be associated with one or more OMIs to be deleted. Otherwise, you need to force the deletion.<br /> If you force the deletion, the product type is deleted and remains associated with the OMIs.<br />
+
 ### Parameters
 
 
@@ -70,6 +74,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::ReadProductTypesResponse read_product_types(read_product_types_request)
 
+
+Lists one or more product types.
 
 ### Parameters
 

@@ -15,6 +15,8 @@ Method | HTTP request | Description
 > crate::models::CreateDirectLinkResponse create_direct_link(create_direct_link_request)
 
 
+Creates a DirectLink between a customer network and a specified DirectLink location.<br /><br /> For more information, see [About DirectLink](https://docs.outscale.com/en/userguide/About-DirectLink.html).
+
 ### Parameters
 
 
@@ -43,6 +45,8 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeleteDirectLinkResponse delete_direct_link(delete_direct_link_request)
 
 
+Deletes a specified DirectLink.<br /> Before deleting a DirectLink, ensure that all your DirectLink interfaces related to this DirectLink are deleted.
+
 ### Parameters
 
 
@@ -70,6 +74,8 @@ Name | Type | Description  | Required | Notes
 
 > crate::models::ReadDirectLinksResponse read_direct_links(read_direct_links_request)
 
+
+Lists all DirectLinks in the Region.
 
 ### Parameters
 

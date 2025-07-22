@@ -13,6 +13,8 @@ Method | HTTP request | Description
 > crate::models::DeleteExportTaskResponse delete_export_task(delete_export_task_request)
 
 
+Deletes an export task.<br /> If the export task is not in the `active` or `pending` state, the command fails and an error is returned.
+
 ### Parameters
 
 
