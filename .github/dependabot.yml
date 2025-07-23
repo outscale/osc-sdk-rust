@@ -1,9 +1,11 @@
 # https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
 
-version: 1
+version: 2
 updates:
   - package-ecosystem: "cargo"
     directory: "/"
     target-branch: "master"
     schedule:
       interval: "daily"
+    commit-message:
+      prefix: "⬆️ deps: "
