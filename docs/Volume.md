@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **state** | Option<**String**> | The state of the volume (`creating` \\| `available` \\| `in-use` \\| `deleting` \\| `error`). | [optional]
 **subregion_name** | Option<**String**> | The Subregion in which the volume was created. | [optional]
 **tags** | Option<[**Vec<crate::models::ResourceTag>**](ResourceTag.md)> | One or more tags associated with the volume. | [optional]
+**task_id** | Option<**String**> | The ID of the volume update task in progress. Otherwise, it is not returned. | [optional]
 **volume_id** | Option<**String**> | The ID of the volume. | [optional]
 **volume_type** | Option<**String**> | The type of the volume (`standard` \\| `gp2` \\| `io1`). | [optional]
 

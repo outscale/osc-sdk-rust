@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **model_name** | Option<**String**> | The model of fGPU. For more information, see [About Flexible GPUs](https://docs.outscale.com/en/userguide/About-Flexible-GPUs.html). | [optional]
 **state** | Option<**String**> | The state of the fGPU (`allocated` \\| `attaching` \\| `attached` \\| `detaching`). | [optional]
 **subregion_name** | Option<**String**> | The Subregion where the fGPU is located. | [optional]
+**tags** | Option<[**Vec<crate::models::Tag>**](Tag.md)> | One or more tags associated with the fGPU. | [optional]
 **vm_id** | Option<**String**> | The ID of the VM the fGPU is attached to, if any. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

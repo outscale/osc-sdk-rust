@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**create_volume**](VolumeApi.md#create_volume) | **POST** /CreateVolume | 
 [**delete_volume**](VolumeApi.md#delete_volume) | **POST** /DeleteVolume | 
 [**link_volume**](VolumeApi.md#link_volume) | **POST** /LinkVolume | 
+[**read_volume_update_tasks**](VolumeApi.md#read_volume_update_tasks) | **POST** /ReadVolumeUpdateTasks | Lists one or more update tasks of volumes
 [**read_volumes**](VolumeApi.md#read_volumes) | **POST** /ReadVolumes | 
 [**unlink_volume**](VolumeApi.md#unlink_volume) | **POST** /UnlinkVolume | 
 [**update_volume**](VolumeApi.md#update_volume) | **POST** /UpdateVolume | 
@@ -103,6 +104,36 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## read_volume_update_tasks
+
+> crate::models::ReadVolumeUpdateTasksResponse read_volume_update_tasks(read_volume_update_tasks_request)
+Lists one or more update tasks of volumes
+
+Lists one or more specified tasks of volume update.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**read_volume_update_tasks_request** | Option<[**ReadVolumeUpdateTasksRequest**](ReadVolumeUpdateTasksRequest.md)> |  |  |
+
+### Return type
+
+[**crate::models::ReadVolumeUpdateTasksResponse**](ReadVolumeUpdateTasksResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## read_volumes
 
 > crate::models::ReadVolumesResponse read_volumes(read_volumes_request)
@@ -168,7 +199,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::UpdateVolumeResponse update_volume(update_volume_request)
 
 
-Modifies the specified attributes of a volume.<br /> Cold volumes are volumes that are attached to stopped or stopping VMs, or that are detached. Hot volumes are volumes that are attached to running VMs.<br /><br />  **[NOTE]**<br /> When the modification is not instantaneous, the response displays the previous value. You can use the [ReadVolumes](#readvolumes) method to see the new value.
+Modifies the specified attributes of a volume.<br />  **[NOTE]**<br /> When the modification is not instantaneous, the response displays the previous value. You can use the [ReadVolumeUpdateTasks](#readvolumeupdatetasks) method to see the progression of the update.
 
 ### Parameters
 
