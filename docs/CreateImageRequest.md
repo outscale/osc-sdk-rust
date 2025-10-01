@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **root_device_name** | Option<**String**> | **(required) When registering from a snapshot:** The name of the root device for the new OMI. | [optional]
 **source_image_id** | Option<**String**> | **(required) When copying an OMI:** The ID of the OMI you want to copy. | [optional]
 **source_region_name** | Option<**String**> | **(required) When copying an OMI:** The name of the source Region (always the same as the Region of your account). | [optional]
+**tpm_mandatory** | Option<**bool**> | By default or if set to false, a virtual Trusted Platform Module (vTPM) is not mandatory on VMs created from this OMI. If true, VMs created from this OMI must have a vTPM enabled. | [optional]
 **vm_id** | Option<**String**> | **(required) When creating from a VM:** The ID of the VM from which you want to create the OMI. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

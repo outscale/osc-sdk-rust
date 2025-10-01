@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **state_reason** | Option<**String**> | The reason explaining the current state of the VM. | [optional]
 **subnet_id** | Option<**String**> | The ID of the Subnet for the VM. | [optional]
 **tags** | Option<[**Vec<crate::models::ResourceTag>**](ResourceTag.md)> | One or more tags associated with the VM. | [optional]
+**tpm_enabled** | Option<**bool**> | If true, a virtual Trusted Platform Module (vTPM) is enabled on the VM. If false, it is not. | [optional]
 **user_data** | Option<**String**> | The Base64-encoded MIME user data. | [optional]
 **vm_id** | Option<**String**> | The ID of the VM. | [optional]
 **vm_initiated_shutdown_behavior** | Option<**String**> | The VM behavior when you stop it. If set to `stop`, the VM stops. If set to `restart`, the VM stops then automatically restarts. If set to `terminate`, the VM stops and is deleted. | [optional]

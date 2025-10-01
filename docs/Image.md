@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **state** | Option<**String**> | The state of the OMI (`pending` \\| `available` \\| `failed`). | [optional]
 **state_comment** | Option<[**crate::models::StateComment**](StateComment.md)> |  | [optional]
 **tags** | Option<[**Vec<crate::models::ResourceTag>**](ResourceTag.md)> | One or more tags associated with the OMI. | [optional]
+**tpm_mandatory** | Option<**bool**> | If true, a virtual Trusted Platform Module (vTPM) is mandatory for VMs created from this OMI. If false, a vTPM is not mandatory. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

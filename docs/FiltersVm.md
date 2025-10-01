@@ -63,6 +63,7 @@ Name | Type | Description | Notes
 **tag_values** | Option<**Vec<String>**> | The values of the tags associated with the VMs. | [optional]
 **tags** | Option<**Vec<String>**> | The key/value combination of the tags associated with the VMs, in the following format: &quot;Filters&quot;:{&quot;Tags&quot;:[&quot;TAGKEY=TAGVALUE&quot;]}. | [optional]
 **tenancies** | Option<**Vec<String>**> | The tenancies of the VMs (`dedicated` \\| `default` \\| `host`). | [optional]
+**tpm_enabled** | Option<**bool**> | Whether a virtual Trusted Platform Module (vTPM) is enabled (true) or disabled (false) on the VM. | [optional]
 **vm_ids** | Option<**Vec<String>**> | One or more IDs of VMs. | [optional]
 **vm_security_group_ids** | Option<**Vec<String>**> | The IDs of the security groups for the VMs. | [optional]
 **vm_security_group_names** | Option<**Vec<String>**> | The names of the security group for the VMs. | [optional]

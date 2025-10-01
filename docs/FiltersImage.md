@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **tag_keys** | Option<**Vec<String>**> | The keys of the tags associated with the OMIs. | [optional]
 **tag_values** | Option<**Vec<String>**> | The values of the tags associated with the OMIs. | [optional]
 **tags** | Option<**Vec<String>**> | The key/value combination of the tags associated with the OMIs, in the following format: &quot;Filters&quot;:{&quot;Tags&quot;:[&quot;TAGKEY=TAGVALUE&quot;]}. | [optional]
+**tpm_mandatory** | Option<**bool**> | Whether a virtual Trusted Platform Module (vTPM) is mandatory for VMs created from this OMI (true) or not (false). | [optional]
 **virtualization_types** | Option<**Vec<String>**> | The virtualization types (always `hvm`). | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
