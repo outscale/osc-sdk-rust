@@ -19,7 +19,7 @@ http = "0.2.5"
 secrecy = "0.8.0"
 
 [dev-dependencies]
-rand = "0.8.5"
+rand = "~0.9"
 
 [features]
 default = ["reqwest/default-tls"]
