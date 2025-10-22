@@ -20,7 +20,7 @@ use std::time::SystemTime;
 pub struct Configuration {
     pub base_path: String,
     pub user_agent: Option<String>,
-    pub client: reqwest::Client,
+    pub client: reqwest::blocking::Client,
     pub basic_auth: Option<BasicAuth>,
     pub oauth_access_token: Option<String>,
     pub bearer_access_token: Option<String>,
@@ -82,7 +82,8 @@ impl AWSv4Key {
         for (name, value) in signing_instructions.headers() {
             additional_headers.push((name.to_string(), value.to_string()));
         }
-        return Ok(additional_headers);
+
+        Ok(additional_headers)
     }
 }
 
@@ -97,7 +98,7 @@ impl Default for Configuration {
         Configuration {
             base_path: "https://api.eu-west-2.outscale.com/api/v1".to_owned(),
             user_agent: Some("osc-sdk-rust/1.17.0".to_owned()),
-            client: reqwest::Client::new(),
+            client: reqwest::blocking::Client::new(),
             basic_auth: None,
             oauth_access_token: None,
             bearer_access_token: None,

@@ -29,9 +29,6 @@ gen: clean osc-api/outscale.yaml
 	mv .sdk/* .
 	rm -rf .sdk
 	cargo fmt
-	# Apply additional Outscale features or fixes which are not included in generation
-	git apply .patches/*
-	cargo fmt
 
 osc-api/outscale.yaml:
 	git clone https://github.com/outscale/osc-api-deploy.git osc-api && cd osc-api && git checkout -b $(API_VERSION) $(API_VERSION)
