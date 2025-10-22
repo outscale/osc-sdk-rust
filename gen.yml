@@ -6,3 +6,6 @@ files:
   configuration_file.rs:
     templateType: SupportingFiles
     folder: src/apis
+  middleware.rs:
+    templateType: SupportingFiles
+    folder: src/apis 
