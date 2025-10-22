@@ -7,6 +7,6 @@ Files: *.md
 Copyright: 2022 Outscale SAS <support@outscale.com>
 License: CC-BY-4.0
 
-Files: Makefile sdk_version api_version *.rs .git* src/* *.yml *.yaml .patch/*.patch *.patch Cargo.toml Cargo.lock examples/config_example.json
+Files: Makefile sdk_version api_version *.rs .git* src/* *.yml *.yaml .patch/*.patch *.patch Cargo.toml Cargo.lock examples/config_example.json *.mustache
 Copyright: 2022 Outscale SAS <support@outscale.com>
 License: BSD-3-Clause

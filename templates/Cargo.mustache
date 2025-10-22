@@ -23,7 +23,7 @@ futures = "^0.3"
 {{/hyper}}
 {{#reqwest}}
 {{^supportAsync}}
-reqwest = { version = "^0.12", default-features = false, features = ["json", "blocking", "multipart"] }
+reqwest = { version = "^0.12", default-features = false, features = ["json", "blocking", "multipart", "http2", "system-proxy", "charset"] }
 {{/supportAsync}}
 {{#supportAsync}}
 [dependencies.reqwest]
@@ -49,6 +49,6 @@ tokio-core = "*"
 rand = "~0.9"
 
 [features]
-default = ["native-tls"]
+default = ["reqwest/default-tls"]
 native-tls = ["reqwest/native-tls"]
 rustls-tls = ["reqwest/rustls-tls"]

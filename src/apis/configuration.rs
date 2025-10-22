@@ -20,7 +20,7 @@ use std::time::SystemTime;
 pub struct Configuration {
     pub base_path: String,
     pub user_agent: Option<String>,
-    pub client: reqwest::blocking::Client,
+    pub client: super::middleware::ClientWithMiddleware,
     pub basic_auth: Option<BasicAuth>,
     pub oauth_access_token: Option<String>,
     pub bearer_access_token: Option<String>,
@@ -98,7 +98,11 @@ impl Default for Configuration {
         Configuration {
             base_path: "https://api.eu-west-2.outscale.com/api/v1".to_owned(),
             user_agent: Some("osc-sdk-rust/1.17.0".to_owned()),
-            client: reqwest::blocking::Client::new(),
+            client: super::middleware::ClientWithMiddleware::new(
+                reqwest::blocking::Client::new(),
+                3,
+                1.0,
+            ),
             basic_auth: None,
             oauth_access_token: None,
             bearer_access_token: None,
