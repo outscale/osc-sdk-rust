@@ -18,7 +18,7 @@ pub enum Error<T> {
     Io(std::io::Error),
     ResponseError(ResponseContent<T>),
     {{#withAWSV4Signature}}
-    AWSV4SignatureError(aws_sigv4::http_request::Error),
+    AWSV4SignatureError(aws_sigv4::http_request::SigningError),
     {{/withAWSV4Signature}}
 }
 
@@ -45,7 +45,7 @@ impl <T: fmt::Debug> error::Error for Error<T> {
             Error::Io(e) => e,
             Error::ResponseError(_) => return None,
 	    {{#withAWSV4Signature}}
-	    Error::AWSV4SignatureError(_) => return None,
+	    Error::AWSV4SignatureError(e) => e,
 	    {{/withAWSV4Signature}}
         })
     }
