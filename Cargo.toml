@@ -14,7 +14,6 @@ serde_derive = "^1.0"
 serde_json = "^1.0"
 url = "^2.2"
 reqwest = {version = "~0.9", default-features = false}
-http = "^0.2.9"
 secrecy = "~0.10"
 aws-credential-types = "1.2.8"
 
