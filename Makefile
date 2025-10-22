@@ -15,21 +15,14 @@ help:
 
 .PNONY: openapi-generator-help
 openapi-generator-help:
-	docker run --rm openapitools/openapi-generator-cli$(OPENAPI_GEN_VERSION) config-help -g rust
+	docker run --rm $(OPENAPI_IMAGE) config-help -g rust
 
 .PHONY: gen
 gen: clean osc-api/outscale.yaml
 	rm -rf .sdk || true
 	mkdir .sdk
-	docker run -v $(PWD):/sdk --rm $(OPENAPI_IMAGE) generate -i /sdk/osc-api/outscale.yaml -g rust -c /sdk/gen.yml -o /sdk/.sdk --additional-properties=packageVersion=$(SDK_VERSION)
+	docker run -v $(PWD):/sdk --rm $(OPENAPI_IMAGE) generate -i /sdk/osc-api/outscale.yaml -g rust -t ./sdk/templates -c /sdk/gen.yml -o /sdk/.sdk --additional-properties=packageVersion=$(SDK_VERSION)
 	# Set default user agent including sdk version using reproductible sed.
-	docker run -v $(PWD):/sdk --rm $(OPENAPI_IMAGE) sed -i "s/ *user_agent: Some.*/            user_agent: Some(\"osc\-sdk\-rust\/$(SDK_VERSION)\".to_owned()),/" /sdk/.sdk/src/apis/configuration.rs
-	# Set outscale as author
-	docker run -v $(PWD):/sdk --rm $(OPENAPI_IMAGE) sed -i "s/OpenAPI Generator team and contributors/Outscale SAS <opensource@outscale.com>/g" /sdk/.sdk/Cargo.toml
-	# Set rust version, licensing, homepage, description, ...
-	docker run -v $(PWD):/sdk --rm $(OPENAPI_IMAGE) sed -i "s/edition = \"2018\"/edition = \"2021\"\nlicense = \"BSD-3-Clause\"\ndescription = \"Outscale API SDK\"\nrepository = \"https:\/\/github.com\/outscale\/osc-sdk-rust\/\"/" /sdk/.sdk/Cargo.toml
-	# Add dev-dependencies (used by examples)
-	docker run -v $(PWD):/sdk --rm $(OPENAPI_IMAGE) sed -i "s/\[dev-dependencies\]/\[dev-dependencies\]\nrand = \"0.8.5\"/" /sdk/.sdk/Cargo.toml
 	docker run -v $(PWD):/sdk --rm $(OPENAPI_IMAGE) chown -R $(USER_ID).$(GROUP_ID) /sdk/.sdk
 	rm -rf .sdk/git_push.sh
 	mv .sdk/README.md .sdk/docs/README.md
