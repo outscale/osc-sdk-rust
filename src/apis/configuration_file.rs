@@ -144,7 +144,7 @@ impl ConfigurationFile {
                 };
                 config.aws_v4_key = Some(AWSv4Key {
                     access_key: access_key,
-                    secret_key: SecretString::new(secret_key),
+                    secret_key: SecretString::new(secret_key.into()),
                     region: region,
                     service: "oapi".to_string(),
                 });
