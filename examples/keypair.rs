@@ -37,7 +37,7 @@ fn main() {
     // Example creating a keypair
     print!("Creating new keypair... ");
     let mut rng = rand::thread_rng();
-    let keypair_name = format!("osc-sdk-rust-test-{}", rng.gen::<u64>());
+    let keypair_name = format!("osc-sdk-rust-test-{}", rng.random::<u64>());
     let request = CreateKeypairRequest::new(keypair_name.clone());
     match create_keypair(&config, Some(request)) {
         Err(error) => {
