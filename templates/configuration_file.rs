@@ -54,6 +54,10 @@ pub struct Profile {
     pub max_retries: i32,
     #[serde(default = "retry_backoff_factor_default")]
     pub retry_backoff_factor: f32,
+    #[serde(default = "retry_backoff_jitter_default")]
+    pub retry_backoff_jitter: f32,
+    #[serde(default = "retry_backoff_max_default")]
+    pub retry_backoff_max: f32,
 }
 
 fn max_retries_default() -> i32 {
@@ -62,6 +66,14 @@ fn max_retries_default() -> i32 {
 
 fn retry_backoff_factor_default() -> f32 {
     1_f32
+}
+
+fn retry_backoff_jitter_default() -> f32 {
+    3_f32
+}
+
+fn retry_backoff_max_default() -> f32 {
+    60_f32
 }
 
 #[derive(Deserialize, Debug, Clone)]
@@ -127,10 +139,12 @@ impl ConfigurationFile {
         };
 
         let mut config = Configuration::default();
-        config.client = super::middleware::ClientWithMiddleware::new(
+        config.client = super::middleware::ClientWithBackoff::new(
             reqwest::blocking::Client::new(),
             profile.max_retries,
             profile.retry_backoff_factor,
+            profile.retry_backoff_jitter,
+            profile.retry_backoff_max,
         );
 
         if let Some(ref region) = profile.region {
