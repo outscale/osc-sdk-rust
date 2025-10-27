@@ -28,7 +28,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 use crate::apis::configuration::{AWSv4Key, Configuration};
-use crate::apis::middleware::BackoffParams;
+use crate::apis::middleware::{BackoffParams, LimiterParams};
 use home::home_dir;
 use serde::Deserialize;
 use std::collections::HashMap;
@@ -53,6 +53,8 @@ pub struct Profile {
     pub endpoints: Option<Endpoint>,
     #[serde(flatten)]
     pub backoff_params: BackoffParams,
+    #[serde(skip)]
+    pub limiter_params: LimiterParams,
 }
 
 #[derive(Deserialize, Debug, Clone)]
@@ -121,6 +123,7 @@ impl ConfigurationFile {
             client: super::middleware::ClientWithBackoff::new(
                 reqwest::blocking::Client::new(),
                 profile.backoff_params.clone(),
+                profile.limiter_params.clone(),
             ),
             ..Default::default()
         };
