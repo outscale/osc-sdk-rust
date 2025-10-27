@@ -28,6 +28,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 use crate::apis::configuration::{AWSv4Key, Configuration};
+use crate::apis::middleware::BackoffParams;
 use home::home_dir;
 use serde::Deserialize;
 use std::collections::HashMap;
@@ -50,30 +51,8 @@ pub struct Profile {
     pub method: Option<String>,
     pub region: Option<String>,
     pub endpoints: Option<Endpoint>,
-    #[serde(default = "max_retries_default")]
-    pub max_retries: i32,
-    #[serde(default = "retry_backoff_factor_default")]
-    pub retry_backoff_factor: f32,
-    #[serde(default = "retry_backoff_jitter_default")]
-    pub retry_backoff_jitter: f32,
-    #[serde(default = "retry_backoff_max_default")]
-    pub retry_backoff_max: f32,
-}
-
-fn max_retries_default() -> i32 {
-    3
-}
-
-fn retry_backoff_factor_default() -> f32 {
-    1_f32
-}
-
-fn retry_backoff_jitter_default() -> f32 {
-    3_f32
-}
-
-fn retry_backoff_max_default() -> f32 {
-    60_f32
+    #[serde(flatten)]
+    pub backoff_params: BackoffParams,
 }
 
 #[derive(Deserialize, Debug, Clone)]
@@ -138,14 +117,13 @@ impl ConfigurationFile {
             None => return Err(Box::new(ConfigurationFileError::ProfileNotFound)),
         };
 
-        let mut config = Configuration::default();
-        config.client = super::middleware::ClientWithBackoff::new(
-            reqwest::blocking::Client::new(),
-            profile.max_retries,
-            profile.retry_backoff_factor,
-            profile.retry_backoff_jitter,
-            profile.retry_backoff_max,
-        );
+        let mut config = Configuration {
+            client: super::middleware::ClientWithBackoff::new(
+                reqwest::blocking::Client::new(),
+                profile.backoff_params.clone(),
+            ),
+            ..Default::default()
+        };
 
         if let Some(ref region) = profile.region {
             config.base_path = format!("https://api.{}.outscale.com/api/v1", region);

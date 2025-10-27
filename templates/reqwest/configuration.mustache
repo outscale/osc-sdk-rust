@@ -1,7 +1,5 @@
 {{>partial_header}}
 
-use reqwest;
-
 {{#withAWSV4Signature}}
 use std::time::SystemTime;
 use aws_sigv4::http_request::{sign, SigningSettings, SignableRequest, SignableBody};
@@ -84,7 +82,7 @@ impl Default for Configuration {
         Configuration {
             base_path: "{{{basePath}}}".to_owned(),
             user_agent: {{#httpUserAgent}}Some("{{{.}}}".to_owned()){{/httpUserAgent}}{{^httpUserAgent}}Some("osc-sdk-rust/{{{packageVersion}}}".to_owned()){{/httpUserAgent}},
-            client: super::middleware::ClientWithBackoff::new(reqwest::blocking::Client::new(), 3, 1.0, 3.0, 60.0),
+            client: super::middleware::ClientWithBackoff::default(),
             basic_auth: None,
             oauth_access_token: None,
             bearer_access_token: None,
