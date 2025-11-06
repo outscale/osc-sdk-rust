@@ -22,7 +22,7 @@ export OSC_USING_RICOCHET="oui"
 if [ "$#" -eq 0 ]; then
 
     if [ ! -d "osc-ricochet-2" ]; then
-	git clone https://github.com/outscale-mgo/osc-ricochet-2
+	    git clone https://github.com/outscale/osc-ricochet-2
     fi
 
     cd osc-ricochet-2
