@@ -199,7 +199,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::UpdateVolumeResponse update_volume(update_volume_request)
 
 
-Modifies the specified attributes of a volume.<br />  **[NOTE]**<br /> When the modification is not instantaneous, the response displays the previous value. You can use the [ReadVolumeUpdateTasks](#readvolumeupdatetasks) method to see the progression of the update.
+Modifies the specified attributes of a volume.<br />  **[WARNING]**<br /> - Do not shut down or restart the virtual machine (VM) from within the guest operating system while a volume update is in progress. This interrupts the process and compromises the integrity of the volume. - When the modification is not instantaneous, the response displays the previous value. You can use the [ReadVolumeUpdateTasks](#readvolumeupdatetasks) method to see the progression of the update.<br />
 
 ### Parameters
 

@@ -18,7 +18,7 @@ Method | HTTP request | Description
 > crate::models::DisableOutscaleLoginResponse disable_outscale_login(disable_outscale_login_request)
 
 
-> [WARNING]<br /> > This feature is currently in beta.<br />  Disables the possibility of logging in using the Outscale credentials of your root account when identity federation is activated.
+Disables the possibility of logging in using the Outscale credentials of your root account when identity federation is activated.
 
 ### Parameters
 
@@ -48,7 +48,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::DisableOutscaleLoginResponse disable_outscale_login_for_users(disable_outscale_login_request)
 
 
-> [WARNING]<br /> > This feature is currently in beta.<br />  Disables the possibility of logging in using the Outscale credentials of your EIM users when identity federation is activated.
+Disables the possibility of logging in using the Outscale credentials of your EIM users when identity federation is activated.
 
 ### Parameters
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::DisableOutscaleLoginPerUsersResponse disable_outscale_login_per_users(disable_outscale_login_per_users_request)
 
 
-> [WARNING]<br /> > This feature is currently in beta.<br />  Disables the possibility for one or more specific users to log in using their Outscale credentials when identity federation is activated.
+Disables the possibility for one or more specific users to log in using their Outscale credentials when identity federation is activated.
 
 ### Parameters
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::EnableOutscaleLoginResponse enable_outscale_login(enable_outscale_login_request)
 
 
-> [WARNING]<br /> > This feature is currently in beta.<br />  Enables the possibility of logging in using the Outscale credentials of your root account when identity federation is activated.
+Enables the possibility of logging in using the Outscale credentials of your root account when identity federation is activated.
 
 ### Parameters
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::EnableOutscaleLoginForUsersResponse enable_outscale_login_for_users(enable_outscale_login_for_users_request)
 
 
-> [WARNING]<br /> > This feature is currently in beta.<br />  Enables the possibility for all your EIM users to log in using their Outscale credentials when identity federation is activated.
+Enables the possibility for all your EIM users to log in using their Outscale credentials when identity federation is activated.
 
 ### Parameters
 
@@ -168,7 +168,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::EnableOutscaleLoginPerUsersResponse enable_outscale_login_per_users(enable_outscale_login_per_users_request)
 
 
-> [WARNING]<br /> > This feature is currently in beta.<br />  Enables the possibility for one or more specific users to log in using their Outscale credentials when identity federation is activated.
+Enables the possibility for one or more specific users to log in using their Outscale credentials when identity federation is activated.
 
 ### Parameters
 
