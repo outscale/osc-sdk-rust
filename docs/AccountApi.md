@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**check_authentication**](AccountApi.md#check_authentication) | **POST** /CheckAuthentication | 
 [**create_account**](AccountApi.md#create_account) | **POST** /CreateAccount | 
 [**read_accounts**](AccountApi.md#read_accounts) | **POST** /ReadAccounts | 
+[**read_co2_emission_account**](AccountApi.md#read_co2_emission_account) | **POST** /ReadCO2EmissionAccount | 
 [**read_consumption_account**](AccountApi.md#read_consumption_account) | **POST** /ReadConsumptionAccount | 
 [**update_account**](AccountApi.md#update_account) | **POST** /UpdateAccount | 
 
@@ -89,6 +90,36 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::ReadAccountsResponse**](ReadAccountsResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## read_co2_emission_account
+
+> crate::models::ReadCo2EmissionAccountResponse read_co2_emission_account(read_co2_emission_account_request)
+
+
+Gets information about the estimated carbon footprint of your account for the current Region within the specified time period.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**read_co2_emission_account_request** | Option<[**ReadCo2EmissionAccountRequest**](ReadCo2EmissionAccountRequest.md)> |  |  |
+
+### Return type
+
+[**crate::models::ReadCo2EmissionAccountResponse**](ReadCO2EmissionAccountResponse.md)
 
 ### Authorization
 
