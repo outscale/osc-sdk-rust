@@ -1,0 +1,16 @@
+version = 1
+SPDX-PackageName = "osc-sdk-rust"
+SPDX-PackageSupplier = "Outscale support <support@outscale.com>"
+SPDX-PackageDownloadLocation = "https://gitlab.com/outscale/osc-sdk-rust/"
+
+[[annotations]]
+path = "**.md"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022 Outscale SAS <support@outscale.com>"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = ["Makefile", "sdk_version", "api_version", "**.rs", ".git**", "src/**", "**.yml", "**.yaml", ".patch/**.patch", "**.patch", "Cargo.toml", "Cargo.lock", "examples/config_example.json", "**.mustache"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022 Outscale SAS <support@outscale.com>"
+SPDX-License-Identifier = "BSD-3-Clause"
