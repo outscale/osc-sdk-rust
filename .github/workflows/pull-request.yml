@@ -12,13 +12,13 @@ jobs:
   reuse-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Reuse specification test
         run: make reuse-test
   examples-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Stable Rust with rustfmt
         uses: actions-rs/toolchain@v1
         with:
@@ -36,7 +36,7 @@ jobs:
   regeneration-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Stable Rust with rustfmt
         uses: actions-rs/toolchain@v1
         with:
