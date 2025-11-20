@@ -1,49 +1,56 @@
-# Hacking Outscale SDK
+# Contributing Guidelines
 
-SDK itself is generated from Outscale's [OpenAPI description](https://github.com/outscale/osc-api).
-Any change directly applied to source code will be overwritten at generation time.
+First off, thank you for taking the time to contribute! 🙌  
+Your help is appreciated and helps make this project better for everyone.
 
-Examples and tests are welcome!
+---
 
-# Versioning
+## How to Contribute
 
-This SDK follows [semantic versioning](https://semver.org/) from the SDK perspective (not API).
-Some events may trigger a major (breaking) version of the SDK:
-1. OpenAPI generator introduce a new major version.
-2. Outscale introduce a new major version of its API.
+### 🐛 Reporting Bugs
+If you find a bug, please open an issue and include:
+- A clear and descriptive title
+- Steps to reproduce the issue
+- Expected and actual behavior
+- Any relevant logs, screenshots, or environment information
 
-When OpenAPI generator introduce a breaking change, SDK can be generated in several versions (see corresponding branches).
+### ✨ Suggesting Enhancements
+Have an idea for a new feature or improvement?
+- Open an issue and describe your suggestion
+- Explain the use case and potential benefits
+- Optional: propose an implementation strategy
 
-# Generate SDK
+### 🛠️ Submitting Code Changes
+To submit a patch or enhancement:
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/your-feature-name`)
+3. Make your changes
+4. Test your changes (if applicable)
+5. Open a pull request with a clear description of your changes
 
-1. Have some tools ready: GNU make, git, docker.
-2. Edit `api_version` file and to the latest Outscale API version.
-3. Edit `sdk_version` file and change it according to [semantic versioning](https://semver.org/).
-4. Launch sdk generation by running `make gen`.
+### ✅ Code of Conduct
+By participating, you agree to uphold our [Code of Conduct](CODE_OF_CONDUCT.md).
 
-Under the hood it get official Outscale yaml and run openapi-generator through docker.
+---
 
-# Sending a Merge Request
+## Guidelines
 
-If you plan to make some change in source code, consider making a pull request in [openapi-generator project](https://github.com/OpenAPITools/openapi-generator/).
+- Keep pull requests focused and atomic (one feature or fix per PR).
+- Follow any existing code style or formatting conventions.
+- Document your code where necessary.
+- Include tests when adding new logic (if applicable).
+- Use clear, meaningful commit messages (optionally following [Conventional Commits](https://www.conventionalcommits.org/) and using [Gitmoji](https://gitmoji.dev/) for added clarity and consistency).
 
-Otherwise:
-- Your merge request must be rebased on the latest commit.
-- Be sure that tests still pass by running `make test`.
+## 📝 Commit Template
 
-# How to release
+To help you follow the Gitmoji and Conventional Commit format, you can enable the local commit template:
 
-Gitub bot should have produced a new version and creating the new release tag should push release to crate.io.
+```bash
+git config commit.template .github/commit-template.txt
+```
 
-If this is not the case:
-1. Be sure have the latest version from repository.
-2. Update `api_version` to the last Outscale API version.
-3. Update `sdk_version` following [semantic versioning](https://semver.org/) logic.
-4. `make gen` to re-build the sdk.
-5. `make test` and fix any issue.
-6. Commit changes.
-7. Create PR.
-8. Review and merge PR.
-9. Create and push new sdk version tag.
-10. Create new release from tag.
-11. Publish crate following [crates.io guidelines](https://doc.rust-lang.org/cargo/reference/publishing.html).
+---
+
+## Questions?
+
+If you have any questions or need help, feel free to [open an issue](../../issues) or reach out to the maintainers on [Discord](https://discord.gg/HUVtY5gT6s).
