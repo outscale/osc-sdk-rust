@@ -3,9 +3,10 @@ packageName: outscale_api
 supportAsync: false
 withAWSV4Signature: true
 files:
-  configuration_file.rs:
-    templateType: SupportingFiles
-    folder: src/apis
   middleware.rs:
     templateType: SupportingFiles
+    folder: src/apis
+  profile.rs:
+    templateType: SupportingFiles
     folder: src/apis 
+
