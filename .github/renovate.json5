@@ -2,5 +2,19 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>outscale/oks-tools-team//renovate/default.json5#initial"
+  ],
+  "cargo": {
+      //We are disableing cargo manager so we can also update templates
+      "enabled": false
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["Cargo.toml", "templates/Cargo.mustache"],
+      "matchStrings": [
+      '# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s\\S+\\s?=\\s?\\"(?<currentValue>.*?)\\"'
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}cargo{{/if}}",
+    },
   ]
 }
