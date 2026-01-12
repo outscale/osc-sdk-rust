@@ -45,6 +45,6 @@ default-features = false
 [dev-dependencies]
 
 [features]
-default = ["reqwest/default-tls"]
+default = ["rustls-tls"]
 native-tls = ["reqwest/native-tls", "dep:base64"]
-rustls-tls = ["reqwest/rustls-tls", "dep:base64"]
+rustls-tls = ["reqwest/default-tls", "dep:base64"]

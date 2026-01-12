@@ -326,15 +326,34 @@ impl TryFrom<Profile> for Configuration {
             client_builder = client_builder.danger_accept_invalid_certs(true);
         }
 
-        #[cfg(any(feature = "native-tls", feature = "rustls-tls"))]
         {
+            #[cfg(feature = "rustls-tls")]
+            fn mk_identity(mut key: Vec<u8>, mut cert: Vec<u8>) -> Result<reqwest::tls::Identity> {
+                key.append(&mut cert);
+                reqwest::Identity::from_pem(&key)
+                    .map_err(ConfigurationFileError::InvalidClientCertificate)
+            }
+
+            #[cfg(feature = "native-tls")]
+            fn mk_identity(key: Vec<u8>, cert: Vec<u8>) -> Result<reqwest::tls::Identity> {
+                key.append(cert);
+                reqwest::Identity::from_pkcs8_pem(&key, &cert)
+                    .map_err(ConfigurationFileError::InvalidClientCertificate)
+            }
+
+            #[cfg(not(any(feature = "rustls-tls", feature = "native-tls")))]
+            fn mk_identity(_: Vec<u8>, cert: Vec<u8>) -> Result<reqwest::tls::Identity> {
+                Err(ConfigurationFileError::NonSupportedFeature(
+                    "mTLS required rustls-tls or native-tls feature flag".to_string(),
+                ))
+            }
+
             if let Some((x509_client_key, x509_client_cert)) =
                 value.x509_client_key.zip(value.x509_client_cert)
             {
                 let cert = std::fs::read(x509_client_cert)?;
                 let key = std::fs::read(x509_client_key)?;
-                let pkcs8 = reqwest::Identity::from_pkcs8_pem(&cert, &key)
-                    .map_err(ConfigurationFileError::InvalidClientCertificate)?;
+                let pkcs8 = mk_identity(key, cert)?;
                 client_builder = client_builder.identity(pkcs8);
             } else if let Some((x509_client_key_b64, x509_client_cert_b64)) =
                 value.x509_client_key_b64.zip(value.x509_client_cert_b64)
@@ -343,8 +362,7 @@ impl TryFrom<Profile> for Configuration {
 
                 let cert = STANDARD.decode(x509_client_cert_b64)?;
                 let key = STANDARD.decode(x509_client_key_b64)?;
-                let pkcs8 = reqwest::Identity::from_pkcs8_pem(&cert, &key)
-                    .map_err(ConfigurationFileError::InvalidClientCertificate)?;
+                let pkcs8 = mk_identity(key, cert)?;
                 client_builder = client_builder.identity(pkcs8);
             }
         }
@@ -379,11 +397,10 @@ pub enum ConfigurationFileError {
     ProfileNotFound,
     Io(std::io::Error),
     Json(serde_json::Error),
-    #[cfg(any(feature = "native-tls", feature = "rustls-tls"))]
     Base64(base64::DecodeError),
     InvalidEnvironmentVariable(String),
-    #[cfg(any(feature = "native-tls", feature = "rustls-tls"))]
     InvalidClientCertificate(reqwest::Error),
+    NonSupportedFeature(String),
 }
 
 impl std::fmt::Display for ConfigurationFileError {
@@ -392,14 +409,15 @@ impl std::fmt::Display for ConfigurationFileError {
             ConfigurationFileError::ProfileNotFound => write!(f, "profile not found"),
             ConfigurationFileError::Io(e) => write!(f, "IO error: {}", e),
             ConfigurationFileError::Json(e) => write!(f, "JSON error: {}", e),
-            #[cfg(any(feature = "native-tls", feature = "rustls-tls"))]
             ConfigurationFileError::Base64(e) => write!(f, "Base64 error: {}", e),
             ConfigurationFileError::InvalidEnvironmentVariable(v) => {
                 write!(f, "invalid environment variable {}", v)
             }
-            #[cfg(any(feature = "native-tls", feature = "rustls-tls"))]
             ConfigurationFileError::InvalidClientCertificate(e) => {
                 write!(f, "invalid client certificate: {}", e)
+            }
+            ConfigurationFileError::NonSupportedFeature(e) => {
+                write!(f, "non supported feature: {}", e)
             }
         }
     }
@@ -420,7 +438,6 @@ impl From<serde_json::Error> for ConfigurationFileError {
     }
 }
 
-#[cfg(any(feature = "native-tls", feature = "rustls-tls"))]
 impl From<base64::DecodeError> for ConfigurationFileError {
     fn from(error: base64::DecodeError) -> Self {
         ConfigurationFileError::Base64(error)
