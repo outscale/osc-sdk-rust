@@ -94,6 +94,24 @@ Add the crate to your `Cargo.toml` (see [Installation](#-installation)), then us
 
 > For real-world examples (including how to authenticate and call specific APIs), check the `examples/` directory.
 
+### Working with Async runtime
+
+Calls will block the current thread from executing, instead of returning futures that must be run on a runtime.
+Conversely, it must not be executed within an async runtime, or it will panic when it tries to block.
+Consider changing the caller to wrap those calls in `tokio::task::spawn_blocking`.
+
+```rust
+use outscale_api::apis::profile::Profile;
+use outscale_api::apis::vm_api::read_vms;
+use outscale_api::models::ReadVmsRequest;
+
+let config = Profile::default().and_then(|p| p.try_into()).unwrap();
+
+let res = task::spawn_blocking(move || {
+    read_vms(&config, Some(ReadVmsRequest::new()))
+}).await.unwrap();
+```
+
 ---
 
 ## 💡 Examples
@@ -102,13 +120,13 @@ Add the crate to your `Cargo.toml` (see [Installation](#-installation)), then us
 
 The crate exposes features to select the TLS backend used by `reqwest`:
 
-* `default`: enables the `default-tls` feature in `reqwest` (OpenSSL-based).
-* `rustls-tls`: uses `rustls` instead of the default OpenSSL backend.
-  When using `rustls-tls`, you typically also want to disable default features to avoid pulling in `default-tls`:
+* `default`: enables the `default-tls` feature in `reqwest` (Rustls-based).
+* `native-tls`: uses `OpenSSL` instead of the default Rustls backend.
+  When using `native-tls`, you typically also want to disable default features to avoid pulling in `default-tls`:
 
 ```toml
 [dependencies]
-outscale_api = { version = "1", default-features = false, features = ["rustls-tls"] }
+outscale_api = { version = "1", default-features = false, features = ["native-tls"] }
 ```
 
 ### Explore the examples
@@ -133,7 +151,7 @@ Examples are available in the [`examples/`](examples/) directory and are a good 
 
 **Outscale SDK for Rust** is released under the **BSD-3-Clause** license.
 
-© 2025 Outscale SAS
+© 2026 Outscale SAS
 
 See [LICENSE](./LICENSE) for full details.
 
