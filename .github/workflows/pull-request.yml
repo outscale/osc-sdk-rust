@@ -28,6 +28,7 @@ jobs:
       - name: local tests
         run: ./local_tests.sh
       - name: Run examples
+        if: "! contains(github.event.pull_request.labels.*.name, 'dependencies')"
         env:
           OSC_ACCESS_KEY: ${{ secrets.OSC_ACCESS_KEY }}
           OSC_SECRET_KEY: ${{ secrets.OSC_SECRET_KEY }}
@@ -45,18 +46,3 @@ jobs:
           components: rustfmt
       - name: SDK re-generation test
         run: make regen-test
-  dependabot-auto-merge:
-    needs: [reuse-test, examples-test, regeneration-test]
-    runs-on: ubuntu-latest
-    if: ${{ github.actor == 'dependabot[bot]' }}
-    steps:
-      - name: Dependabot metadata
-        id: metadata
-        uses: dependabot/fetch-metadata@21025c705c08248db411dc16f3619e6b5f9ea21a # v2.5.0
-        with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
-      - name: Auto-merge
-        run: gh pr merge --auto --rebase "$PR_URL"
-        env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
