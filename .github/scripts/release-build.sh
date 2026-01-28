@@ -34,6 +34,8 @@ make gen
 # setup git && commit
 git config user.name "Outscale Bot"
 git config user.email "opensource+bot@outscale.com"
+git config gpg.format "ssh"
+git config commit.gpgSign true
 for f in docs src; do
     git add $f || true
 done
