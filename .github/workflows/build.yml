@@ -7,7 +7,7 @@ on:
         required: true
 
 permissions:
-  contents: read        
+  contents: none
 
 jobs:
   auto-build:
@@ -15,6 +15,8 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+        with:
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Stable Rust with rustfmt
         uses: actions-rs/toolchain@16499b5e05bf2e26879000db0c1d13f7e13fa3af # v1
         with:
@@ -31,8 +33,6 @@ jobs:
         run: make release-build
       - name: push release branch
         run: make release-push
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: create pull request
         run: make release-pr
         env:
