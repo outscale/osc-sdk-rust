@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**architecture** | Option<**String**> | **When registering from a snapshot:** The architecture of the OMI (`i386` or `x86_64`). | [optional]
+**architecture** | Option<**String**> | **When registering from a snapshot:** The architecture of the OMI (`i386` or `x86_64`). By default, set to `x86_64`. | [optional]
 **block_device_mappings** | Option<[**Vec<crate::models::BlockDeviceMappingImage>**](BlockDeviceMappingImage.md)> | **(required) When registering from a snapshot:** One or more block device mappings. | [optional]
 **boot_modes** | Option<[**Vec<crate::models::BootMode>**](BootMode.md)> | The boot modes compatible with the OMI. | [optional]
 **description** | Option<**String**> | A description for the new OMI. | [optional]

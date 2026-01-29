@@ -66,7 +66,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::CreatePolicyVersionResponse create_policy_version(create_policy_version_request)
 
 
-Creates a version of a specified managed policy.<br /> A managed policy can have up to five versions.
+Creates a version of a specified managed policy.<br /> A managed policy can have up to five versions. <br /><br />  **[IMPORTANT]**<br /> A delay of up to 15 seconds can occur when attaching, detaching, or updating a managed policy.
 
 ### Parameters
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeletePolicyVersionResponse delete_policy_version(delete_policy_version_request)
 
 
-Deletes a specified version of a managed policy, if it is not set as the default one.
+Deletes a specified version of a managed policy, if it is not set as the default one. <br /><br />  **[IMPORTANT]**<br /> A delay of up to 15 seconds can occur when attaching, detaching, or updating a managed policy.
 
 ### Parameters
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeleteUserGroupPolicyResponse delete_user_group_policy(delete_user_group_policy_request)
 
 
-Deletes a specified inline policy from a specific group.
+Deletes a specified inline policy from a specific group. <br /><br />  **[IMPORTANT]**<br /> A delay of up to 15 seconds can occur when creating or deleting an inline policy.
 
 ### Parameters
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeleteUserPolicyResponse delete_user_policy(delete_user_policy_request)
 
 
-Deletes a specified inline policy from a specific user.
+Deletes a specified inline policy from a specific user. <br /><br />  **[IMPORTANT]**<br /> A delay of up to 15 seconds can occur when creating or deleting an inline policy.
 
 ### Parameters
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::LinkManagedPolicyToUserGroupResponse link_managed_policy_to_user_group(link_managed_policy_to_user_group_request)
 
 
-Links a managed policy to a specific group. This policy applies to all the users contained in this group.
+Links a managed policy to a specific group. This policy applies to all the users contained in this group. <br /><br />  **[IMPORTANT]**<br /> A delay of up to 15 seconds can occur when attaching, detaching, or updating a managed policy.
 
 ### Parameters
 
@@ -246,7 +246,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::LinkPolicyResponse link_policy(link_policy_request)
 
 
-Links a managed policy to a specific user.
+Links a managed policy to a specific user. <br /><br />  **[IMPORTANT]**<br /> A delay of up to 15 seconds can occur when attaching, detaching, or updating a managed policy.
 
 ### Parameters
 
@@ -276,7 +276,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::PutUserGroupPolicyResponse put_user_group_policy(put_user_group_policy_request)
 
 
-Creates or updates an inline policy included in a specified group.<br /> The policy is automatically applied to all the users of the group after its creation.
+Creates or updates an inline policy included in a specified group.<br /> The policy is automatically applied to all the users of the group after its creation. <br /><br />  **[IMPORTANT]**<br /> A delay of up to 15 seconds can occur when creating or deleting an inline policy.
 
 ### Parameters
 
@@ -306,7 +306,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::PutUserPolicyResponse put_user_policy(put_user_policy_request)
 
 
-Creates or updates an inline policy included in a specified user.<br /> The policy is automatically applied to the user after its creation.
+Creates or updates an inline policy included in a specified user.<br /> The policy is automatically applied to the user after its creation. <br /><br />  **[IMPORTANT]**<br /> A delay of up to 15 seconds can occur when creating or deleting an inline policy.
 
 ### Parameters
 
@@ -666,7 +666,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::SetDefaultPolicyVersionResponse set_default_policy_version(set_default_policy_version_request)
 
 
-Sets a specified version of a managed policy as the default (operative) one.<br /> You can modify the default version of a policy at any time.
+Sets a specified version of a managed policy as the default (operative) one.<br /> You can modify the default version of a policy at any time. <br /><br />  **[IMPORTANT]**<br /> A delay of up to 15 seconds can occur when attaching, detaching, or updating a managed policy.
 
 ### Parameters
 
@@ -696,7 +696,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::UnlinkManagedPolicyFromUserGroupResponse unlink_managed_policy_from_user_group(unlink_managed_policy_from_user_group_request)
 
 
-Unlinks a managed policy from a specific group.
+Unlinks a managed policy from a specific group. <br /><br />  **[IMPORTANT]**<br /> A delay of up to 15 seconds can occur when attaching, detaching, or updating a managed policy.
 
 ### Parameters
 
@@ -726,7 +726,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::UnlinkPolicyResponse unlink_policy(unlink_policy_request)
 
 
-Removes a managed policy from a specific user.
+Removes a managed policy from a specific user. <br /><br />  **[IMPORTANT]**<br /> A delay of up to 15 seconds can occur when attaching, detaching, or updating a managed policy.
 
 ### Parameters
 
