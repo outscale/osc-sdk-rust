@@ -17,7 +17,7 @@ Method | HTTP request | Description
 > crate::models::CreateInternetServiceResponse create_internet_service(create_internet_service_request)
 
 
-Creates an internet service you can use with a Net.<br /> An internet service enables virtual machines (VMs) launched in a Net to connect to the Internet. It allows routing of incoming and outgoing Internet traffic and management of public IP addresses.<br /><br /> For more information, see [About Internet Services](https://docs.outscale.com/en/userguide/About-Internet-Services.html).
+Creates an internet service you can use with a Net.<br /> An internet service enables virtual machines (VMs) launched in a Net to connect to the Internet. It allows routing of incoming and outgoing Internet traffic and management of public IPs.<br /><br /> For more information, see [About Internet Services](https://docs.outscale.com/en/userguide/About-Internet-Services.html).
 
 ### Parameters
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadInternetServicesResponse read_internet_services(read_internet_services_request)
 
 
-Lists one or more of your internet services.<br /> An internet service enables virtual machines (VMs) launched in a Net to connect to the Internet. It allows routing of incoming and outgoing Internet traffic and management of public IP addresses.
+Lists one or more of your internet services.<br /> An internet service enables virtual machines (VMs) launched in a Net to connect to the Internet. It allows the routing of incoming and outgoing Internet traffic and management of public IPs.
 
 ### Parameters
 
