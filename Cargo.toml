@@ -11,7 +11,7 @@ repository = "https://github.com/outscale/osc-sdk-rust/"
 # renovate: datasource=crate depName=home
 home = "0.5.3"
 # renovate: datasource=crate depName=rand
-rand = "~0.9"
+rand = "~0.10.0"
 # renovate: datasource=crate depName=serde
 serde = "^1.0"
 # renovate: datasource=crate depName=serde_derive
