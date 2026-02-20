@@ -1,0 +1,54 @@
+
+{{ range . }}
+{{ opParamStruct . }}
+{{ end }}
+
+#[allow(async_fn_in_trait)]
+pub trait Api {
+	{{ range . }}
+	async fn {{ .Name }}({{ opArgs . }}) -> {{ opRets . }};
+	{{ end }}
+}
+
+impl Api for Client {
+	{{ range . }}
+	async fn {{ .Name }}({{ opArgs . }}) -> {{ opRets . }} {
+		{{ urlGen . }}
+
+		let {{ if .RequestBody }}mut{{ end }} req = reqwest::Request::new("{{ .Method }}".try_into().unwrap(), url);
+		{{ if .RequestBody }}
+	    match serde_json::to_vec(&request_body) {
+            Ok(body) => {
+                req.headers_mut()
+                    .entry(reqwest::header::CONTENT_TYPE)
+                    .or_insert_with(|| reqwest::header::HeaderValue::from_static("application/json"));
+                *req.body_mut() = Some(body.into());
+            }
+            Err(err) => return Err(err.into()),
+        };	
+        {{ end }}
+
+		let resp = self.inner
+            .call(req)
+			.await?;
+	
+		{{ if len .ReturnValue }}
+		{{ $op_name := .Name }}
+		match (resp.status().as_u16(), resp.headers().get("Content-Type").map(|v| v.as_bytes())) {
+			{{ range .ReturnValue }}
+			({{ .StatusCode }}, Some(b"{{ .ContentType }}")) => {
+				{{ if sucessRes . }}
+					Ok(resp.json::<{{ typeRes . $op_name }}>().await?)
+				{{ else }}
+					Err(resp.json::<{{ typeRes . $op_name }}>().await?.into())
+                    {{ end }}
+			},
+			{{ end }}
+			_ => Err(ApiError::UnsupportedFeature("unsupported response".to_string()))
+		}
+		{{ end }}
+	}
+	{{ end }}
+}
+
+{{ stateDump }}

@@ -1,0 +1,2 @@
+spec: ./config/oks/api.yaml
+overlay: ./config/oks/patch.yaml

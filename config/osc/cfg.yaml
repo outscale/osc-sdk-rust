@@ -1,0 +1,2 @@
+spec: ./config/osc/api.yaml
+overlay: ./config/osc/patch.yaml
