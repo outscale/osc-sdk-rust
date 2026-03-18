@@ -2,7 +2,7 @@ use reqwest::blocking::Client;
 use reqwest::blocking::{Request, Response};
 use reqwest::{IntoUrl, Method};
 
-use rand::Rng;
+use rand::RngExt;
 use reqwest::blocking::RequestBuilder;
 use serde::{Deserialize, Deserializer};
 use std::collections::VecDeque;
