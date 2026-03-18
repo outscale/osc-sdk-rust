@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_aliases** | Option<**Vec<String>**> | The account aliases of the owners of the OMIs. | [optional]
-**account_ids** | Option<**Vec<String>**> | The account IDs of the owners of the OMIs. By default, all the OMIs for which you have launch permissions are described. | [optional]
+**account_ids** | Option<**Vec<String>**> | The OUTSCALE account IDs of the owners of the OMIs. By default, all the OMIs for which you have launch permissions are described. | [optional]
 **architectures** | Option<**Vec<String>**> | The architectures of the OMIs (`i386` \\| `x86_64`). | [optional]
 **block_device_mapping_delete_on_vm_deletion** | Option<**bool**> | Whether the volumes are deleted or not when terminating the VM. | [optional]
 **block_device_mapping_device_names** | Option<**Vec<String>**> | The device names for the volumes. | [optional]
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **hypervisors** | Option<**Vec<String>**> | The hypervisor type of the OMI (always `xen`). | [optional]
 **image_ids** | Option<**Vec<String>**> | The IDs of the OMIs. | [optional]
 **image_names** | Option<**Vec<String>**> | The names of the OMIs, provided when they were created. | [optional]
-**permissions_to_launch_account_ids** | Option<**Vec<String>**> | The account IDs which have launch permissions for the OMIs. | [optional]
+**permissions_to_launch_account_ids** | Option<**Vec<String>**> | The OUTSCALE account IDs which have launch permissions for the OMIs. | [optional]
 **permissions_to_launch_global_permission** | Option<**bool**> | If true, lists all public OMIs. If false, lists all private OMIs. | [optional]
 **product_code_names** | Option<**Vec<String>**> | The names of the product codes associated with the OMI. | [optional]
 **product_codes** | Option<**Vec<String>**> | The product codes associated with the OMI. | [optional]

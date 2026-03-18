@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account_id** | Option<**String**> | The account ID of the owner of the DirectLink interface. | [optional]
+**account_id** | Option<**String**> | The OUTSCALE account ID of the owner of the DirectLink interface. | [optional]
 **bgp_asn** | Option<**i32**> | The BGP (Border Gateway Protocol) ASN (Autonomous System Number) on the customer's side of the DirectLink interface. | [optional]
 **bgp_key** | Option<**String**> | The BGP authentication key. | [optional]
 **client_private_ip** | Option<**String**> | The IP on the customer's side of the DirectLink interface. | [optional]

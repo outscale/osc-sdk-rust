@@ -16,7 +16,7 @@ Method | HTTP request | Description
 > crate::models::CreateUserResponse create_user(create_user_request)
 
 
-Creates an EIM user for your account.<br /><br /> For more information, see [About EIM Users](https://docs.outscale.com/en/userguide/About-EIM-Users.html).
+Creates an EIM user for your OUTSCALE account.<br /><br /> For more information, see [About EIM Users](https://docs.outscale.com/en/userguide/About-EIM-Users.html).
 
 ### Parameters
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadUsersResponse read_users(read_users_request)
 
 
-Lists all EIM users in the account.<br /> The response can be filtered using the UserIds.
+Lists all EIM users in the OUTSCALE account.<br /> The response can be filtered using the UserIds.
 
 ### Parameters
 

@@ -45,7 +45,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeleteNatServiceResponse delete_nat_service(delete_nat_service_request)
 
 
-Deletes a specified network address translation (NAT) service.<br /> This action disassociates the public IP from the NAT service, but does not release this public IP from your account. However, it does not delete any NAT service routes in your route tables.
+Deletes a specified network address translation (NAT) service.<br /> This action disassociates the public IP from the NAT service, but does not release this public IP from your OUTSCALE account. However, it does not delete any NAT service routes in your route tables.
 
 ### Parameters
 

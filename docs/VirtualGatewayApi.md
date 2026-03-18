@@ -48,7 +48,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeleteVirtualGatewayResponse delete_virtual_gateway(delete_virtual_gateway_request)
 
 
-Deletes a specified virtual gateway.<br /> Before deleting a virtual gateway, we recommend to detach it from the Net and delete the VPN connection.
+Deletes a specified virtual gateway.<br /> **[IMPORTANT]**<br /> Before deleting a virtual gateway, we recommend detaching it from any associated Net, DirectLink, and DirectLink interface, and deleting the VPN connection.
 
 ### Parameters
 

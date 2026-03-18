@@ -16,7 +16,7 @@ Method | HTTP request | Description
 > crate::models::CreateApiAccessRuleResponse create_api_access_rule(create_api_access_rule_request)
 
 
-Creates a rule to allow access to the API from your account.<br /> You need to specify at least the `CaIds` or the `IpRanges` parameter.<br /><br />  **[NOTE]**<br /> By default, your account has a set of rules allowing global access, that you can delete.<br /><br /> For more information, see [About API Access Rules](https://docs.outscale.com/en/userguide/About-API-Access-Rules.html).
+Creates a rule to allow access to the API from your OUTSCALE account.<br /> You need to specify at least the `CaIds` or the `IpRanges` parameter.<br /><br />  **[NOTE]**<br /> By default, your account has a set of rules allowing global access, that you can delete.<br /><br /> For more information, see [About API Access Rules](https://docs.outscale.com/en/userguide/About-API-Access-Rules.html).
 
 ### Parameters
 

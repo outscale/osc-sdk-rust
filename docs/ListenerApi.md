@@ -138,7 +138,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadListenerRulesResponse read_listener_rules(read_listener_rules_request)
 
 
-Lists one or more listener rules. By default, this action returns the full list of listener rules for the account.
+Lists one or more listener rules. By default, this action returns the full list of listener rules for the OUTSCALE account.
 
 ### Parameters
 

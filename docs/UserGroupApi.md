@@ -140,7 +140,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadUserGroupsResponse read_user_groups(read_user_groups_request)
 
 
-Lists all the user groups of the account.<br /> The response can be filtered using either the PathPrefix or the UserGroupIds.
+Lists all the user groups of the OUTSCALE account.<br /> The response can be filtered using either the PathPrefix or the UserGroupIds.
 
 ### Parameters
 

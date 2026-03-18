@@ -19,7 +19,7 @@ Method | HTTP request | Description
 > crate::models::CreateFlexibleGpuResponse create_flexible_gpu(create_flexible_gpu_request)
 
 
-Allocates a flexible GPU (fGPU) to your account.<br /> You can then attach this fGPU to a virtual machine (VM).<br /><br /> For more information, see [About Flexible GPUs](https://docs.outscale.com/en/userguide/About-Flexible-GPUs.html).
+Allocates a flexible GPU (fGPU) to your OUTSCALE account.<br /> You can then attach this fGPU to a virtual machine (VM).<br /><br /> For more information, see [About Flexible GPUs](https://docs.outscale.com/en/userguide/About-Flexible-GPUs.html).
 
 ### Parameters
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeleteFlexibleGpuResponse delete_flexible_gpu(delete_flexible_gpu_request)
 
 
-Releases a flexible GPU (fGPU) from your account.<br /> The fGPU becomes free to be used by someone else.
+Releases a flexible GPU (fGPU) from your OUTSCALE account.<br /> The fGPU becomes free to be used by someone else.
 
 ### Parameters
 
@@ -139,7 +139,7 @@ No authorization required
 > crate::models::ReadFlexibleGpusResponse read_flexible_gpus(read_flexible_gpus_request)
 
 
-Lists one or more flexible GPUs (fGPUs) allocated to your account.
+Lists one or more flexible GPUs (fGPUs) allocated to your OUTSCALE account.
 
 ### Parameters
 

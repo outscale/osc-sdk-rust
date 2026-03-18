@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account_id** | Option<**String**> | The account ID of the logged call. | [optional]
+**account_id** | Option<**String**> | The OUTSCALE account ID of the logged call. | [optional]
 **call_duration** | Option<**i32**> | The duration of the logged call, in microseconds. | [optional]
 **query_access_key** | Option<**String**> | The access key used for the logged call. | [optional]
 **query_api_name** | Option<**String**> | The name of the API used by the logged call (always `oapi` for the OUTSCALE API). | [optional]

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 > crate::models::CreateVmTemplateResponse create_vm_template(create_vm_template_request)
 
 
-> [WARNING]<br /> > This feature is currently under development and may not function properly.<br />  Creates a virtual machine (VM) template. You can then use the VM template to create VM groups.<br /> You can create up to 50 VM templates in your account.
+> [WARNING]<br /> > This feature is currently under development and may not function properly.<br />  Creates a virtual machine (VM) template. You can then use the VM template to create VM groups.<br /> You can create up to 50 VM templates in your OUTSCALE account.
 
 ### Parameters
 
