@@ -3,7 +3,7 @@ use outscale_api::apis::profile::Profile;
 use outscale_api::models::{
     CreateKeypairRequest, DeleteKeypairRequest, FiltersKeypair, ReadKeypairsRequest,
 };
-use rand::Rng;
+use rand::RngExt;
 
 fn main() {
     let config = Profile::default().and_then(|p| p.try_into()).unwrap();
