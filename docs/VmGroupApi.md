@@ -18,7 +18,7 @@ Method | HTTP request | Description
 > crate::models::CreateVmGroupResponse create_vm_group(create_vm_group_request)
 
 
-> [WARNING]<br /> > This feature is currently under development and may not function properly.<br />  Creates a group of virtual machines (VMs) containing the same characteristics as a specified VM template, and then launches them.<br /> You can create up to 100 VM groups in your account.
+> [WARNING]<br /> > This feature is currently under development and may not function properly.<br />  Creates a group of virtual machines (VMs) containing the same characteristics as a specified VM template, and then launches them.<br /> You can create up to 100 VM groups in your OUTSCALE account.
 
 ### Parameters
 

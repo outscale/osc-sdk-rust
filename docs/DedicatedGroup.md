@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account_id** | Option<**String**> | The account ID of the owners of the dedicated group. | [optional]
+**account_id** | Option<**String**> | The OUTSCALE account ID of the owners of the dedicated group. | [optional]
 **cpu_generation** | Option<**i32**> | The processor generation. | [optional]
 **dedicated_group_id** | Option<**String**> | The ID of the dedicated group. | [optional]
 **name** | Option<**String**> | The name of the dedicated group. | [optional]

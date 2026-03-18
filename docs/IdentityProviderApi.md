@@ -18,7 +18,7 @@ Method | HTTP request | Description
 > crate::models::DisableOutscaleLoginResponse disable_outscale_login(disable_outscale_login_request)
 
 
-Disables the possibility of logging in using the Outscale credentials of your root account when identity federation is activated.
+Disables the possibility of logging in using the Outscale credentials of your root user when identity federation is activated.
 
 ### Parameters
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::EnableOutscaleLoginResponse enable_outscale_login(enable_outscale_login_request)
 
 
-Enables the possibility of logging in using the Outscale credentials of your root account when identity federation is activated.
+Enables the possibility of logging in using the Outscale credentials of your root user when identity federation is activated.
 
 ### Parameters
 

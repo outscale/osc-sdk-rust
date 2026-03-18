@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account_id** | Option<**String**> | The ID of your TINA account. | [optional]
+**account_id** | Option<**String**> | The ID of your OUTSCALE account. | [optional]
 **category** | Option<**String**> | The category of the resource (for example, `network`). | [optional]
 **from_date** | Option<**String**> | The beginning of the time period (UTC). | [optional]
 **operation** | Option<**String**> | The API call that triggered the resource consumption (for example, `RunInstances` or `CreateVolume`). | [optional]
-**paying_account_id** | Option<**String**> | The ID of the TINA account which is billed for your consumption. It can be different from your account in the `AccountId` parameter. | [optional]
+**paying_account_id** | Option<**String**> | The ID of the OUTSCALE account which is billed for your consumption. It can be different from your account in the `AccountId` parameter. | [optional]
 **price** | Option<**f64**> | The total price of the consumed resource during the specified time period, in the currency of the Region's catalog. | [optional]
 **resource_id** | Option<**String**> | The ID of the consumed resource. | [optional]
 **service** | Option<**String**> | The service of the API call (`TinaOS-FCU`, `TinaOS-LBU`, `TinaOS-DirectLink`, `TinaOS-OOS`, `TinaOS-OSU`, or `OKS`). | [optional]

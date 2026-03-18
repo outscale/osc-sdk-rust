@@ -426,7 +426,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadPoliciesResponse read_policies(read_policies_request)
 
 
-Lists all the managed policies available for your account.
+Lists all the managed policies available for your OUTSCALE account.
 
 ### Parameters
 

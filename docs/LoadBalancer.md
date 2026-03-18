@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **secured_cookies** | Option<**bool**> | Whether secure cookies are enabled for the load balancer. | [optional]
 **security_groups** | Option<**Vec<String>**> | One or more IDs of security groups for the load balancers. Valid only for load balancers in a Net. | [optional]
 **source_security_group** | Option<[**crate::models::SourceSecurityGroup**](SourceSecurityGroup.md)> |  | [optional]
+**state** | Option<**String**> | The state of the load balancer (`provisioning` \\| `starting` \\| `reloading` \\| `active` \\| `reconfiguring` \\| `deleting` \\| `deleted`). | [optional]
 **subnets** | Option<**Vec<String>**> | The ID of the Subnet in which the load balancer was created. | [optional]
 **subregion_names** | Option<**Vec<String>**> | The ID of the Subregion in which the load balancer was created. | [optional]
 **tags** | Option<[**Vec<crate::models::ResourceTag>**](ResourceTag.md)> | One or more tags associated with the load balancer. | [optional]

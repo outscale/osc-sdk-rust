@@ -48,7 +48,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::DeletePublicIpResponse delete_public_ip(delete_public_ip_request)
 
 
-Releases a public IP.<br /> You can release a public IP associated with your account. This address is released in the public IP pool and can be used by someone else. Before releasing a public IP, ensure you updated all your resources communicating with this address.
+Releases a public IP.<br /> You can release a public IP associated with your OUTSCALE account. This address is released in the public IP pool and can be used by someone else. Before releasing a public IP, ensure you updated all your resources communicating with this address.
 
 ### Parameters
 
@@ -138,7 +138,7 @@ No authorization required
 > crate::models::ReadPublicIpsResponse read_public_ips(read_public_ips_request)
 
 
-Lists one or more public IPs allocated to your account.<br /> By default, this action returns information about all your public IPs: available or associated with a virtual machine (VM), a network interface card (NIC) or a NAT service.
+Lists one or more public IPs allocated to your OUTSCALE account.<br /> By default, this action returns information about all your public IPs: available or associated with a virtual machine (VM), a network interface card (NIC) or a NAT service.
 
 ### Parameters
 

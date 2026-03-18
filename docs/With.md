@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account_id** | Option<**bool**> | If true, the account ID is displayed. | [optional][default to true]
+**account_id** | Option<**bool**> | If true, the OUTSCALE account ID is displayed. | [optional][default to true]
 **call_duration** | Option<**bool**> | If true, the duration of the call is displayed. | [optional][default to true]
 **query_access_key** | Option<**bool**> | If true, the access key is displayed. | [optional][default to true]
 **query_api_name** | Option<**bool**> | If true, the name of the API is displayed. | [optional][default to true]

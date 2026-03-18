@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account_id** | Option<**String**> | The account ID of the owner of the NIC. | [optional]
+**account_id** | Option<**String**> | The OUTSCALE account ID of the owner of the NIC. | [optional]
 **description** | Option<**String**> | The description of the NIC. | [optional]
 **is_source_dest_checked** | Option<**bool**> | (Net only) If true, the source/destination check is enabled. If false, it is disabled. | [optional]
 **link_nic** | Option<[**crate::models::LinkNic**](LinkNic.md)> |  | [optional]

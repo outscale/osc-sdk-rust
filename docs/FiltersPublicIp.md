@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **link_public_ip_ids** | Option<**Vec<String>**> | The IDs representing the associations of public IPs with VMs or NICs. | [optional]
-**nic_account_ids** | Option<**Vec<String>**> | The account IDs of the owners of the NICs. | [optional]
+**nic_account_ids** | Option<**Vec<String>**> | The OUTSCALE account IDs of the owners of the NICs. | [optional]
 **nic_ids** | Option<**Vec<String>**> | The IDs of the NICs. | [optional]
 **placements** | Option<**Vec<String>**> | Whether the public IPs are for use in the public Cloud or in a Net. | [optional]
 **private_ips** | Option<**Vec<String>**> | The private IPs associated with the public IPs. | [optional]
