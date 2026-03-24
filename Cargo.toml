@@ -15,7 +15,7 @@ serde = { version = "1.0.228", features = ["derive"] }
 serde_json = "1.0.149"
 serde_urlencoded = "0.7.1"
 sha2 = "0.10.9"
-tower = "0.5.3"
+tower = { version = "0.5.3", features = ["buffer"] }
 
 [dev-dependencies]
 tokio = { version = "1", features = ["full", "tracing"] }

@@ -4,15 +4,15 @@ use futures::future::BoxFuture;
 use reqwest::Request;
 use tower::Service;
 
-use super::signer::SigV4Signer;
+use super::signer::SigOksSigner;
 
 #[derive(Clone)]
-pub struct SigV4Service<S> {
+pub struct SigOksService<S> {
     pub(crate) inner: S,
-    pub(crate) signer: SigV4Signer,
+    pub(crate) signer: SigOksSigner,
 }
 
-impl<S> Service<Request> for SigV4Service<S>
+impl<S> Service<Request> for SigOksService<S>
 where
     S: Service<Request, Response = reqwest::Response> + Send,
     S::Future: Send + 'static,

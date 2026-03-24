@@ -81,9 +81,9 @@ impl EndpointBuilder {
             oos: self
                 .oos
                 .unwrap_or_else(|| format!("{}://oos.{}.outscale.com", protocol, region)),
-            oks: self
-                .oks
-                .unwrap_or_else(|| format!("{}://oks.{}.outscale.com/api/v2", protocol, region)),
+            oks: self.oks.unwrap_or_else(|| {
+                format!("{}://api.{}.oks.outscale.com/api/v2", protocol, region)
+            }),
         }
     }
 }

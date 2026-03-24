@@ -19,7 +19,7 @@ pub struct Client {
                     'static,
                     Result<reqwest::Response, reqwest::Error>,
                 >,
-            >,
+            > + Send,
     >,
 }
 

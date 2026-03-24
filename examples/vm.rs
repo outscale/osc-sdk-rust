@@ -1,9 +1,12 @@
+use env_logger::Env;
 use sdk::Profile;
 use sdk::osc::{Api as _, Client};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    env_logger::init();
+    let env = Env::default().filter_or(env_logger::DEFAULT_FILTER_ENV, "info");
+
+    env_logger::init_from_env(env);
 
     let profile = Profile::default().unwrap();
     let mut client = Client::new(&profile).unwrap();
