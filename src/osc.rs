@@ -1,3 +1,4 @@
+use tower::ServiceExt as _;
 use tower::{Layer as _, Service as _};
 
 pub type ApiError = crate::errors::Error<ErrorResponse>;
@@ -8,24 +9,21 @@ impl From<ErrorResponse> for ApiError {
     }
 }
 
+impl From<tower::BoxError> for ApiError {
+    fn from(_value: tower::BoxError) -> Self {
+        ApiError::InvalidBaseUrl
+    }
+}
+
+#[derive(Clone)]
 pub struct Client {
     base_url: reqwest::Url,
-    inner: Box<
-        dyn tower::Service<
-                reqwest::Request,
-                Response = reqwest::Response,
-                Error = reqwest::Error,
-                Future = futures::future::BoxFuture<
-                    'static,
-                    Result<reqwest::Response, reqwest::Error>,
-                >,
-            > + Send,
-    >,
+    inner: tower::util::BoxCloneService<reqwest::Request, reqwest::Response, tower::BoxError>,
 }
 
 impl Client {
     pub fn new(profile: &super::Profile) -> Result<Self, super::Error> {
-        let client = reqwest::Client::new();
+        let client = crate::policy::default_pooled_transport().build()?;
         let base_url = reqwest::Url::parse(&profile.endpoints.api)
             .map_err(|_| super::Error::InvalidBaseUrl)?;
 
@@ -38,7 +36,18 @@ impl Client {
                 session_token: None,
             };
 
-            let inner = Box::new(crate::signv4::SigV4Layer::new(config.clone()).layer(client));
+            let inner = tower::ServiceBuilder::new()
+                .boxed_clone()
+                .buffer(1024)
+                .rate_limit(5, std::time::Duration::from_secs(1))
+                .retry(crate::policy::BasePolicy::new(
+                    3,
+                    std::time::Duration::from_millis(100),
+                    std::time::Duration::from_secs(30),
+                    3.0,
+                ))
+                .layer(crate::signv4::SigV4Layer::new(config.clone()))
+                .service(client);
 
             Ok(Self { base_url, inner })
         } else {

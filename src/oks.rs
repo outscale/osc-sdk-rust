@@ -1,5 +1,6 @@
 use serde::{Serializer, ser::SerializeSeq};
-use tower::{Layer as _, Service as _};
+use tower::Service as _;
+use tower::ServiceExt as _;
 
 pub type ApiError = crate::errors::Error<ErrorResponse>;
 
@@ -9,50 +10,21 @@ impl From<ErrorResponse> for ApiError {
     }
 }
 
-trait ClonableService:
-    tower::Service<
-        reqwest::Request,
-        Response = reqwest::Response,
-        Error = reqwest::Error,
-        Future = futures::future::BoxFuture<'static, Result<reqwest::Response, reqwest::Error>>,
-    > + Send
-{
-    fn cloned_box(&self) -> Box<dyn ClonableService + Send>;
-}
-
-impl<T> ClonableService for T
-where
-    T: tower::Service<
-            reqwest::Request,
-            Response = reqwest::Response,
-            Error = reqwest::Error,
-            Future = futures::future::BoxFuture<'static, Result<reqwest::Response, reqwest::Error>>,
-        > + Clone
-        + Send
-        + 'static,
-{
-    fn cloned_box(&self) -> Box<dyn ClonableService + Send> {
-        Box::new(self.clone())
+impl From<tower::BoxError> for ApiError {
+    fn from(_value: tower::BoxError) -> Self {
+        ApiError::InvalidBaseUrl
     }
 }
 
+#[derive(Clone)]
 pub struct Client {
     base_url: reqwest::Url,
-    inner: Box<dyn ClonableService + Send>,
-}
-
-impl Clone for Client {
-    fn clone(&self) -> Self {
-        Self {
-            base_url: self.base_url.clone(),
-            inner: self.inner.cloned_box(),
-        }
-    }
+    inner: tower::util::BoxCloneService<reqwest::Request, reqwest::Response, tower::BoxError>,
 }
 
 impl Client {
     pub fn new(profile: &super::Profile) -> Result<Self, super::Error> {
-        let client = reqwest::Client::new();
+        let client = crate::policy::default_pooled_transport().build()?;
         let base_url = reqwest::Url::parse(&profile.endpoints.oks)
             .map_err(|_| super::Error::InvalidBaseUrl)?;
 
@@ -62,7 +34,18 @@ impl Client {
                 secret_key: sk.to_string(),
             };
 
-            let inner = Box::new(crate::signoks::SigOksLayer::new(config.clone()).layer(client));
+            let inner = tower::ServiceBuilder::new()
+                .boxed_clone()
+                .buffer(1024)
+                .rate_limit(5, std::time::Duration::from_secs(1))
+                .retry(crate::policy::BasePolicy::new(
+                    3,
+                    std::time::Duration::from_millis(100),
+                    std::time::Duration::from_secs(30),
+                    3.0,
+                ))
+                .layer(crate::signoks::SigOksLayer::new(config.clone()))
+                .service(client);
 
             Ok(Self { base_url, inner })
         } else {

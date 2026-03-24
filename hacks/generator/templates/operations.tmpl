@@ -29,6 +29,8 @@ impl Api for Client {
         {{ end }}
 
 		let resp = self.inner
+            .ready()
+            .await?
             .call(req)
 			.await?;
 	
