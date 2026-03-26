@@ -30,8 +30,8 @@ impl Client {
 
         if let Some((ak, sk)) = profile.access_key.as_ref().zip(profile.secret_key.as_ref()) {
             let config = crate::signoks::SigOksConfig {
-                access_key: ak.to_string(),
-                secret_key: sk.to_string(),
+                access_key: ak.clone(),
+                secret_key: sk.clone(),
             };
 
             let inner = tower::ServiceBuilder::new()

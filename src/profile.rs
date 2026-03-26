@@ -1,3 +1,4 @@
+use secrecy::SecretString;
 use serde::Deserialize;
 
 pub struct Endpoint {
@@ -89,15 +90,15 @@ impl EndpointBuilder {
 }
 
 pub struct Profile {
-    pub access_key: Option<String>,
-    pub secret_key: Option<String>,
+    pub access_key: Option<SecretString>,
+    pub secret_key: Option<SecretString>,
     pub x509_client_cert: Option<String>,
     pub x509_client_key: Option<String>,
-    pub x509_client_cert_b64: Option<String>,
-    pub x509_client_key_b64: Option<String>,
+    pub x509_client_cert_b64: Option<SecretString>,
+    pub x509_client_key_b64: Option<SecretString>,
     pub tls_skip_verify: bool,
-    pub login: Option<String>,
-    pub password: Option<String>,
+    pub login: Option<SecretString>,
+    pub password: Option<SecretString>,
     pub protocol: String,
     pub region: String,
     pub endpoints: Endpoint,
@@ -123,15 +124,15 @@ impl Profile {
 #[serde(default)]
 pub struct ProfileBuilder {
     default: Option<bool>,
-    access_key: Option<String>,
-    secret_key: Option<String>,
+    access_key: Option<SecretString>,
+    secret_key: Option<SecretString>,
     x509_client_cert: Option<String>,
     x509_client_key: Option<String>,
-    x509_client_cert_b64: Option<String>,
-    x509_client_key_b64: Option<String>,
+    x509_client_cert_b64: Option<SecretString>,
+    x509_client_key_b64: Option<SecretString>,
     tls_skip_verify: Option<bool>,
-    login: Option<String>,
-    password: Option<String>,
+    login: Option<SecretString>,
+    password: Option<SecretString>,
     protocol: Option<String>,
     region: Option<String>,
     endpoints: EndpointBuilder,
@@ -147,7 +148,7 @@ impl ProfileBuilder {
         macro_rules! get_from_env {
             ($field:ident, $env:literal) => {
                 match std::env::var($env) {
-                    Ok(v) => Some(v),
+                    Ok(v) => Some(v.into()),
                     Err(std::env::VarError::NotPresent) => self.$field,
                     Err(e) => {
                         return Err(super::Error::InvalidEnvironmentVariable {
@@ -187,14 +188,14 @@ impl ProfileBuilder {
     }
 
     pub fn access_key(mut self, access_key: impl ToString, secret_key: impl ToString) -> Self {
-        self.access_key = Some(access_key.to_string());
-        self.secret_key = Some(secret_key.to_string());
+        self.access_key = Some(access_key.to_string().into());
+        self.secret_key = Some(secret_key.to_string().into());
         self
     }
 
     pub fn basic_auth(mut self, login: impl ToString, password: impl ToString) -> Self {
-        self.login = Some(login.to_string());
-        self.password = Some(password.to_string());
+        self.login = Some(login.to_string().into());
+        self.password = Some(password.to_string().into());
         self
     }
 

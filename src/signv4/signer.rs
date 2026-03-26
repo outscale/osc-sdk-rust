@@ -5,6 +5,7 @@ use log::debug;
 use reqwest::{Request, header::HeaderValue};
 
 use super::config::SigV4Config;
+use secrecy::{ExposeSecret, SecretSlice, SecretString};
 
 use hmac::Mac as _;
 use sha2::Digest as _;
@@ -24,20 +25,20 @@ impl SigV4Signer {
         }
     }
 
-    fn get_signature_key(&self, date_stamp: &str) -> Result<Vec<u8>, ()> {
-        fn sign(key: &[u8], msg: &[u8]) -> Result<Vec<u8>, ()> {
+    fn get_signature_key(&self, date_stamp: &str) -> Result<SecretSlice<u8>, ()> {
+        fn sign(key: &[u8], msg: &[u8]) -> Result<SecretSlice<u8>, ()> {
             let mut mac = HmacSha256::new_from_slice(key).map_err(|_| ())?;
             mac.update(msg);
-            Ok(mac.finalize().into_bytes().to_vec())
+            Ok(SecretSlice::from(mac.finalize().into_bytes().to_vec()))
         }
 
         let k_date = sign(
-            format!("OSC4{}", &self.config.secret_key).as_bytes(),
+            format!("OSC4{}", self.config.secret_key.expose_secret()).as_bytes(),
             date_stamp.as_bytes(),
         )?;
-        let k_region = sign(&k_date, self.config.region.as_bytes())?;
-        let k_service = sign(&k_region, self.config.service.as_bytes())?;
-        sign(&k_service, b"osc4_request")
+        let k_region = sign(k_date.expose_secret(), self.config.region.as_bytes())?;
+        let k_service = sign(k_region.expose_secret(), self.config.service.as_bytes())?;
+        sign(k_service.expose_secret(), b"osc4_request")
     }
 
     fn get_canonical_request(&self, request: &Request, timestamp: &str) -> String {
@@ -68,10 +69,12 @@ impl SigV4Signer {
         )
     }
 
-    fn get_authorization_header(&self, credential_scope: &str, signature: &str) -> String {
+    fn get_authorization_header(&self, credential_scope: &str, signature: &SecretString) -> String {
         format!(
             "OSC4-HMAC-SHA256 Credential={}/{}, SignedHeaders=host;x-osc-date, Signature={}",
-            self.config.access_key, credential_scope, signature
+            self.config.access_key.expose_secret(),
+            credential_scope,
+            signature.expose_secret(),
         )
     }
 
@@ -100,16 +103,16 @@ impl SigV4Signer {
         );
         debug!("string_to_sign: {}", string_to_sign);
 
-        // Calculate the signuature
         let signing_key = self.get_signature_key(&datestamp)?;
-        let singuature = {
-            let mut mac = HmacSha256::new_from_slice(&signing_key).map_err(|_| ())?;
+        let signature: SecretString = {
+            let mut mac =
+                HmacSha256::new_from_slice(signing_key.expose_secret()).map_err(|_| ())?;
             mac.update(string_to_sign.as_bytes());
-            format!("{:x}", mac.finalize().into_bytes())
+            SecretString::from(format!("{:x}", mac.finalize().into_bytes()))
         };
 
         // Add Signing information to the request
-        let authorization_header = self.get_authorization_header(&credential_scope, &singuature);
+        let authorization_header = self.get_authorization_header(&credential_scope, &signature);
         let mut authorization_header =
             HeaderValue::from_str(&authorization_header).map_err(|_| ())?;
         authorization_header.set_sensitive(true);
@@ -121,7 +124,7 @@ impl SigV4Signer {
             .insert("Authorization", authorization_header);
 
         if let Some(ref token) = self.config.session_token {
-            let mut token = HeaderValue::from_str(token.as_str()).map_err(|_| ())?;
+            let mut token = HeaderValue::from_str(token.expose_secret()).map_err(|_| ())?;
             token.set_sensitive(true);
 
             request.headers_mut().insert("X-Osc-Security-Token", token);

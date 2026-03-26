@@ -29,8 +29,8 @@ impl Client {
 
         if let Some((ak, sk)) = profile.access_key.as_ref().zip(profile.secret_key.as_ref()) {
             let config = crate::signv4::SigV4Config {
-                access_key: ak.to_string(),
-                secret_key: sk.to_string(),
+                access_key: ak.clone(),
+                secret_key: sk.clone(),
                 region: profile.region.clone(),
                 service: "osc".to_string(),
                 session_token: None,

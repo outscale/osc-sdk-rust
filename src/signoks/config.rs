@@ -1,5 +1,7 @@
+use secrecy::SecretString;
+
 #[derive(Clone)]
 pub struct SigOksConfig {
-    pub access_key: String,
-    pub secret_key: String,
+    pub access_key: SecretString,
+    pub secret_key: SecretString,
 }

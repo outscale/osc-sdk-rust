@@ -1,8 +1,9 @@
 use std::sync::Arc;
 
-use reqwest::Request;
+use reqwest::{Request, header::HeaderValue};
 
 use super::config::SigOksConfig;
+use secrecy::ExposeSecret;
 
 #[derive(Clone)]
 pub(crate) struct SigOksSigner {
@@ -18,14 +19,19 @@ impl SigOksSigner {
 
     pub(crate) fn sign(&self, request: &mut Request) -> Result<(), ()> {
         let headers = request.headers_mut();
-        headers.insert(
-            "AccessKey",
-            self.config.access_key.clone().try_into().map_err(|_| ())?,
-        );
-        headers.insert(
-            "SecretKey",
-            self.config.secret_key.clone().try_into().map_err(|_| ())?,
-        );
+
+        {
+            let mut header = HeaderValue::from_str(self.config.access_key.expose_secret()).unwrap();
+            header.set_sensitive(true);
+            headers.insert("AccessKey", header);
+        };
+
+        {
+            let mut header = HeaderValue::from_str(self.config.secret_key.expose_secret()).unwrap();
+            header.set_sensitive(true);
+            headers.insert("SecretKey", header);
+        };
+
         Ok(())
     }
 }
