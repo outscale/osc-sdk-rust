@@ -1,5 +1,5 @@
+use tower::Service as _;
 use tower::ServiceExt as _;
-use tower::{Layer as _, Service as _};
 
 pub type ApiError = crate::errors::Error<ErrorResponse>;
 

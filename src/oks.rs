@@ -29,9 +29,12 @@ impl Client {
             .map_err(|_| super::Error::InvalidBaseUrl)?;
 
         if let Some((ak, sk)) = profile.access_key.as_ref().zip(profile.secret_key.as_ref()) {
-            let config = crate::signoks::SigOksConfig {
+            let config = crate::signv4::SigV4Config {
                 access_key: ak.clone(),
                 secret_key: sk.clone(),
+                region: profile.region.clone(),
+                service: "oks".to_string(),
+                session_token: None,
             };
 
             let inner = tower::ServiceBuilder::new()
@@ -44,7 +47,7 @@ impl Client {
                     std::time::Duration::from_secs(30),
                     3.0,
                 ))
-                .layer(crate::signoks::SigOksLayer::new(config.clone()))
+                .layer(crate::signv4::SigV4Layer::new(config.clone()))
                 .service(client);
 
             Ok(Self { base_url, inner })

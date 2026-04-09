@@ -79,6 +79,13 @@ impl SigV4Signer {
     }
 
     pub(crate) fn sign(&self, request: &mut Request) -> Result<(), ()> {
+        match self.config.service.as_str() {
+            "oks" => self.inner_sign_oks(request),
+            _ => self.inner_sign(request),
+        }
+    }
+
+    fn inner_sign(&self, request: &mut Request) -> Result<(), ()> {
         let now = Utc::now();
         let timestamp = now.format("%Y%m%dT%H%M%SZ").to_string();
         let datestamp = now.format("%Y%m%d").to_string();
@@ -130,6 +137,24 @@ impl SigV4Signer {
             request.headers_mut().insert("X-Osc-Security-Token", token);
         }
         debug!("req: {:?}", request);
+
+        Ok(())
+    }
+
+    fn inner_sign_oks(&self, request: &mut Request) -> Result<(), ()> {
+        let headers = request.headers_mut();
+
+        {
+            let mut header = HeaderValue::from_str(self.config.access_key.expose_secret()).unwrap();
+            header.set_sensitive(true);
+            headers.insert("AccessKey", header);
+        };
+
+        {
+            let mut header = HeaderValue::from_str(self.config.secret_key.expose_secret()).unwrap();
+            header.set_sensitive(true);
+            headers.insert("SecretKey", header);
+        };
 
         Ok(())
     }
