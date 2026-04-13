@@ -50,6 +50,28 @@ impl Client {
                 .service(client);
 
             Ok(Self { base_url, inner })
+        } else if let Some((login, password)) =
+            profile.login.as_ref().zip(profile.password.as_ref())
+        {
+            let config = crate::basicauth::BasicAuthConfig {
+                username: login.clone(),
+                password: password.clone(),
+            };
+
+            let inner = tower::ServiceBuilder::new()
+                .boxed_clone()
+                .buffer(1024)
+                .rate_limit(5, std::time::Duration::from_secs(1))
+                .retry(crate::policy::BasePolicy::new(
+                    3,
+                    std::time::Duration::from_millis(100),
+                    std::time::Duration::from_secs(30),
+                    3.0,
+                ))
+                .layer(crate::basicauth::BasicAuthLayer::new(config.clone()))
+                .service(client);
+
+            Ok(Self { base_url, inner })
         } else {
             Err(super::Error::UnsupportedFeature(
                 "Unknown authentication method".to_string(),

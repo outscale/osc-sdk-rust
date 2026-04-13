@@ -17,6 +17,7 @@ pub enum Error<T = ()> {
         reason: Option<String>,
     },
     UnsupportedFeature(String),
+    InvalidClientCertificate(String),
 }
 
 #[derive(Debug)]
@@ -43,6 +44,7 @@ impl<T> ::std::fmt::Display for Error<T> {
                 Ok(())
             }
             Error::UnsupportedFeature(e) => write!(f, "unsupported feature: {}", e),
+            Error::InvalidClientCertificate(e) => write!(f, "Invalid client certificate: {}", e),
         }
     }
 }

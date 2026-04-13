@@ -1,4 +1,5 @@
 #![deny(clippy::unwrap_used, clippy::print_stderr, clippy::print_stdout)]
+pub mod basicauth;
 pub mod errors;
 pub mod oks;
 pub mod osc;
