@@ -1,8 +1,11 @@
 [package]
-name = "sdk"
-version = "0.1.0"
+name = "osc-sdk-rust"
+version = "2.0.0"
 edition = "2024"
-licence = "BSD-3-Clause"
+authors = ["Outscale SAS <opensource@outscale.com>"]
+license = "BSD-3-Clause"
+description = "Outscale API SDK"
+repository = "https://github.com/outscale/osc-sdk-rust/"
 
 [dependencies]
 chrono = { version = "0.4.43", features = ["serde"] }
