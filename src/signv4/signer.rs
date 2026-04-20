@@ -25,9 +25,9 @@ impl SigV4Signer {
         }
     }
 
-    fn get_signature_key(&self, date_stamp: &str) -> Result<SecretSlice<u8>, ()> {
-        fn sign(key: &[u8], msg: &[u8]) -> Result<SecretSlice<u8>, ()> {
-            let mut mac = HmacSha256::new_from_slice(key).map_err(|_| ())?;
+    fn get_signature_key(&self, date_stamp: &str) -> Result<SecretSlice<u8>, crate::Error> {
+        fn sign(key: &[u8], msg: &[u8]) -> Result<SecretSlice<u8>, crate::Error> {
+            let mut mac = HmacSha256::new_from_slice(key)?;
             mac.update(msg);
             Ok(SecretSlice::from(mac.finalize().into_bytes().to_vec()))
         }
@@ -78,14 +78,14 @@ impl SigV4Signer {
         )
     }
 
-    pub(crate) fn sign(&self, request: &mut Request) -> Result<(), ()> {
+    pub(crate) fn sign(&self, request: &mut Request) -> Result<(), crate::Error> {
         match self.config.service.as_str() {
             "oks" => self.inner_sign_oks(request),
             _ => self.inner_sign(request),
         }
     }
 
-    fn inner_sign(&self, request: &mut Request) -> Result<(), ()> {
+    fn inner_sign(&self, request: &mut Request) -> Result<(), crate::Error> {
         let now = Utc::now();
         let timestamp = now.format("%Y%m%dT%H%M%SZ").to_string();
         let datestamp = now.format("%Y%m%d").to_string();
@@ -112,26 +112,24 @@ impl SigV4Signer {
 
         let signing_key = self.get_signature_key(&datestamp)?;
         let signature: SecretString = {
-            let mut mac =
-                HmacSha256::new_from_slice(signing_key.expose_secret()).map_err(|_| ())?;
+            let mut mac = HmacSha256::new_from_slice(signing_key.expose_secret())?;
             mac.update(string_to_sign.as_bytes());
             SecretString::from(format!("{:x}", mac.finalize().into_bytes()))
         };
 
         // Add Signing information to the request
         let authorization_header = self.get_authorization_header(&credential_scope, &signature);
-        let mut authorization_header =
-            HeaderValue::from_str(&authorization_header).map_err(|_| ())?;
+        let mut authorization_header = HeaderValue::from_str(&authorization_header)?;
         authorization_header.set_sensitive(true);
 
-        let timestamp = HeaderValue::from_str(&timestamp).map_err(|_| ())?;
+        let timestamp = HeaderValue::from_str(&timestamp)?;
         request.headers_mut().insert("x-osc-date", timestamp);
         request
             .headers_mut()
             .insert("Authorization", authorization_header);
 
         if let Some(ref token) = self.config.session_token {
-            let mut token = HeaderValue::from_str(token.expose_secret()).map_err(|_| ())?;
+            let mut token = HeaderValue::from_str(token.expose_secret())?;
             token.set_sensitive(true);
 
             request.headers_mut().insert("X-Osc-Security-Token", token);
@@ -141,17 +139,17 @@ impl SigV4Signer {
         Ok(())
     }
 
-    fn inner_sign_oks(&self, request: &mut Request) -> Result<(), ()> {
+    fn inner_sign_oks(&self, request: &mut Request) -> Result<(), crate::Error> {
         let headers = request.headers_mut();
 
         {
-            let mut header = HeaderValue::from_str(self.config.access_key.expose_secret()).unwrap();
+            let mut header = HeaderValue::from_str(self.config.access_key.expose_secret())?;
             header.set_sensitive(true);
             headers.insert("AccessKey", header);
         };
 
         {
-            let mut header = HeaderValue::from_str(self.config.secret_key.expose_secret()).unwrap();
+            let mut header = HeaderValue::from_str(self.config.secret_key.expose_secret())?;
             header.set_sensitive(true);
             headers.insert("SecretKey", header);
         };

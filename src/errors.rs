@@ -1,5 +1,9 @@
 use std::fmt::Debug;
 
+use hmac::digest::InvalidLength;
+use reqwest::header::InvalidHeaderValue;
+use tower::retry::backoff::InvalidBackoff;
+
 #[derive(Debug)]
 pub enum Error<T = ()> {
     /// HTTP client errors (includes connection, certificate, timeout errors)
@@ -18,6 +22,9 @@ pub enum Error<T = ()> {
     },
     UnsupportedFeature(String),
     InvalidClientCertificate(String),
+    InvalidBackoff(InvalidBackoff),
+    InvalidHeaderValue(InvalidHeaderValue),
+    InvalidKeyLength(InvalidLength),
 }
 
 #[derive(Debug)]
@@ -45,6 +52,11 @@ impl<T> ::std::fmt::Display for Error<T> {
             }
             Error::UnsupportedFeature(e) => write!(f, "unsupported feature: {}", e),
             Error::InvalidClientCertificate(e) => write!(f, "Invalid client certificate: {}", e),
+            Error::InvalidBackoff(e) => write!(f, "Invalid backoff configuration: {}", e),
+            Error::InvalidHeaderValue(e) => write!(f, "Invalid header value: {}", e),
+            Error::InvalidKeyLength(e) => {
+                write!(f, "Invalid key length (is your secret key valid ?): {}", e)
+            }
         }
     }
 }
@@ -88,5 +100,23 @@ impl<T> From<serde_json::Error> for Error<T> {
 impl<T> From<base64::DecodeError> for Error<T> {
     fn from(e: base64::DecodeError) -> Self {
         Self::Serialization(SerializationError::Base64(e))
+    }
+}
+
+impl<T> From<InvalidBackoff> for Error<T> {
+    fn from(e: InvalidBackoff) -> Self {
+        Self::InvalidBackoff(e)
+    }
+}
+
+impl<T> From<InvalidHeaderValue> for Error<T> {
+    fn from(e: InvalidHeaderValue) -> Self {
+        Self::InvalidHeaderValue(e)
+    }
+}
+
+impl<T> From<InvalidLength> for Error<T> {
+    fn from(e: InvalidLength) -> Self {
+        Self::InvalidKeyLength(e)
     }
 }

@@ -266,14 +266,11 @@ impl<'de> Deserialize<'de> for Profile {
                 let tls_skip_verify = tls_skip_verify.unwrap_or_default();
 
                 while let Some(field) = map.next_key()? {
-                    match field {
-                        Field::Endpoints => {
-                            endpoints = Some(map.next_value_seed(EndpointsSeed {
-                                protocol: protocol.to_string(),
-                                region: protocol.to_string(),
-                            })?);
-                        }
-                        _ => {}
+                    if let Field::Endpoints = field {
+                        endpoints = Some(map.next_value_seed(EndpointsSeed {
+                            protocol: protocol.to_string(),
+                            region: region.to_string(),
+                        })?);
                     }
                 }
 
@@ -348,23 +345,23 @@ impl Provider for FromFile {
 
         if let Some(p) = self.inner.get(profile) {
             if let Some(pp) = p.as_object() {
-                return Ok(pp.clone());
+                Ok(pp.clone())
             } else {
-                return Err(super::Error::UnsupportedFeature(
+                Err(super::Error::UnsupportedFeature(
                     "non object profile".to_string(),
-                ));
+                ))
             }
         } else {
-            return Err(super::Error::ProfileNotFound(profile.to_string()));
+            Err(super::Error::ProfileNotFound(profile.to_string()))
         }
     }
 
     fn profile(&self) -> Option<String> {
         for (name, profile) in self.inner.iter() {
-            if let Some(d) = profile.get("default") {
-                if d.as_bool().unwrap_or_default() {
-                    return Some(name.to_owned());
-                }
+            if let Some(d) = profile.get("default")
+                && d.as_bool().unwrap_or_default()
+            {
+                return Some(name.to_owned());
             }
         }
 
@@ -477,7 +474,7 @@ where
         let outer_data = self.outer.data(profile)?;
 
         inner_data.extend(outer_data);
-        return Ok(inner_data);
+        Ok(inner_data)
     }
 
     fn profile(&self) -> Option<String> {
@@ -494,7 +491,7 @@ fn to_profile(p: impl Provider) -> Result<Profile, super::Error> {
 }
 
 impl Profile {
-    pub fn default() -> Result<Self, super::Error> {
+    pub fn new() -> Result<Self, super::Error> {
         let mut file_provider = None;
 
         if let Some(mut path) = home::home_dir() {

@@ -59,7 +59,7 @@ func AggregateOperations(spec *openapi3.T) ([]Operation, error) {
 			op := Operation{
 				Name:   normalizeOperationName(operation.OperationID, method, path),
 				Path:   pt,
-				Method: method,
+				Method: strings.ToUpper(method),
 				PathParameters: aggregateParameters(
 					pathItem.Parameters,
 					operation.Parameters,

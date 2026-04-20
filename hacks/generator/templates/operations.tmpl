@@ -15,7 +15,7 @@ impl Api for Client {
 	async fn {{ .Name }}({{ opArgs . }}) -> {{ opRets . }} {
 		{{ urlGen . }}
 
-		let {{ if .RequestBody }}mut{{ end }} req = reqwest::Request::new("{{ .Method }}".try_into().unwrap(), url);
+		let {{ if .RequestBody }}mut{{ end }} req = reqwest::Request::new(reqwest::Method::{{ .Method }}, url);
 		{{ if .RequestBody }}
 	    match serde_json::to_vec(&request_body) {
             Ok(body) => {

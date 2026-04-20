@@ -8,7 +8,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     env_logger::init_from_env(env);
 
-    let profile = Profile::default().unwrap();
+    let profile = Profile::new().unwrap();
     let mut client = Client::new(&profile).unwrap();
 
     let vms = client

@@ -11,12 +11,16 @@ pub struct BasePolicy {
 }
 
 impl BasePolicy {
-    pub fn new(attemps: usize, min: Duration, max: Duration, jitter: f64) -> Self {
-        let backoff = ExponentialBackoffMaker::new(min, max, jitter, HasherRng::new())
-            .unwrap()
-            .make_backoff();
+    pub fn new(
+        attemps: usize,
+        min: Duration,
+        max: Duration,
+        jitter: f64,
+    ) -> Result<Self, super::Error> {
+        let backoff =
+            ExponentialBackoffMaker::new(min, max, jitter, HasherRng::new())?.make_backoff();
 
-        BasePolicy { attemps, backoff }
+        Ok(BasePolicy { attemps, backoff })
     }
 }
 
@@ -48,14 +52,4 @@ impl Policy<reqwest::Request, reqwest::Response, reqwest::Error> for BasePolicy 
     fn clone_request(&mut self, req: &reqwest::Request) -> Option<reqwest::Request> {
         req.try_clone()
     }
-}
-
-pub(crate) fn default_pooled_transport() -> reqwest::ClientBuilder {
-    reqwest::Client::builder()
-        .connect_timeout(Duration::from_secs(30))
-        .tcp_keepalive(Duration::from_secs(30))
-        .min_tls_version(reqwest::tls::Version::TLS_1_3)
-        .pool_max_idle_per_host(10)
-        .pool_idle_timeout(Duration::from_secs(90))
-        .http2_adaptive_window(true)
 }
