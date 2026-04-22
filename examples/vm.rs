@@ -1,6 +1,6 @@
 use env_logger::Env;
-use sdk::Profile;
-use sdk::osc::{Api as _, Client};
+use osc_sdk_rust::Profile;
+use osc_sdk_rust::osc::{Api as _, Client};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -12,8 +12,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut client = Client::new(&profile).unwrap();
 
     let vms = client
-        .read_vms(sdk::osc::ReadVmsRequest {
-            filters: Some(sdk::osc::FiltersVm {
+        .read_vms(osc_sdk_rust::osc::ReadVmsRequest {
+            filters: Some(osc_sdk_rust::osc::FiltersVm {
                 vm_ids: Some(vec!["i-76bcdb1d".to_string()]),
                 ..Default::default()
             }),

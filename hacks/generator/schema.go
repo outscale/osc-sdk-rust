@@ -99,6 +99,16 @@ func (s *State) Dump() string {
 }
 
 func (s *State) addResolved(sc *openapi3.Schema, path string) (*Type, error) {
+	if value, ok := sc.Extensions["x-rs-type"]; ok {
+		casted, ok := value.(string)
+		if ok {
+			return &Type{
+				Name:        casted,
+				Description: formatDocComment(sc.Description),
+			}, nil
+		}
+	}
+
 	if len(sc.OneOf) > 0 {
 		return s.addOneOf(sc, path)
 	}
@@ -209,7 +219,7 @@ func (s *State) addObject(sc *openapi3.Schema, path string) (*Type, error) {
 		props = append(props, prop)
 	}
 
-	name := nameFromPath(path)
+	name := nameFromPath(path, sc)
 
 	// Add struct-level documentation
 	structDocs := "/// path: " + path + "\n"
@@ -273,7 +283,7 @@ func (s *State) addString(sc *openapi3.Schema, path string) (*Type, error) {
 }
 
 func (s *State) addStringEnum(sc *openapi3.Schema, path string) (*Type, error) {
-	name := nameFromPath(path)
+	name := nameFromPath(path, sc)
 
 	var variants []string
 
@@ -415,7 +425,7 @@ func (s *State) addOneOf(sc *openapi3.Schema, path string) (*Type, error) {
 		return nil, fmt.Errorf("oneOf with multiple types and null is not supported for schema %s", path)
 	}
 
-	name := nameFromPath(path)
+	name := nameFromPath(path, sc)
 	var variants []string
 	for _, t := range types {
 		// Use the type name as the variant name, not duplicate it
@@ -475,7 +485,7 @@ func (s *State) addAnyOf(sc *openapi3.Schema, path string) (*Type, error) {
 	// anyOf with multiple types - treat similar to oneOf for now
 	// This is technically incorrect (anyOf allows multiple to match)
 	// but Rust's type system doesn't have a clean way to represent this
-	name := nameFromPath(path)
+	name := nameFromPath(path, sc)
 
 	var variants []string
 	for i, t := range types {
@@ -537,7 +547,14 @@ func (s *State) addAllOf(sc *openapi3.Schema, path string) (*Type, error) {
 	return nil, fmt.Errorf("allOf is not supported. BY DESIGN")
 }
 
-func nameFromPath(path string) string {
+func nameFromPath(path string, sc *openapi3.Schema) string {
+	if value, ok := sc.Extensions["x-rs-name"]; ok {
+		casted, ok := value.(string)
+		if ok {
+			return casted
+		}
+	}
+
 	// ex: #/components/schemas/user -> User
 	// ex: #/components/schemas/user/roles/Items -> UserRoles
 

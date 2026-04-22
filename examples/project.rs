@@ -1,6 +1,6 @@
 use env_logger::Env;
-use sdk::Profile;
-use sdk::oks::{Api as _, Client};
+use osc_sdk_rust::Profile;
+use osc_sdk_rust::oks::{Api as _, Client};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -12,7 +12,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut client = Client::new(&profile).unwrap();
 
     let list_projects_resp = client
-        .list_projects(sdk::oks::ListProjectsParam {
+        .list_projects(osc_sdk_rust::oks::ListProjectsParam {
             name: Some("test".to_string()),
             ..Default::default()
         })

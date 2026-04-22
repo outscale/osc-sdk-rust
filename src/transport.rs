@@ -4,9 +4,12 @@ use secrecy::ExposeSecret as _;
 
 use crate::Profile;
 
+static SDK_USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"),);
+
 fn default_pooled_transport() -> reqwest::ClientBuilder {
     reqwest::Client::builder()
         .connect_timeout(Duration::from_secs(30))
+        .user_agent(SDK_USER_AGENT)
         .tcp_keepalive(Duration::from_secs(30))
         .min_tls_version(reqwest::tls::Version::TLS_1_3)
         .pool_max_idle_per_host(10)

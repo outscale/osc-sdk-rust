@@ -36,7 +36,7 @@ impl Api for Client {
 	
 		{{ if len .ReturnValue }}
 		{{ $op_name := .Name }}
-		match (resp.status().as_u16(), resp.headers().get("Content-Type").map(|v| v.as_bytes())) {
+		match (resp.status().as_u16(), resp.headers().get(reqwest::header::CONTENT_TYPE).map(|v| v.as_bytes())) {
 			{{ range .ReturnValue }}
 			({{ .StatusCode }}, Some(b"{{ .ContentType }}")) => {
 				{{ if sucessRes . }}

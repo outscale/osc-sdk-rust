@@ -1,6 +1,6 @@
 [package]
 name = "osc-sdk-rust"
-version = "2.0.0"
+version = "2.0.0-alpha.0"
 edition = "2024"
 authors = ["Outscale SAS <opensource@outscale.com>"]
 license = "BSD-3-Clause"
