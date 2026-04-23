@@ -1123,6 +1123,7 @@ dependencies = [
  "hmac",
  "home",
  "log",
+ "osc-sdk-rust-build",
  "reqwest",
  "secrecy",
  "serde",
@@ -1134,6 +1135,10 @@ dependencies = [
  "tokio",
  "tower",
 ]
+
+[[package]]
+name = "osc-sdk-rust-build"
+version = "2.0.0-alpha.0"
 
 [[package]]
 name = "parking_lot"
