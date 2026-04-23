@@ -2,11 +2,13 @@ package main
 
 import (
 	"bytes"
+	_ "embed"
 	"flag"
 	"fmt"
 	"io"
 	"net/url"
 	"os"
+	"path"
 	"path/filepath"
 	"strconv"
 	"strings"
@@ -18,8 +20,12 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+//go:embed templates/operations.tmpl
+var operationsTemplate string
+
 type Operation struct {
 	Name            string
+	Description     string
 	Path            *PathTemplate
 	Method          string
 	PathParameters  []Parameter
@@ -57,9 +63,10 @@ func AggregateOperations(spec *openapi3.T) ([]Operation, error) {
 
 		for method, operation := range pathItem.Operations() {
 			op := Operation{
-				Name:   normalizeOperationName(operation.OperationID, method, path),
-				Path:   pt,
-				Method: strings.ToUpper(method),
+				Name:        normalizeOperationName(operation.OperationID, method, path),
+				Description: formatDocComment(operation.Description),
+				Path:        pt,
+				Method:      strings.ToUpper(method),
 				PathParameters: aggregateParameters(
 					pathItem.Parameters,
 					operation.Parameters,
@@ -188,6 +195,13 @@ func ReadConfiguration(config *string) (*Configuration, error) {
 		return nil, fmt.Errorf("error unmarshalling configuration: %w", err)
 	}
 
+	base := path.Dir(*config)
+	cfg.SpecPath = path.Join(base, cfg.SpecPath)
+	if cfg.Overlay != nil {
+		overlayPath := path.Join(base, *cfg.Overlay)
+		cfg.Overlay = &overlayPath
+	}
+
 	return &cfg, nil
 }
 
@@ -262,25 +276,14 @@ func LoadSwaggerWithOverlay(cfg *Configuration) (swagger *openapi3.T, err error)
 	return swagger, nil
 }
 
-// loadTemplate loads a template file from the templates directory
+// loadTemplate returns the embedded template content
 func loadTemplate(name string) (string, error) {
-	// Try multiple locations for templates
-	possiblePaths := []string{
-		filepath.Join("templates", name+".tmpl"),                       // relative to current directory
-		filepath.Join("hacks", "generator", "templates", name+".tmpl"), // from project root
-		filepath.Join("..", "..", "templates", name+".tmpl"),           // relative from build output
+	switch name {
+	case "operations":
+		return operationsTemplate, nil
+	default:
+		return "", fmt.Errorf("unknown template: %s", name)
 	}
-
-	var lastErr error
-	for _, templatePath := range possiblePaths {
-		content, err := os.ReadFile(templatePath)
-		if err == nil {
-			return string(content), nil
-		}
-		lastErr = err
-	}
-
-	return "", fmt.Errorf("failed to read template file %s.tmpl from any location: %w", name, lastErr)
 }
 
 type paramStructField struct {

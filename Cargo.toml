@@ -1,13 +1,16 @@
-[package]
-name = "osc-sdk-rust"
-version = "2.0.0-alpha.0"
+[workspace]
+resolver = "3"
+members = ["crates/sdk-build", "crates/sdk"]
+
+[workspace.package]
 edition = "2024"
 authors = ["Outscale SAS <opensource@outscale.com>"]
 license = "BSD-3-Clause"
-description = "Outscale API SDK"
 repository = "https://github.com/outscale/osc-sdk-rust/"
+version = "2.0.0-alpha.0"
 
-[dependencies]
+[workspace.dependencies]
+# SDK dependencies
 chrono = { version = "0.4.43", features = ["serde"] }
 futures = "0.3.32"
 hmac = "0.12.1"
@@ -20,24 +23,13 @@ serde_urlencoded = "0.7.1"
 sha2 = "0.10.9"
 tokio = "1"
 tower = { version = "0.5.3", features = ["limit", "retry", "util", "buffer"] }
+base64 = "0.22"
+reqwest = { version = "^0.13", features = ["json", "http2", "system-proxy", "charset"], default-features = false }
 
-[dependencies.base64]
-version = "0.22"
-
-[dependencies.reqwest]
-version = "^0.13"
-features = ["json", "http2", "system-proxy", "charset"]
-default-features = false
-
-[dev-dependencies]
-tokio = { version = "1", features = ["full", "tracing"] }
+# Dev dependencies
 env_logger = "*"
 tempfile = "3"
 serial_test = "3"
 
-[features]
-default = ["default-tls", "osc", "oks"]
-native-tls = ["reqwest/native-tls"]
-default-tls = ["reqwest/default-tls"]
-osc = []
-oks = []
+# Internal dependencies
+osc-sdk-rust-build = { path = "crates/sdk-build" }
