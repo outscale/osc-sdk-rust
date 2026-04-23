@@ -36,6 +36,8 @@ tempfile = "3"
 serial_test = "3"
 
 [features]
-default = ["default-tls"]
+default = ["default-tls", "osc", "oks"]
 native-tls = ["reqwest/native-tls"]
 default-tls = ["reqwest/default-tls"]
+osc = []
+oks = []

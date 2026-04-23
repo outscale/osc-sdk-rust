@@ -1,7 +1,9 @@
 use env_logger::Env;
 use osc_sdk_rust::Profile;
+#[cfg(feature = "osc")]
 use osc_sdk_rust::osc::{Api as _, Client};
 
+#[cfg(feature = "osc")]
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let env = Env::default().filter_or(env_logger::DEFAULT_FILTER_ENV, "info");
@@ -24,4 +26,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("response: {:?}", vms);
 
     Ok(())
+}
+
+#[cfg(not(feature = "osc"))]
+fn main() {
+    compile_error!("This example require osc feature");
 }

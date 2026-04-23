@@ -3,6 +3,10 @@ use std::path::Path;
 use std::process::Command;
 
 fn run_generator(target: &str) {
+    if env::var_os(format!("CARGO_FEATURE_{}", target.to_uppercase())).is_none() {
+        return;
+    }
+
     let out_dir = env::var_os("OUT_DIR").unwrap();
     let dest_path = Path::new(&out_dir).join(format!("{}.rs", target));
 

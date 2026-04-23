@@ -1,7 +1,9 @@
 use env_logger::Env;
 use osc_sdk_rust::Profile;
+#[cfg(feature = "oks")]
 use osc_sdk_rust::oks::{Api as _, Client};
 
+#[cfg(feature = "oks")]
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let env = Env::default().filter_or(env_logger::DEFAULT_FILTER_ENV, "info");
@@ -71,4 +73,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     client.delete_project(my_test_project_id).await?;
 
     Ok(())
+}
+
+#[cfg(not(feature = "oks"))]
+fn main() {
+    compile_error!("This example require oks feature");
 }
