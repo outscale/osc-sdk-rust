@@ -1,13 +1,16 @@
-[package]
-name = "osc-sdk-rust"
-version = "2.0.0-alpha.0"
+[workspace]
+resolver = "3"
+members = ["crates/sdk-build", "crates/sdk"]
+
+[workspace.package]
 edition = "2024"
 authors = ["Outscale SAS <opensource@outscale.com>"]
 license = "BSD-3-Clause"
-description = "Outscale API SDK"
 repository = "https://github.com/outscale/osc-sdk-rust/"
+version = "2.0.0-alpha.0"
 
-[dependencies]
+[workspace.dependencies]
+# SDK dependencies
 chrono = { version = "0.4.43", features = ["serde"] }
 futures = "0.3.32"
 hmac = "0.12.1"
@@ -20,24 +23,75 @@ serde_urlencoded = "0.7.1"
 sha2 = "0.10.9"
 tokio = "1"
 tower = { version = "0.5.3", features = ["limit", "retry", "util", "buffer"] }
+base64 = "0.22"
+reqwest = { version = "^0.13", features = ["json", "http2", "system-proxy", "charset"], default-features = false }
 
-[dependencies.base64]
-version = "0.22"
-
-[dependencies.reqwest]
-version = "^0.13"
-features = ["json", "http2", "system-proxy", "charset"]
-default-features = false
-
-[dev-dependencies]
-tokio = { version = "1", features = ["full", "tracing"] }
+# Dev dependencies
 env_logger = "*"
 tempfile = "3"
 serial_test = "3"
 
-[features]
-default = ["default-tls", "osc", "oks"]
-native-tls = ["reqwest/native-tls"]
-default-tls = ["reqwest/default-tls"]
-osc = []
-oks = []
+# Internal dependencies
+osc-sdk-rust-build = { path = "crates/sdk-build" }
+
+# https://emschwartz.me/your-clippy-config-should-be-stricter/
+[workspace.lints.clippy]
+# Don't Panic - prevent panics from unwraps and unsafe slicing or indexing
+string_slice = "warn"
+indexing_slicing = "warn"
+unwrap_used = "warn"
+panic = "warn"
+todo = "warn"
+unimplemented = "warn"
+unreachable = "warn"
+get_unwrap = "warn"
+unwrap_in_result = "warn"
+unchecked_time_subtraction = "warn"
+panic_in_result_fn = "warn"
+# Optional - see post for caveats
+# expect_used = "warn"
+# arithmetic_side_effects = "warn"
+
+# Don't Fail Silently - prevent dropped futures and swallowed errors
+let_underscore_future = "warn"
+let_underscore_must_use = "warn"
+unused_result_ok = "warn"
+map_err_ignore = "warn"
+assertions_on_result_states = "warn"
+
+# Don't Do Bad Async Stuff - prevent deadlocks and concurrency bugs
+await_holding_lock = "warn"
+await_holding_refcell_ref = "warn"
+if_let_mutex = "warn"  # only relevant on editions before 2024
+large_futures = "warn"
+
+# Don't Do Unsafe Things with Memory
+mem_forget = "warn"
+undocumented_unsafe_blocks = "warn"
+multiple_unsafe_ops_per_block = "warn"
+unnecessary_safety_doc = "warn"
+unnecessary_safety_comment = "warn"
+
+# Don't Do Potentially Incorrect Things with Numbers
+float_cmp = "warn"
+float_cmp_const = "warn"
+lossy_float_literal = "warn"
+cast_sign_loss = "warn"
+invalid_upcast_comparisons = "warn"
+# Optional - these effectively force you to document numeric invariants
+# cast_possible_wrap = "warn"
+# cast_precision_loss = "warn"
+# cast_possible_truncation = "warn"
+
+# Don't Do Bad Things That are Easy to Avoid
+rc_mutex = "warn"
+debug_assert_with_mut_call = "warn"
+iter_not_returning_iterator = "warn"
+expl_impl_clone_on_copy = "warn"
+infallible_try_from = "warn"
+dbg_macro = "warn"
+
+# Don't `allow` Your Way Around These Lints - every suppression must be
+# a deliberate #[expect(..., reason = "…")] rather than a silent #[allow]
+allow_attributes = "warn"
+allow_attributes_without_reason = "warn"

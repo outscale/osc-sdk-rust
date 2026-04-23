@@ -26,11 +26,15 @@ func formatDocComment(description string) string {
 	}
 
 	lines := strings.Split(description, "\n")
+	if lines[len(lines)-1] == "" {
+		lines = lines[:len(lines)-1]
+	}
+
 	var docLines []string
 	for _, line := range lines {
 		docLines = append(docLines, "/// "+line)
 	}
-	return strings.Join(docLines, "\n") + "\n"
+	return strings.Join(docLines, "\n")
 }
 
 func (t *Type) NullableName(nullable bool) string {
@@ -206,7 +210,7 @@ func (s *State) addObject(sc *openapi3.Schema, path string) (*Type, error) {
 		// Add description as doc comment for the field if available
 		var fieldDocs string
 		if scc.Value != nil && scc.Value.Description != "" {
-			fieldDocs = formatDocComment(scc.Value.Description)
+			fieldDocs = formatDocComment(scc.Value.Description) + "\n"
 		}
 
 		prop := fmt.Sprintf(
@@ -224,7 +228,7 @@ func (s *State) addObject(sc *openapi3.Schema, path string) (*Type, error) {
 	// Add struct-level documentation
 	structDocs := "/// path: " + path + "\n"
 	if sc.Description != "" {
-		structDocs = formatDocComment(sc.Description)
+		structDocs = formatDocComment(sc.Description) + "\n"
 	}
 
 	return &Type{
@@ -319,7 +323,7 @@ func (s *State) addStringEnum(sc *openapi3.Schema, path string) (*Type, error) {
 	// Add enum-level documentation
 	var enumDocs string
 	if sc.Description != "" {
-		enumDocs = formatDocComment(sc.Description)
+		enumDocs = formatDocComment(sc.Description) + "\n"
 	}
 
 	impl := fmt.Sprintf(
