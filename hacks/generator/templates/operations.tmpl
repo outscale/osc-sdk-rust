@@ -6,12 +6,16 @@
 #[allow(async_fn_in_trait)]
 pub trait Api {
 	{{ range . }}
+    
+    {{ .Description }}
 	async fn {{ .Name }}({{ opArgs . }}) -> {{ opRets . }};
 	{{ end }}
 }
 
 impl Api for Client {
 	{{ range . }}
+
+    {{ .Description }}
 	async fn {{ .Name }}({{ opArgs . }}) -> {{ opRets . }} {
 		{{ urlGen . }}
 

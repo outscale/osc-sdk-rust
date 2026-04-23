@@ -1,0 +1,9 @@
+[package]
+name = "osc-sdk-rust-build"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Build-time helper to obtain and run code generator"
+
