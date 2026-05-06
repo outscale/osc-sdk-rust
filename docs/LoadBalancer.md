@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **load_balancer_sticky_cookie_policies** | Option<[**Vec<crate::models::LoadBalancerStickyCookiePolicy>**](LoadBalancerStickyCookiePolicy.md)> | The policies defined for the load balancer. | [optional]
 **load_balancer_type** | Option<**String**> | The type of load balancer. Valid only for load balancers in a Net.<br /> If `LoadBalancerType` is `internet-facing`, the load balancer has a public DNS name that resolves to a public IP.<br /> If `LoadBalancerType` is `internal`, the load balancer has a public DNS name that resolves to a private IP. | [optional]
 **net_id** | Option<**String**> | The ID of the Net for the load balancer. | [optional]
+**private_ip** | Option<**String**> | The primary private IP of the load balancer. | [optional]
 **public_ip** | Option<**String**> | (internet-facing only) The public IP associated with the load balancer. | [optional]
 **secured_cookies** | Option<**bool**> | Whether secure cookies are enabled for the load balancer. | [optional]
 **security_groups** | Option<**Vec<String>**> | One or more IDs of security groups for the load balancers. Valid only for load balancers in a Net. | [optional]
