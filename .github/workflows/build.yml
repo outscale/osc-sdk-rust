@@ -18,17 +18,18 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-      - uses: chainguard-dev/actions/setup-gitsign@main
+      - uses: chainguard-dev/actions/setup-gitsign@3e76343fe029f8e2a10bfbec0da8f437e5dab7a5 # main
 
       - name: Stable Rust with rustfmt
-        uses: actions-rs/toolchain@16499b5e05bf2e26879000db0c1d13f7e13fa3af # v1
+        uses: dtolnay/rust-toolchain@e97e2d8cc328f1b50210efc529dca0028893a2d9 # v1
         with:
-          profile: minimal
           toolchain: stable
           components: rustfmt
 
       - name: Write Outscale API version to use
-        run: echo "${{ github.event.inputs.api_version }}" > api_version
+        run: echo "$API_VERSION" > api_version
+        env:
+          API_VERSION: ${{ github.event.inputs.api_version }}
       - name: auto-generate release
         run: make release-build
 
