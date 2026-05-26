@@ -34,7 +34,7 @@ fn build_transport(profile: &Profile) -> Result<reqwest::Client, super::Error> {
             .map_err(|e| crate::Error::InvalidClientCertificate(e.to_string()))
     }
 
-    #[cfg(feature = "native-tls")]
+    #[cfg(all(feature = "native-tls", not(feature = "default-tls")))]
     fn mk_identity(
         mut key: Vec<u8>,
         mut cert: Vec<u8>,

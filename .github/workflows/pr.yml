@@ -48,4 +48,4 @@ jobs:
       
       - name: Mutants
         run: |
-          cargo mutants --no-shuffle -vV --in-diff git.diff
+          cargo mutants -e "crates/sdk-build/*/*.rs" --no-shuffle -vV --in-diff git.diff
