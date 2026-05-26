@@ -31,7 +31,19 @@ func formatDocComment(description string) string {
 	}
 
 	var docLines []string
+	var docLazyContinuation bool
 	for _, line := range lines {
+		if strings.HasPrefix(line, "* ") {
+			docLazyContinuation = true
+		}
+
+		if docLazyContinuation && line == "" {
+			docLazyContinuation = false
+		}
+
+		if docLazyContinuation && !strings.HasPrefix(line, "  ") {
+			line = "  " + line
+		}
 		docLines = append(docLines, "/// "+line)
 	}
 	return strings.Join(docLines, "\n")

@@ -3,7 +3,7 @@
 {{ opParamStruct . }}
 {{ end }}
 
-#[allow(async_fn_in_trait)]
+#[allow(async_fn_in_trait, clippy::doc_lazy_continuation)]
 pub trait Api {
 	{{ range . }}
     
@@ -15,7 +15,10 @@ pub trait Api {
 impl Api for Client {
 	{{ range . }}
 
+    {{ if .Description }}
+    #[allow(clippy::doc_lazy_continuation)]
     {{ .Description }}
+    {{- end }}
 	async fn {{ .Name }}({{ opArgs . }}) -> {{ opRets . }} {
 		{{ urlGen . }}
 

@@ -36,7 +36,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 loop {
                     match client.get_project(project_id.clone()).await {
                         Err(e) => {
-                            log::error!("API error: {}", e.to_string());
+                            log::error!("API error: {}", e);
                             break;
                         }
                         Ok(project_resp)

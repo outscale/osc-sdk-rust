@@ -48,9 +48,6 @@ get_unwrap = "warn"
 unwrap_in_result = "warn"
 unchecked_time_subtraction = "warn"
 panic_in_result_fn = "warn"
-# Optional - see post for caveats
-# expect_used = "warn"
-# arithmetic_side_effects = "warn"
 
 # Don't Fail Silently - prevent dropped futures and swallowed errors
 let_underscore_future = "warn"
@@ -78,10 +75,6 @@ float_cmp_const = "warn"
 lossy_float_literal = "warn"
 cast_sign_loss = "warn"
 invalid_upcast_comparisons = "warn"
-# Optional - these effectively force you to document numeric invariants
-# cast_possible_wrap = "warn"
-# cast_precision_loss = "warn"
-# cast_possible_truncation = "warn"
 
 # Don't Do Bad Things That are Easy to Avoid
 rc_mutex = "warn"
