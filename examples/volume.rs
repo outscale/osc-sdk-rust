@@ -5,7 +5,9 @@ use outscale_api::models::{
 };
 
 fn main() {
-    let config = Profile::default().and_then(|p| p.try_into()).unwrap();
+    let profile = Profile::default().unwrap();
+    let subregion = format!("{}a", profile.region);
+    let config = profile.try_into().unwrap();
 
     // Example reading all volumes
     print!("Reading all volumes... ");
@@ -23,7 +25,7 @@ fn main() {
 
     // Example creating a volume
     print!("Creating new volume... ");
-    let mut request = CreateVolumeRequest::new("eu-west-2a".to_string());
+    let mut request = CreateVolumeRequest::new(subregion);
     request.volume_type = Some("gp2".to_string());
     request.size = Some(10);
     let response = match create_volume(&config, Some(request)) {
