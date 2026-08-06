@@ -48,7 +48,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::CreateAccountResponse create_account(create_account_request)
 
 
-Creates an OUTSCALE account.<br /><br />  **[IMPORTANT]**<br /> * You need OUTSCALE credentials and the appropriate quotas to create an account via API. To get quotas, you can send an email to sales@outscale.com.<br /> * If you want to pass a numeral value as a string instead of an integer, you must wrap your string in additional quotes (for example, `'&quot;92000&quot;'`).  For more information, see [About Your Account](https://docs.outscale.com/en/userguide/About-Your-OUTSCALE-Account.html).
+Creates an OUTSCALE account.<br /><br />  **[IMPORTANT]**<br /> * You need OUTSCALE credentials and the appropriate quotas to create an account via API. To get quotas, you can send an email to sales@outscale.com.<br />  For more information, see [About Your Account](https://docs.outscale.com/en/userguide/About-Your-OUTSCALE-Account.html).
 
 ### Parameters
 

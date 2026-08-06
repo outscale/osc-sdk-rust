@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **phone_number** | Option<**String**> | The new landline phone number of the account owner. | [optional]
 **state_province** | Option<**String**> | The new state/province of the account owner. | [optional]
 **vat_number** | Option<**String**> | The new value added tax (VAT) number for the account. | [optional]
-**zip_code** | Option<**String**> | The new ZIP code of the city. | [optional]
+**zip_code** | Option<**String**> | The new ZIP code of the city.<br />With OSC CLI, you must wrap this value in two pairs of quotes to make sure it is parsed as a string: `--ZipCode '&quot;12345678&quot;'`. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

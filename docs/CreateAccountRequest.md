@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **city** | **String** | The city of the account owner. | 
 **company_name** | **String** | The name of the company for the account. | 
 **country** | **String** | The country of the account owner. | 
-**customer_id** | **String** | The ID of the customer. It must be 8 digits. | 
+**customer_id** | **String** | The ID of the customer. It must be 8 digits.<br />With OSC CLI, you must wrap this value in two pairs of quotes to make sure it is parsed as a string: `--CustomerId '&quot;12345678&quot;'`. | 
 **dry_run** | Option<**bool**> | If true, checks whether you have the required permissions to perform the action. | [optional]
 **email** | **String** | The main email address for the account. This address is used for your credentials and notifications. | 
 **first_name** | **String** | The first name of the account owner. | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **phone_number** | Option<**String**> | The landline phone number of the account owner. | [optional]
 **state_province** | Option<**String**> | The state/province of the account. | [optional]
 **vat_number** | Option<**String**> | The value added tax (VAT) number for the account. | [optional]
-**zip_code** | **String** | The ZIP code of the city. | 
+**zip_code** | **String** | The ZIP code of the city.<br />With OSC CLI, you must wrap this value in two pairs of quotes to make sure it is parsed as a string: `--ZipCode '&quot;12345678&quot;'`. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
