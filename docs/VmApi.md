@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**read_vm_types**](VmApi.md#read_vm_types) | **POST** /ReadVmTypes | 
 [**read_vms**](VmApi.md#read_vms) | **POST** /ReadVms | 
 [**read_vms_state**](VmApi.md#read_vms_state) | **POST** /ReadVmsState | 
+[**read_vms_stop_history**](VmApi.md#read_vms_stop_history) | **POST** /ReadVmsStopHistory | 
 [**reboot_vms**](VmApi.md#reboot_vms) | **POST** /RebootVms | 
 [**start_vms**](VmApi.md#start_vms) | **POST** /StartVms | 
 [**stop_vms**](VmApi.md#stop_vms) | **POST** /StopVms | 
@@ -215,6 +216,36 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::ReadVmsStateResponse**](ReadVmsStateResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## read_vms_stop_history
+
+> crate::models::ReadVmsStopHistoryResponse read_vms_stop_history(read_vms_stop_history_request)
+
+
+Lists the stop history of one or more VMs.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**read_vms_stop_history_request** | Option<[**ReadVmsStopHistoryRequest**](ReadVmsStopHistoryRequest.md)> |  |  |
+
+### Return type
+
+[**crate::models::ReadVmsStopHistoryResponse**](ReadVmsStopHistoryResponse.md)
 
 ### Authorization
 

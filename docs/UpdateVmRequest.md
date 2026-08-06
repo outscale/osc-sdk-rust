@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **nested_virtualization** | Option<**bool**> | (dedicated tenancy only) If true, nested virtualization is enabled. If false, it is disabled. | [optional]
 **performance** | Option<**String**> | The performance of the VM. | [optional]
 **security_group_ids** | Option<**Vec<String>**> | One or more IDs of security groups for the VM. | [optional]
+**shutdown_behavior_configuration** | Option<[**crate::models::ShutdownBehaviorConfiguration**](ShutdownBehaviorConfiguration.md)> |  | [optional]
 **user_data** | Option<**String**> | The Base64-encoded MIME user data, limited to 500 kibibytes (KiB). | [optional]
 **vm_id** | **String** | The ID of the VM. | 
 **vm_initiated_shutdown_behavior** | Option<**String**> | The VM behavior when you stop it. If set to `stop`, the VM stops. If set to `restart`, the VM stops then automatically restarts. If set to `terminate`, the VM stops and is terminated. | [optional]

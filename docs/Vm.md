@@ -32,14 +32,15 @@ Name | Type | Description | Notes
 **root_device_name** | Option<**String**> | The name of the root device for the VM (for example, `/dev/sda1`). | [optional]
 **root_device_type** | Option<**String**> | The type of root device used by the VM (always `bsu`). | [optional]
 **security_groups** | Option<[**Vec<crate::models::SecurityGroupLight>**](SecurityGroupLight.md)> | One or more security groups associated with the VM. | [optional]
+**shutdown_behavior_configuration** | Option<[**crate::models::ShutdownBehaviorConfiguration**](ShutdownBehaviorConfiguration.md)> |  | [optional]
 **state** | Option<**String**> | The state of the VM (`pending` \\| `running` \\| `stopping` \\| `stopped` \\| `shutting-down` \\| `terminated` \\| `quarantine`). | [optional]
-**state_reason** | Option<**String**> | The reason explaining the current state of the VM. | [optional]
+**state_reason** | Option<**String**> | The reason explaining the current state of the VM. For more information, see [Creating VMs > VM State Reference](https://docs.outscale.com/en/userguide/Creating-VMs.html#_vm_state_reference_statereason_2). | [optional]
 **subnet_id** | Option<**String**> | The ID of the Subnet for the VM. | [optional]
 **tags** | Option<[**Vec<crate::models::ResourceTag>**](ResourceTag.md)> | One or more tags associated with the VM. | [optional]
 **tpm_enabled** | Option<**bool**> | If true, a virtual Trusted Platform Module (vTPM) is enabled on the VM. If false, it is not.<br />The default behavior for this parameter varies depending on the source OMI of the VM.<br />If the `TpmMandatory` parameter of the source OMI is true, a vTPM has to be attached to the VM and it will be created by default. Setting `TpmEnabled` to false will cause the creation request to fail.<br />If the `TpmMandatory` parameter of the source OMI is false, only setting `TpmEnabled` to true will create and attach a vTPM to the VM. | [optional]
 **user_data** | Option<**String**> | The Base64-encoded MIME user data. | [optional]
 **vm_id** | Option<**String**> | The ID of the VM. | [optional]
-**vm_initiated_shutdown_behavior** | Option<**String**> | The VM behavior when you stop it. If set to `stop`, the VM stops. If set to `restart`, the VM stops then automatically restarts. If set to `terminate`, the VM stops and is deleted. | [optional]
+**vm_initiated_shutdown_behavior** | Option<**String**> | The VM behavior when you stop it. If set to `stop`, the VM stops. If set to `restart`, the VM stops then automatically restarts. If set to `terminate`, the VM stops and is deleted. Important: This parameter is deprecated in favor of `ShutDownBeheviorConfiguration` and will be removed. | [optional]
 **vm_type** | Option<**String**> | The type of VM. For more information, see [VM Types](https://docs.outscale.com/en/userguide/VM-Types.html). | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

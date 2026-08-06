@@ -18,7 +18,7 @@ Method | HTTP request | Description
 > crate::models::CreatePublicIpResponse create_public_ip(create_public_ip_request)
 
 
-Acquires a public IP for your account.<br /> A public IP is a static IP designed for dynamic Cloud computing. It can be associated with a virtual machine (VM) in the public Cloud or in a Net, a network interface card (NIC), a NAT service.<br /><br /> For more information, see [About Public IPs](https://docs.outscale.com/en/userguide/About-Public-IPs.html).
+Acquires a public IP for your account.<br /> A public IP is a static IP designed for dynamic Cloud computing. It can be associated with a virtual machine (VM) in the public Cloud, a VM in a Net, a network interface card (NIC), or a NAT service.<br /><br /> For more information, see [About Public IPs](https://docs.outscale.com/en/userguide/About-Public-IPs.html).
 
 ### Parameters
 
