@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: chainguard-dev/actions/setup-gitsign@8f31e9482b447ff2c69eca944a09b4b31a4a85d0 # main
+      - uses: chainguard-dev/actions/setup-gitsign@f133c9e8aae4b7e9031c254d34cacb2fa8f83c31 # main
 
       - name: Stable Rust with rustfmt
         uses: dtolnay/rust-toolchain@683b588c487a69d01f6c6ddf40f036ff682cc2c8 # v1
