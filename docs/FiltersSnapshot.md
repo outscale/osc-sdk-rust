@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **account_ids** | Option<**Vec<String>**> | The OUTSCALE account IDs of the owners of the snapshots. | [optional]
 **client_tokens** | Option<**Vec<String>**> | The idempotency tokens provided when creating the snapshots. | [optional]
 **descriptions** | Option<**Vec<String>**> | The descriptions of the snapshots. | [optional]
+**effective_snapshot_modes** | Option<**Vec<String>**> | The snapshot mode in effect (`crash-consistent` \\| `application-consistent` \\| `Not Applicable`). `Not Applicable` is returned for unavailable snapshots (`in-queue`, `pending`, or `error` states). | [optional]
 **from_creation_date** | Option<**String**> | The beginning of the time period, in ISO 8601 date-time format (for example, `2020-06-14T00:00:00.000Z`). | [optional]
 **permissions_to_create_volume_account_ids** | Option<**Vec<String>**> | The OUTSCALE account IDs which have permissions to create volumes. | [optional]
 **permissions_to_create_volume_global_permission** | Option<**bool**> | If true, lists all public volumes. If false, lists all private volumes. | [optional]

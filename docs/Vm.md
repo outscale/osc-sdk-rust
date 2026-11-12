@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **client_token** | Option<**String**> | The idempotency token provided when launching the VM. | [optional]
 **creation_date** | Option<**String**> | The date and time (UTC) at which the VM was created. | [optional]
 **deletion_protection** | Option<**bool**> | If true, you cannot delete the VM unless you change this parameter back to false. | [optional]
-**hypervisor** | Option<**String**> | The hypervisor type of the VMs (`ovm` \\| `xen`). | [optional]
+**hypervisor** | Option<**String**> | The hypervisor type of the VMs (`ovm` \\| `kvm`). | [optional]
 **image_id** | Option<**String**> | The ID of the OMI used to create the VM. | [optional]
 **is_source_dest_checked** | Option<**bool**> | (Net only) If true, the source/destination check is enabled. If false, it is disabled. | [optional]
 **keypair_name** | Option<**String**> | The name of the keypair used when launching the VM. | [optional]
@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 **tpm_enabled** | Option<**bool**> | If true, a virtual Trusted Platform Module (vTPM) is enabled on the VM. If false, it is not.<br />The default behavior for this parameter varies depending on the source OMI of the VM.<br />If the `TpmMandatory` parameter of the source OMI is true, a vTPM has to be attached to the VM and it will be created by default. Setting `TpmEnabled` to false will cause the creation request to fail.<br />If the `TpmMandatory` parameter of the source OMI is false, only setting `TpmEnabled` to true will create and attach a vTPM to the VM. | [optional]
 **user_data** | Option<**String**> | The Base64-encoded MIME user data. | [optional]
 **vm_id** | Option<**String**> | The ID of the VM. | [optional]
-**vm_initiated_shutdown_behavior** | Option<**String**> | The VM behavior when you stop it. If set to `stop`, the VM stops. If set to `restart`, the VM stops then automatically restarts. If set to `terminate`, the VM stops and is deleted. Important: This parameter is deprecated in favor of `ShutDownBeheviorConfiguration` and will be removed. | [optional]
+**vm_initiated_shutdown_behavior** | Option<**String**> | The VM behavior when you stop it. If set to `stop`, the VM stops. If set to `restart`, the VM stops then automatically restarts. If set to `terminate`, the VM stops and is deleted. Important: This parameter is deprecated in favor of `ShutDownBehaviorConfiguration` and will be removed. | [optional]
 **vm_type** | Option<**String**> | The type of VM. For more information, see [VM Types](https://docs.outscale.com/en/userguide/VM-Types.html). | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

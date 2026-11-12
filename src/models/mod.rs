@@ -1052,6 +1052,8 @@ pub mod remove_user_from_user_group_request;
 pub use self::remove_user_from_user_group_request::RemoveUserFromUserGroupRequest;
 pub mod remove_user_from_user_group_response;
 pub use self::remove_user_from_user_group_response::RemoveUserFromUserGroupResponse;
+pub mod requested_snapshot_mode;
+pub use self::requested_snapshot_mode::RequestedSnapshotMode;
 pub mod resource_load_balancer_tag;
 pub use self::resource_load_balancer_tag::ResourceLoadBalancerTag;
 pub mod resource_tag;

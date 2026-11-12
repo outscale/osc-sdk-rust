@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**create_volume**](VolumeApi.md#create_volume) | **POST** /CreateVolume | 
 [**delete_volume**](VolumeApi.md#delete_volume) | **POST** /DeleteVolume | 
 [**link_volume**](VolumeApi.md#link_volume) | **POST** /LinkVolume | 
-[**read_volume_update_tasks**](VolumeApi.md#read_volume_update_tasks) | **POST** /ReadVolumeUpdateTasks | Lists one or more update tasks of volumes
+[**read_volume_update_tasks**](VolumeApi.md#read_volume_update_tasks) | **POST** /ReadVolumeUpdateTasks | 
 [**read_volumes**](VolumeApi.md#read_volumes) | **POST** /ReadVolumes | 
 [**unlink_volume**](VolumeApi.md#unlink_volume) | **POST** /UnlinkVolume | 
 [**update_volume**](VolumeApi.md#update_volume) | **POST** /UpdateVolume | 
@@ -107,7 +107,7 @@ Name | Type | Description  | Required | Notes
 ## read_volume_update_tasks
 
 > crate::models::ReadVolumeUpdateTasksResponse read_volume_update_tasks(read_volume_update_tasks_request)
-Lists one or more update tasks of volumes
+
 
 Lists one or more specified tasks of volume update.
 

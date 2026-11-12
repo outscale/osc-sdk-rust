@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **boot_modes** | Option<[**Vec<crate::models::BootMode>**](BootMode.md)> | The boot modes compatible with the OMIs. | [optional]
 **descriptions** | Option<**Vec<String>**> | The descriptions of the OMIs, provided when they were created. | [optional]
 **file_locations** | Option<**Vec<String>**> | The locations of the buckets where the OMI files are stored. | [optional]
-**hypervisors** | Option<**Vec<String>**> | The hypervisor type of the OMI (always `xen`). | [optional]
+**hypervisors** | Option<**Vec<String>**> | The hypervisor type of the OMI (always `kvm`). | [optional]
 **image_ids** | Option<**Vec<String>**> | The IDs of the OMIs. | [optional]
 **image_names** | Option<**Vec<String>**> | The names of the OMIs, provided when they were created. | [optional]
 **permissions_to_launch_account_ids** | Option<**Vec<String>**> | The OUTSCALE account IDs which have launch permissions for the OMIs. | [optional]

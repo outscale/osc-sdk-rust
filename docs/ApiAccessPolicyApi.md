@@ -44,7 +44,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::UpdateApiAccessPolicyResponse update_api_access_policy(update_api_access_policy_request)
 
 
-Updates the API access policy of your OUTSCALE account.<br /><br />  **[IMPORTANT]**<br /> Only one API access policy can be associated with your account.
+Updates the API access policy of your OUTSCALE account.<br /><br />  **[IMPORTANT]**<br /> Only one API access policy can be associated with your account.<br /><br />  For more information, see [About Your API Access Policy](https://docs.outscale.com/en/userguide/About-Your-API-Access-Policy.html).
 
 ### Parameters
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_id** | Option<**String**> | The ID of the account. | [optional]
-**additional_emails** | Option<**Vec<String>**> | One or more additional email addresses for the account. These addresses are used for notifications only. | [optional]
+**additional_emails** | Option<**Vec<String>**> | One or more additional email addresses for the account. These addresses are used for notifications about maintenances on your resources and hypervisor crashes. | [optional]
 **city** | Option<**String**> | The city of the account owner. | [optional]
 **company_name** | Option<**String**> | The name of the company for the account. | [optional]
 **country** | Option<**String**> | The country of the account owner. | [optional]
