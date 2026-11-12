@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **shutdown_behavior_configuration** | Option<[**crate::models::ShutdownBehaviorConfiguration**](ShutdownBehaviorConfiguration.md)> |  | [optional]
 **user_data** | Option<**String**> | The Base64-encoded MIME user data, limited to 500 kibibytes (KiB). | [optional]
 **vm_id** | **String** | The ID of the VM. | 
-**vm_initiated_shutdown_behavior** | Option<**String**> | The VM behavior when you stop it. If set to `stop`, the VM stops. If set to `restart`, the VM stops then automatically restarts. If set to `terminate`, the VM stops and is terminated. | [optional]
+**vm_initiated_shutdown_behavior** | Option<**String**> | The VM behavior when you stop it. If set to `stop`, the VM stops. If set to `restart`, the VM stops then automatically restarts. If set to `terminate`, the VM stops and is terminated. Important: This parameter is deprecated in favor of `ShutDownBehaviorConfiguration` and will be removed. | [optional]
 **vm_type** | Option<**String**> | The type of VM. For more information, see [VM Types](https://docs.outscale.com/en/userguide/VM-Types.html). | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

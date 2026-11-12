@@ -76,7 +76,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ReadDedicatedGroupsResponse read_dedicated_groups(read_dedicated_groups_request)
 
 
-List one or more dedicated groups of virtual machines (VMs).
+Lists one or more dedicated groups of virtual machines (VMs).
 
 ### Parameters
 

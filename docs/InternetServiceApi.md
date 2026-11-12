@@ -137,7 +137,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::UnlinkInternetServiceResponse unlink_internet_service(unlink_internet_service_request)
 
 
-Detaches an internet service from a Net.<br /> This action disables and detaches an internet service from a Net. The Net must not contain virtual machines (VMs) using public IPs nor internet-facing load balancers.
+Detaches an internet service from a Net.<br /> This action disables and detaches an internet service from a Net. The Net must not contain virtual machines (VMs) using public IPs nor internet-facing load balancers, and its Subnets must not contain NAT Services.
 
 ### Parameters
 

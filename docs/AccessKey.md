@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **last_modification_date** | Option<**String**> | The date and time (UTC) at which the access key was last modified. | [optional]
 **state** | Option<**String**> | The state of the access key (`ACTIVE` if the key is valid for API calls, or `INACTIVE` if not). | [optional]
 **tag** | Option<**String**> | The tag added to the access key. | [optional]
+**trusted** | Option<**bool**> | If true, the access key has an expiration date and was created using Cockpit v2 after a multi-factor authentication. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
