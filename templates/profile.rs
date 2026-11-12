@@ -87,9 +87,13 @@ impl EndpointBuilder {
 pub struct Profile {
     pub access_key: Option<String>,
     pub secret_key: Option<String>,
+    #[deprecated]
     pub x509_client_cert: Option<String>,
+    #[deprecated]
     pub x509_client_key: Option<String>,
+    #[deprecated]
     pub x509_client_cert_b64: Option<String>,
+    #[deprecated]
     pub x509_client_key_b64: Option<String>,
     pub tls_skip_verify: bool,
     pub login: Option<String>,
@@ -190,6 +194,7 @@ impl ProfileBuilder {
         self
     }
 
+    #[deprecated]
     #[cfg(any(feature = "native-tls", feature = "rustls-tls"))]
     pub fn x509_client(mut self, client_cert: impl ToString, client_key: impl ToString) -> Self {
         self.x509_client_cert = Some(client_cert.to_string());
@@ -197,6 +202,7 @@ impl ProfileBuilder {
         self
     }
 
+    #[deprecated]
     #[cfg(any(feature = "native-tls", feature = "rustls-tls"))]
     pub fn x509_client_b64(
         mut self,
@@ -299,9 +305,13 @@ impl ProfileBuilder {
         Profile {
             access_key: self.access_key,
             secret_key: self.secret_key,
+            #[allow(deprecated)]
             x509_client_cert: self.x509_client_cert,
+            #[allow(deprecated)]
             x509_client_key: self.x509_client_key,
+            #[allow(deprecated)]
             x509_client_cert_b64: self.x509_client_cert_b64,
+            #[allow(deprecated)]
             x509_client_key_b64: self.x509_client_key_b64,
             tls_skip_verify: self.tls_skip_verify.unwrap_or_default(),
             login: self.login,
@@ -348,6 +358,7 @@ impl TryFrom<Profile> for Configuration {
                 ))
             }
 
+            #[allow(deprecated)]
             if let Some((x509_client_key, x509_client_cert)) =
                 value.x509_client_key.zip(value.x509_client_cert)
             {
