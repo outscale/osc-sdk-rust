@@ -8,12 +8,14 @@ permissions:
   pull-requests: write
   contents: write
   id-token: write
-    
+
 jobs:
   reuse-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
       - name: Reuse specification test
         run: make reuse-test
   examples-test:
@@ -26,11 +28,13 @@ jobs:
           vault_role: outscale-osc-sdk-rust
           osc_account: oak
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Stable Rust with rustfmt
-        uses: dtolnay/rust-toolchain@683b588c487a69d01f6c6ddf40f036ff682cc2c8 # v1
         with:
-          toolchain: stable
-          components: rustfmt
+          persist-credentials: false
+      - uses: cachix/install-nix-action@75c75c31ebece974e48ebc36b4ad125bd97bd97b # v31.11.3
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          nix shell github:nix-community/fenix?ref=ba9210be006df88ed8c14562f97ad4b4ffb048a0#stable.defaultToolchain --command "env" | egrep "^PATH=" >>"${GITHUB_ENV}"
       - name: local tests
         run: ./local_tests.sh
       - name: Run examples
@@ -44,10 +48,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Stable Rust with rustfmt
-        uses: dtolnay/rust-toolchain@683b588c487a69d01f6c6ddf40f036ff682cc2c8 # v1
         with:
-          toolchain: stable
-          components: rustfmt
+          persist-credentials: false
+      - uses: cachix/install-nix-action@75c75c31ebece974e48ebc36b4ad125bd97bd97b # v31.11.3
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          nix shell github:nix-community/fenix?ref=ba9210be006df88ed8c14562f97ad4b4ffb048a0#stable.defaultToolchain --command "env" | egrep "^PATH=" >>"${GITHUB_ENV}"
       - name: SDK re-generation test
         run: make regen-test
