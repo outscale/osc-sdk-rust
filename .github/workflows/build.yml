@@ -10,7 +10,6 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  id-token: write
 
 jobs:
   auto-build:
@@ -18,13 +17,14 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: chainguard-dev/actions/setup-gitsign@8f31e9482b447ff2c69eca944a09b4b31a4a85d0 # main
-
-      - name: Stable Rust with rustfmt
-        uses: dtolnay/rust-toolchain@683b588c487a69d01f6c6ddf40f036ff682cc2c8 # v1
         with:
-          toolchain: stable
-          components: rustfmt
+          persist-credentials: false
+
+      - uses: cachix/install-nix-action@75c75c31ebece974e48ebc36b4ad125bd97bd97b # v31.11.3
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          nix shell github:nix-community/fenix?ref=ba9210be006df88ed8c14562f97ad4b4ffb048a0#stable.defaultToolchain --command "env" | egrep "^PATH=" >>"${GITHUB_ENV}"
 
       - name: Write Outscale API version to use
         run: echo "$API_VERSION" > api_version
@@ -40,15 +40,11 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@3ffccacd46053766916f087ce41d627c0b8cf2d1 # v8.1.3
         with:
-          committer: "Outscale Bot <opensource+bot@outscale.com>"
-          author: "Outscale Bot <opensource+bot@outscale.com>"
           commit-message: "🔖 release: osc-sdk-rust v${{ env.sdk_version }}"
           body: |
             Automatic build of SDK v${{ env.sdk_version }} version based on Outscale API ${{ env.api_version }}.
           title: "SDK v${{ env.sdk_version }}"
-          token: "${{ env.token }}"
           labels: "kind/feature"
         env:
           sdk_version: ${{ steps.get-sdk-version.outputs.sdk_version }}
           api_version: ${{ github.event.inputs.api_version }}
-          token: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
